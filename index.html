@@ -9,107 +9,110 @@
   body {
     margin:0;
     font-family:'Poppins', sans-serif;
-    background:#f0f8ff;
+    background:#f9fdfb;
     color:#333;
+    scroll-behavior:smooth;
   }
 
+  /* ===== HEADER ===== */
   header {
-    background:linear-gradient(135deg,#6fcf97,#2d6a4f);
-    color:white;
-    display:flex;
-    flex-direction:column;
-    align-items:center;
-    justify-content:center;
-    padding:30px 10px;
-    text-align:center;
-    overflow:hidden;
+    text-align: center;
+    padding: 80px 10px 150px;
+    background: linear-gradient(135deg,#56ab2f,#2d6a4f);
+    background-size: 400% 400%;
+    animation: gradientShift 15s ease infinite;
+    color: white;
+    position: relative;
+  }
+
+  @keyframes gradientShift {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
   }
 
   header h1 {
     font-family:'Luckiest Guy', cursive;
     font-size:3em;
     margin:0;
-    letter-spacing:2px;
-    animation: bounce 2s infinite;
-  }
-
-  @keyframes bounce {
-    0%,100%{ transform: translateY(0); }
-    50%{ transform: translateY(-10px); }
+    letter-spacing:1.5px;
+    text-shadow:2px 2px 5px rgba(0,0,0,0.2);
   }
 
   .header-text {
-    margin-top:15px;
-    max-width:1200px;
-    font-size:1.3em;
-    line-height:1.4;
-    display:flex;
-    flex-direction:column;
-    align-items:center;
-    text-align:center;
+    margin-top:10px;
+    font-size:1.2em;
+    position: relative;
+    animation: fadeIn 1.5s ease forwards;
   }
 
-  .header-text span {
-    display:block;
-    opacity:0;
-    animation: fadeIn 2s forwards;
+  .contact-btn {
+    background:#ffd700;
+    color:#2d6a4f;
+    padding:12px 28px;
+    border:none;
+    border-radius:30px;
+    font-weight:600;
+    cursor:pointer;
+    margin-top:25px;
+    transition:all 0.3s ease;
+    box-shadow:0 4px 15px rgba(0,0,0,0.2);
+    position: relative;
+    z-index: 2;
   }
 
-  .header-text span:nth-child(1){ animation-delay: 0.5s; }
-  .header-text span:nth-child(2){ animation-delay: 1.2s; }
-
-  .highlight {
-    background: linear-gradient(90deg,#ffd700,#ff6347);
-    -webkit-background-clip: text;
-    color: transparent;
-    font-weight:700;
+  .contact-btn:hover {
+    background:#ffb703;
+    transform:scale(1.07);
   }
 
-  @keyframes fadeIn {
-    from { opacity:0; transform: translateY(15px); }
-    to { opacity:1; transform: translateY(0); }
+  /* ===== ANIMATION ANIMAUX ===== */
+  .animal-animation {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
   }
 
-  .banner {
-    position:relative;
-    width:100%;
-    height:65vh;
-    overflow:hidden;
-    display:flex;
-    align-items:center;
-    justify-content:center;
+  .animal-animation span {
+    font-size: 2em;
+    margin: 0 10px;
+    opacity: 0;
+    transform: translateY(-30px);
+    animation: dropIn 1s forwards;
   }
 
-  .banner img {
-    width:100%;
-    height:100%;
-    object-fit:cover;
-    object-position:center;
-    position:absolute;
-    top:0;
-    left:0;
-    z-index:0;
+  .animal-animation span:nth-child(1) { animation-delay: 0s; }
+  .animal-animation span:nth-child(2) { animation-delay: 0.2s; }
+  .animal-animation span:nth-child(3) { animation-delay: 0.4s; }
+  .animal-animation span:nth-child(4) { animation-delay: 0.6s; }
+  .animal-animation span:nth-child(5) { animation-delay: 0.8s; }
+  .animal-animation span:nth-child(6) { animation-delay: 1s; }
+  .animal-animation span:nth-child(7) { animation-delay: 1.2s; }
+
+  @keyframes dropIn {
+    0% { opacity: 0; transform: translateY(-30px); }
+    100% { opacity: 1; transform: translateY(0); }
   }
 
-  .banner::after {
-    content:"";
-    position:absolute;
-    top:0; left:0;
-    width:100%; height:100%;
-    background: rgba(0,0,0,0.2);
-    z-index:0;
-  }
-
+  /* ===== SECTIONS ===== */
   section {
-    padding:60px 20px;
+    padding:70px 20px;
     max-width:1200px;
     margin:auto;
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.8s ease;
+  }
+
+  section.visible {
+    opacity: 1;
+    transform: translateY(0);
   }
 
   h3 {
     color:#2d6a4f;
     text-align:center;
-    font-size:2.2em;
+    font-size:2.3em;
     margin-bottom:40px;
     position:relative;
   }
@@ -117,13 +120,77 @@
   h3::after {
     content:"";
     display:block;
-    width:100px;
+    width:90px;
     height:4px;
     background:#6fcf97;
     margin:10px auto;
     border-radius:2px;
   }
 
+  /* ===== À PROPOS ===== */
+  .about {
+    display:flex;
+    flex-wrap:wrap;
+    align-items:center;
+    gap:40px;
+  }
+
+  .about img {
+    flex:1;
+    width:100%;
+    max-width:500px;
+    border-radius:20px;
+    box-shadow:0 8px 25px rgba(0,0,0,0.15);
+    transition:transform 0.4s ease, box-shadow 0.4s ease;
+  }
+
+  .about img:hover {
+    transform:scale(1.05) rotate(-1deg);
+    box-shadow:0 12px 30px rgba(0,0,0,0.2);
+  }
+
+  .about-text {
+    flex:1;
+    min-width:300px;
+    font-size:1.1em;
+    line-height:1.7;
+  }
+
+  /* ===== SERVICES ===== */
+  .services {
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    gap:25px;
+  }
+
+  .service-card {
+    background:white;
+    padding:25px;
+    text-align:center;
+    border-radius:15px;
+    box-shadow:0 4px 15px rgba(0,0,0,0.1);
+    transition:transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+  }
+
+  .service-card:hover {
+    transform:translateY(-10px) rotate(-1deg);
+    box-shadow:0 12px 30px rgba(0,0,0,0.2);
+    background: linear-gradient(145deg,#d0f0fd,#ffffff);
+  }
+
+  .service-card span {
+    font-size:2.2em;
+    display:block;
+    margin-bottom:10px;
+    animation: pop 1s ease infinite alternate;
+  }
+
+  @keyframes pop {
+    from{transform:scale(1);}
+    to{transform:scale(1.1);}
+  }
+
+  /* ===== PRODUITS ===== */
   .produits {
     display:grid;
     grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
@@ -138,20 +205,34 @@
     text-align:center;
     font-size:1.1em;
     font-weight:600;
-    transition:transform 0.3s ease, box-shadow 0.3s ease;
-    cursor:pointer;
+    transition:transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
   }
 
   .carte:hover {
     transform:translateY(-8px);
     box-shadow:0 10px 20px rgba(0,0,0,0.25);
+    background: linear-gradient(145deg,#d0f0fd,#ffffff);
   }
 
+  /* ===== CONTACT ===== */
+  .contact {
+    text-align:center;
+  }
+
+  iframe {
+    width:100%;
+    height:350px;
+    border:0;
+    border-radius:15px;
+    margin-top:20px;
+  }
+
+  /* ===== FOOTER ===== */
   footer {
     background:linear-gradient(135deg,#2d6a4f,#1b4332);
     color:white;
     text-align:center;
-    padding:25px 10px;
+    padding:30px 10px;
     font-size:0.95em;
     margin-top:60px;
     line-height:1.6;
@@ -166,9 +247,15 @@
     text-decoration:underline;
   }
 
+  @keyframes fadeIn {
+    from{opacity:0; transform:translateY(15px);}
+    to{opacity:1; transform:translateY(0);}
+  }
+
   @media(max-width:700px){
-    header h1{ font-size:2.2em; }
-    .header-text { font-size:1em; }
+    header h1{ font-size:2.3em; }
+    .about{ flex-direction:column; text-align:center; }
+    .header-text{ font-size:1em; }
   }
 </style>
 </head>
@@ -177,14 +264,43 @@
 <header>
   <h1>Nutri Pet</h1>
   <div class="header-text">
-    <span>Le bien-être de vos animaux avant tout 🐾</span>
-    <span>Bienvenue chez <span class="highlight">Nutri Pet</span> – Des produits sains, naturels et adaptés à chaque compagnon 🐶🐱🐰🐦</span>
+    Le bien-être de vos animaux avant tout 🐾<br>
+    Produits naturels et adaptés à chaque compagnon 🐶🐱🐰🐦
+  </div>
+  <a href="#contact"><button class="contact-btn">Nous contacter</button></a>
+
+  <!-- Animation animaux juste en dessous du bouton -->
+  <div class="animal-animation">
+    <span>🐶</span>
+    <span>🐱</span>
+    <span>🐰</span>
+    <span>🦆</span>
+    <span>🦜</span>
+    <span>🐹</span>
+    <span>🕊️</span>
   </div>
 </header>
 
-<div class="banner">
-  <img src="images/banner.jpg" alt="Animaux heureux">
-</div>
+<section>
+  <h3>À propos de nous</h3>
+  <div class="about">
+    <img src="https://lh3.googleusercontent.com/geougc-cs/AB3l90DCqp_eQLR3aeOQiGUlIk2sbQn-4Qsrs2a-f9FoSp6VVuosF9wp0b5QskZeVxH2NbyVtgYVBGGRjaEILcXHyHMZRd68cOm5VW0chjMyPuaVmvGatkpgfrVtAwRTxCeO9MTwkTa3830SXsrx=w600-h450-p" alt="Photo du magasin Nutri Pet">
+    <div class="about-text">
+      <p><strong>Nutri Pet</strong> est une animalerie située à <b>Meknès, Sidi Bouzekri</b>, spécialisée dans l’alimentation, les accessoires et les soins pour animaux domestiques.</p>
+      <p>Notre mission : offrir à vos compagnons le meilleur en termes de qualité, confort et bien-être. 🐾</p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <h3>Nos Services</h3>
+  <div class="services">
+    <div class="service-card"><span>🥩</span><b>Alimentation</b><br>Produits sains et équilibrés</div>
+    <div class="service-card"><span>🦴</span><b>Accessoires</b><br>Jouets, laisses, cages et plus</div>
+    <div class="service-card"><span>✂️</span><b>Toilettage</b><br>Soins pour chiens et chats</div>
+    <div class="service-card"><span>🏠</span><b>Hôtellerie</b><br>Hébergement pour animaux</div>
+  </div>
+</section>
 
 <section>
   <h3>Nos Produits</h3>
@@ -200,11 +316,28 @@
   </div>
 </section>
 
+<section id="contact" class="contact">
+  <h3>Nous trouver</h3>
+  <p>📍 <b>Meknès - Sidi Bouzekri</b></p>
+  <p>📞 06 53 63 94 30 | 📸 Instagram : <a href="https://www.instagram.com/nutri_pet_1" target="_blank">@nutri_pet_1</a></p>
+  <iframe src="https://www.google.com/maps?q=Meknès%20Sidi%20Bouzekri&output=embed"></iframe>
+</section>
+
 <footer>
   © 2025 Nutri Pet | Créé avec ❤️ par l’équipe Nutri Pet | <a href="#">Mentions légales</a>
   <br>
   متجر الطيور والاسماك و مستلزماتها، مكناس سيدي بوزكري
 </footer>
+
+<script>
+  const sections = document.querySelectorAll('section');
+  window.addEventListener('scroll', () => {
+    sections.forEach(sec => {
+      const rect = sec.getBoundingClientRect();
+      if(rect.top < window.innerHeight - 100) sec.classList.add('visible');
+    });
+  });
+</script>
 
 </body>
 </html>
