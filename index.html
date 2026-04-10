@@ -1,247 +1,103 @@
-<!DOCTYPE html>
-<html lang="fr">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Nutri Pet 🐾</title>
-
-<link href="https://fonts.googleapis.com/css2?family=Luckiest+Guy&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
-
-<style>
-body {
-  margin:0;
-  font-family:Poppins, sans-serif;
-  background:#f9fdfb;
-  scroll-behavior:smooth;
-}
-
-/* NAVBAR */
-nav {
-  position:fixed;
-  top:0;
-  width:100%;
-  background:white;
-  display:flex;
-  justify-content:center;
-  gap:30px;
-  padding:15px;
-  box-shadow:0 2px 10px rgba(0,0,0,0.1);
-  z-index:1000;
-}
-
-nav a {
-  text-decoration:none;
-  color:#2d6a4f;
-  font-weight:600;
-}
-
-/* HEADER */
+/* HEADER ULTRA MODERNE */
 header {
-  text-align:center;
-  padding:120px 20px;
-  background:linear-gradient(135deg,#56ab2f,#2d6a4f);
-  color:white;
+  position: relative;
+  text-align: center;
+  padding: 140px 20px 120px;
+  color: white;
+  overflow: hidden;
+  background: linear-gradient(-45deg, #56ab2f, #2d6a4f, #40916c, #1b4332);
+  background-size: 400% 400%;
+  animation: gradientMove 10s ease infinite;
 }
 
+/* Animation fond */
+@keyframes gradientMove {
+  0% {background-position: 0% 50%;}
+  50% {background-position: 100% 50%;}
+  100% {background-position: 0% 50%;}
+}
+
+/* Effet bulles */
+header::before {
+  content:"";
+  position:absolute;
+  width:200%;
+  height:200%;
+  top:-50%;
+  left:-50%;
+  background: radial-gradient(circle, rgba(255,255,255,0.1) 10%, transparent 10%);
+  background-size: 80px 80px;
+  animation: moveBg 20s linear infinite;
+}
+
+@keyframes moveBg {
+  0% { transform: translate(0,0); }
+  100% { transform: translate(80px,80px); }
+}
+
+/* TITRE */
 header h1 {
   font-family:'Luckiest Guy', cursive;
-  font-size:3em;
+  font-size:3.5em;
+  margin:0;
+  animation: fadeDown 1s ease;
 }
 
-/* BUTTON */
-.btn {
-  background:#ffd700;
-  border:none;
-  padding:12px 25px;
-  border-radius:25px;
-  cursor:pointer;
-  font-weight:bold;
-  text-decoration:none;
-  display:inline-block;
+/* TEXTE */
+.header-text {
   margin-top:10px;
+  font-size:1.3em;
+  opacity:0;
+  animation: fadeUp 1.5s forwards;
 }
 
-/* ANIMAUX */
+/* BOUTON */
+.btn {
+  margin-top:25px;
+  background:#ffd700;
+  color:#2d6a4f;
+  padding:14px 30px;
+  border:none;
+  border-radius:30px;
+  font-weight:bold;
+  cursor:pointer;
+  transition:0.3s;
+}
+
+.btn:hover {
+  transform:scale(1.1);
+  background:#ffb703;
+}
+
+/* ANIMAUX VERSION PRO */
 .animals {
+  margin-top:30px;
   display:flex;
   justify-content:center;
   gap:15px;
-  margin-top:20px;
   font-size:2em;
 }
 
 .animals span {
-  animation: float 2.5s infinite;
+  animation: bounce 2s infinite;
 }
 
-@keyframes float {
-  50% { transform:translateY(-10px); }
+.animals span:nth-child(odd) {
+  animation-delay:0.3s;
 }
 
-/* SECTIONS */
-section {
-  padding:60px 20px;
-  max-width:1100px;
-  margin:auto;
+@keyframes bounce {
+  0%,100% { transform: translateY(0); }
+  50% { transform: translateY(-12px); }
 }
 
-h2 {
-  text-align:center;
-  color:#2d6a4f;
+/* ANIMATIONS TEXTE */
+@keyframes fadeDown {
+  from { opacity:0; transform:translateY(-30px); }
+  to { opacity:1; transform:translateY(0); }
 }
 
-/* GRID */
-.grid {
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-  gap:20px;
+@keyframes fadeUp {
+  from { opacity:0; transform:translateY(30px); }
+  to { opacity:1; transform:translateY(0); }
 }
-
-.card {
-  background:white;
-  padding:20px;
-  border-radius:15px;
-  text-align:center;
-  box-shadow:0 3px 10px rgba(0,0,0,0.1);
-  transition:0.3s;
-}
-
-.card:hover {
-  transform:translateY(-8px);
-}
-
-.card img {
-  width:100%;
-  border-radius:10px;
-}
-
-/* WHATSAPP */
-.whatsapp {
-  position:fixed;
-  bottom:20px;
-  right:20px;
-  background:#25D366;
-  color:white;
-  padding:12px 18px;
-  border-radius:30px;
-  text-decoration:none;
-}
-
-/* FOOTER */
-footer {
-  text-align:center;
-  padding:20px;
-  background:#2d6a4f;
-  color:white;
-}
-</style>
-</head>
-
-<body>
-
-<!-- NAV -->
-<nav>
-  <a href="#">Accueil</a>
-  <a href="#about">À propos</a>
-  <a href="#produits">Produits</a>
-  <a href="#contact">Contact</a>
-</nav>
-
-<!-- HEADER -->
-<header>
-  <h1>🐾 Nutri Pet</h1>
-  <p>🌿 Bien-être de vos animaux</p>
-
-  <a href="#contact" class="btn">📩 Nous contacter</a>
-
-  <div class="animals">
-    🐶 🐱 🐰 🦆 🦜 🐹 🕊️
-  </div>
-</header>
-
-<!-- ABOUT -->
-<section id="about">
-  <h2>ℹ️ À propos</h2>
-
-  <div class="grid">
-    <img src="images/shop.jpg">
-    <div>
-      <p>🏪 Animalerie à Meknès avec produits de qualité.</p>
-
-      <a href="https://www.google.com/maps?q=Sidi+Bouzekri+Meknès" target="_blank" class="btn">
-        📍 Itinéraire
-      </a>
-    </div>
-  </div>
-</section>
-
-<!-- PRODUITS -->
-<section id="produits">
-  <h2>🛒 Nos produits</h2>
-
-  <div class="grid">
-
-    <div class="card">
-      <img src="images/croquettes.jpg">
-      <h3>🐶 Croquettes</h3>
-      <p>Prix: 200dh</p>
-      <a href="https://wa.me/212653639430?text=Je%20veux%20commander%20Croquettes" class="btn">Commander</a>
-    </div>
-
-    <div class="card">
-      <img src="images/jouet.jpg">
-      <h3>🧸 Jouets</h3>
-      <p>Prix: 50dh</p>
-      <a href="https://wa.me/212653639430?text=Je%20veux%20commander%20Jouet" class="btn">Commander</a>
-    </div>
-
-    <div class="card">
-      <img src="images/hygiene.jpg">
-      <h3>🧼 Hygiène</h3>
-      <p>Prix: 80dh</p>
-      <a href="https://wa.me/212653639430?text=Je%20veux%20commander%20Produit%20Hygiène" class="btn">Commander</a>
-    </div>
-
-  </div>
-</section>
-
-<!-- GALERIE -->
-<section>
-  <h2>📸 Galerie</h2>
-
-  <div class="grid">
-    <img src="images/shop.jpg">
-    <img src="images/banner.jpg">
-    <img src="images/shop.jpg">
-  </div>
-</section>
-
-<!-- AVIS -->
-<section>
-  <h2>⭐ Avis clients</h2>
-
-  <div class="grid">
-    <div class="card">⭐⭐⭐⭐⭐ Excellent service</div>
-    <div class="card">⭐⭐⭐⭐⭐ Produits top</div>
-    <div class="card">⭐⭐⭐⭐⭐ Je recommande</div>
-  </div>
-</section>
-
-<!-- CONTACT -->
-<section id="contact">
-  <h2>📍 Contact</h2>
-
-  <p>📸 Instagram : @nutri_pet_1</p>
-
-  <iframe src="https://www.google.com/maps?q=Sidi%20Bouzekri%20Meknès&output=embed"
-  style="width:100%; height:300px; border:none; border-radius:15px;"></iframe>
-</section>
-
-<footer>
-  © 2025 Nutri Pet 🐾
-</footer>
-
-<a href="https://wa.me/212653639430" class="whatsapp">💬 WhatsApp</a>
-
-</body>
-</html>
