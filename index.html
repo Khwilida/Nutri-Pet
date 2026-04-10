@@ -12,11 +12,10 @@ body {
   margin:0;
   font-family:Poppins, sans-serif;
   background:#f9fdfb;
-  color:#333;
   scroll-behavior:smooth;
 }
 
-/* ===== NAVBAR ===== */
+/* NAVBAR */
 nav {
   position:fixed;
   top:0;
@@ -39,7 +38,7 @@ nav a {
 /* HEADER */
 header {
   text-align:center;
-  padding:120px 20px 120px;
+  padding:120px 20px;
   background:linear-gradient(135deg,#56ab2f,#2d6a4f);
   color:white;
 }
@@ -56,54 +55,27 @@ header h1 {
   padding:12px 25px;
   border-radius:25px;
   cursor:pointer;
-  margin-top:15px;
   font-weight:bold;
-  transition:0.3s;
-}
-
-.btn:hover {
-  transform:scale(1.05);
-}
-
-/* WHATSAPP */
-.whatsapp {
-  position:fixed;
-  bottom:20px;
-  right:20px;
-  background:#25D366;
-  color:white;
-  padding:12px 18px;
-  border-radius:30px;
   text-decoration:none;
-  font-weight:bold;
+  display:inline-block;
+  margin-top:10px;
 }
 
 /* ANIMAUX */
 .animals {
   display:flex;
   justify-content:center;
-  gap:18px;
+  gap:15px;
   margin-top:20px;
   font-size:2em;
 }
 
 .animals span {
-  display:inline-block;
-  animation: float 2.5s ease-in-out infinite;
+  animation: float 2.5s infinite;
 }
 
-.animals span:nth-child(1){animation-delay:0s;}
-.animals span:nth-child(2){animation-delay:0.2s;}
-.animals span:nth-child(3){animation-delay:0.4s;}
-.animals span:nth-child(4){animation-delay:0.6s;}
-.animals span:nth-child(5){animation-delay:0.8s;}
-.animals span:nth-child(6){animation-delay:1s;}
-.animals span:nth-child(7){animation-delay:1.2s;}
-
 @keyframes float {
-  0% { transform: translateY(0); }
-  50% { transform: translateY(-10px); }
-  100% { transform: translateY(0); }
+  50% { transform:translateY(-10px); }
 }
 
 /* SECTIONS */
@@ -111,45 +83,17 @@ section {
   padding:60px 20px;
   max-width:1100px;
   margin:auto;
-  opacity:0;
-  transform:translateY(40px);
-  transition:0.6s;
-}
-
-section.visible {
-  opacity:1;
-  transform:translateY(0);
 }
 
 h2 {
   text-align:center;
   color:#2d6a4f;
-  margin-bottom:20px;
-}
-
-/* ABOUT */
-.about {
-  display:flex;
-  flex-wrap:wrap;
-  gap:20px;
-  align-items:center;
-}
-
-.about img {
-  width:100%;
-  max-width:450px;
-  border-radius:15px;
-  transition:0.3s;
-}
-
-.about img:hover {
-  transform:scale(1.05);
 }
 
 /* GRID */
 .grid {
   display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
   gap:20px;
 }
 
@@ -166,12 +110,21 @@ h2 {
   transform:translateY(-8px);
 }
 
-/* CONTACT */
-iframe {
+.card img {
   width:100%;
-  height:300px;
-  border:none;
-  border-radius:15px;
+  border-radius:10px;
+}
+
+/* WHATSAPP */
+.whatsapp {
+  position:fixed;
+  bottom:20px;
+  right:20px;
+  background:#25D366;
+  color:white;
+  padding:12px 18px;
+  border-radius:30px;
+  text-decoration:none;
 }
 
 /* FOOTER */
@@ -186,11 +139,10 @@ footer {
 
 <body>
 
-<!-- NAVBAR -->
+<!-- NAV -->
 <nav>
   <a href="#">Accueil</a>
   <a href="#about">À propos</a>
-  <a href="#services">Services</a>
   <a href="#produits">Produits</a>
   <a href="#contact">Contact</a>
 </nav>
@@ -198,19 +150,12 @@ footer {
 <!-- HEADER -->
 <header>
   <h1>🐾 Nutri Pet</h1>
+  <p>🌿 Bien-être de vos animaux</p>
 
-  <p>🌿 Bien-être de vos animaux 🐶🐱</p>
-
-  <a href="#contact"><button class="btn">📩 Nous contacter</button></a>
+  <a href="#contact" class="btn">📩 Nous contacter</a>
 
   <div class="animals">
-    <span>🐶</span>
-    <span>🐱</span>
-    <span>🐰</span>
-    <span>🦆</span>
-    <span>🦜</span>
-    <span>🐹</span>
-    <span>🕊️</span>
+    🐶 🐱 🐰 🦆 🦜 🐹 🕊️
   </div>
 </header>
 
@@ -218,78 +163,85 @@ footer {
 <section id="about">
   <h2>ℹ️ À propos</h2>
 
-  <div class="about">
-    <img src="https://lh3.googleusercontent.com/gps-cs-s/AHVAwerkefFryzzDU3ukogYmHLBLDaas9y0yb2Fp039XWpXZZInYGra104hl0l2-hcnZjUGkkTHGJZEY_V8ONjLsakp_jveifEcPAI7WHq7pqGOKiwfTvYzVAWDEZcudbN8iCSxJZvNS0p5lkt90=w800-h600">
-
+  <div class="grid">
+    <img src="images/shop.jpg">
     <div>
-      <p>
-        🏪 Boutique spécialisée dans les animaux à Meknès.<br>
-        🌱 Produits naturels pour chiens, chats et autres compagnons.
-      </p>
+      <p>🏪 Animalerie à Meknès avec produits de qualité.</p>
 
       <a href="https://www.google.com/maps?q=Sidi+Bouzekri+Meknès" target="_blank" class="btn">
-        📍 Voir l’itinéraire
+        📍 Itinéraire
       </a>
     </div>
   </div>
 </section>
 
-<!-- SERVICES -->
-<section id="services">
-  <h2>🛠️ Services</h2>
+<!-- PRODUITS -->
+<section id="produits">
+  <h2>🛒 Nos produits</h2>
 
   <div class="grid">
-    <div class="card">🥩 Alimentation</div>
-    <div class="card">🦴 Accessoires</div>
-    <div class="card">✂️ Toilettage</div>
-    <div class="card">🏠 Pension</div>
+
+    <div class="card">
+      <img src="images/croquettes.jpg">
+      <h3>🐶 Croquettes</h3>
+      <p>Prix: 200dh</p>
+      <a href="https://wa.me/212653639430?text=Je%20veux%20commander%20Croquettes" class="btn">Commander</a>
+    </div>
+
+    <div class="card">
+      <img src="images/jouet.jpg">
+      <h3>🧸 Jouets</h3>
+      <p>Prix: 50dh</p>
+      <a href="https://wa.me/212653639430?text=Je%20veux%20commander%20Jouet" class="btn">Commander</a>
+    </div>
+
+    <div class="card">
+      <img src="images/hygiene.jpg">
+      <h3>🧼 Hygiène</h3>
+      <p>Prix: 80dh</p>
+      <a href="https://wa.me/212653639430?text=Je%20veux%20commander%20Produit%20Hygiène" class="btn">Commander</a>
+    </div>
+
   </div>
 </section>
 
-<!-- PRODUITS -->
-<section id="produits">
-  <h2>🛒 Produits</h2>
+<!-- GALERIE -->
+<section>
+  <h2>📸 Galerie</h2>
 
   <div class="grid">
-    <div class="card">🐶 Croquettes</div>
-    <div class="card">🧸 Jouets</div>
-    <div class="card">🧼 Hygiène</div>
-    <div class="card">🐠 Aquariums</div>
+    <img src="images/shop.jpg">
+    <img src="images/banner.jpg">
+    <img src="images/shop.jpg">
+  </div>
+</section>
+
+<!-- AVIS -->
+<section>
+  <h2>⭐ Avis clients</h2>
+
+  <div class="grid">
+    <div class="card">⭐⭐⭐⭐⭐ Excellent service</div>
+    <div class="card">⭐⭐⭐⭐⭐ Produits top</div>
+    <div class="card">⭐⭐⭐⭐⭐ Je recommande</div>
   </div>
 </section>
 
 <!-- CONTACT -->
 <section id="contact">
-  <h2>📍 Nous contacter</h2>
+  <h2>📍 Contact</h2>
 
   <p>📸 Instagram : @nutri_pet_1</p>
-  <p>📍 Meknès - Sidi Bouzekri</p>
 
-  <iframe src="https://www.google.com/maps?q=Sidi%20Bouzekri%20Meknès&output=embed"></iframe>
+  <iframe src="https://www.google.com/maps?q=Sidi%20Bouzekri%20Meknès&output=embed"
+  style="width:100%; height:300px; border:none; border-radius:15px;"></iframe>
 </section>
 
-<!-- FOOTER -->
 <footer>
   © 2025 Nutri Pet 🐾
 </footer>
 
-<!-- WHATSAPP -->
-<a href="https://wa.me/212653639430" target="_blank" class="whatsapp">
-  💬 WhatsApp
-</a>
-
-<!-- ANIMATION SCROLL -->
-<script>
-const sections = document.querySelectorAll("section");
-
-window.addEventListener("scroll", () => {
-  sections.forEach(sec => {
-    if(sec.getBoundingClientRect().top < window.innerHeight - 100){
-      sec.classList.add("visible");
-    }
-  });
-});
-</script>
+<a href="https://wa.me/212653639430" class="whatsapp">💬 WhatsApp</a>
 
 </body>
 </html>
