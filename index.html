@@ -3,239 +3,147 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Nutri Pet - Bien-être Animal</title>
+<title>Nutri Pet 🐾</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Luckiest+Guy&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
 
 <style>
-  body {
-    margin:0;
-    font-family:'Poppins', sans-serif;
-    background:#f9fdfb;
-    color:#333;
-    scroll-behavior:smooth;
-  }
+body {
+  margin:0;
+  font-family:Poppins, sans-serif;
+  background:#f9fdfb;
+}
 
-  /* ===== HEADER ===== */
-  header {
-    text-align: center;
-    padding: 80px 10px 150px;
-    background: linear-gradient(135deg,#56ab2f,#2d6a4f);
-    background-size: 400% 400%;
-    animation: gradientShift 15s ease infinite;
-    color: white;
-    position: relative;
-  }
+/* HEADER */
+header {
+  text-align:center;
+  padding:120px 20px;
+  background:linear-gradient(135deg,#56ab2f,#2d6a4f);
+  color:white;
+}
 
-  @keyframes gradientShift {
-    0% { background-position: 0% 50%; }
-    50% { background-position: 100% 50%; }
-    100% { background-position: 0% 50%; }
-  }
+header h1 {
+  font-family:'Luckiest Guy', cursive;
+  font-size:3em;
+  margin:0;
+}
 
-  header h1 {
-    font-family:'Luckiest Guy', cursive;
-    font-size:3em;
-    margin:0;
-  }
+.btn {
+  display:inline-block;
+  margin-top:15px;
+  padding:12px 25px;
+  background:#ffd700;
+  color:#2d6a4f;
+  border-radius:25px;
+  text-decoration:none;
+  font-weight:bold;
+}
 
-  .header-text {
-    margin-top:10px;
-    font-size:1.2em;
-  }
+/* ANIMAUX */
+.animals {
+  margin-top:20px;
+  font-size:2em;
+}
 
-  .contact-btn {
-    background:#ffd700;
-    color:#2d6a4f;
-    padding:12px 28px;
-    border:none;
-    border-radius:30px;
-    font-weight:600;
-    cursor:pointer;
-    margin-top:25px;
-    transition:0.3s;
-  }
+/* SECTIONS */
+section {
+  padding:60px 20px;
+  max-width:1100px;
+  margin:auto;
+}
 
-  .contact-btn:hover {
-    transform:scale(1.05);
-  }
+h2 {
+  text-align:center;
+  color:#2d6a4f;
+}
 
-  /* ===== ANIMAUX ===== */
-  .animal-animation {
-    display:flex;
-    justify-content:center;
-    gap:15px;
-    margin-top:25px;
-  }
+/* GRID */
+.grid {
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+  gap:20px;
+}
 
-  .animal-animation span {
-    font-size:2em;
-    opacity:0;
-    transform:translateY(-40px);
-    animation: dropBounce 0.8s forwards;
-  }
+.card img {
+  width:100%;
+  border-radius:15px;
+}
 
-  .animal-animation span:nth-child(1){animation-delay:0s;}
-  .animal-animation span:nth-child(2){animation-delay:0.2s;}
-  .animal-animation span:nth-child(3){animation-delay:0.4s;}
-  .animal-animation span:nth-child(4){animation-delay:0.6s;}
-  .animal-animation span:nth-child(5){animation-delay:0.8s;}
-  .animal-animation span:nth-child(6){animation-delay:1s;}
-  .animal-animation span:nth-child(7){animation-delay:1.2s;}
+/* ABOUT */
+.about {
+  display:flex;
+  flex-wrap:wrap;
+  gap:20px;
+  align-items:center;
+}
 
-  @keyframes dropBounce {
-    0%{opacity:0; transform:translateY(-40px);}
-    60%{opacity:1; transform:translateY(10px);}
-    80%{transform:translateY(-5px);}
-    100%{transform:translateY(0);}
-  }
+.about img {
+  width:100%;
+  max-width:450px;
+  border-radius:15px;
+}
 
-  /* ===== SECTIONS ===== */
-  section {
-    padding:70px 20px;
-    max-width:1200px;
-    margin:auto;
-  }
+/* MAP */
+iframe {
+  width:100%;
+  height:300px;
+  border:none;
+  border-radius:15px;
+}
 
-  h3 {
-    text-align:center;
-    color:#2d6a4f;
-    font-size:2.2em;
-  }
-
-  /* ===== ABOUT ===== */
-  .about {
-    display:flex;
-    flex-wrap:wrap;
-    gap:30px;
-    align-items:center;
-  }
-
-  .about img {
-    width:100%;
-    max-width:500px;
-    border-radius:15px;
-  }
-
-  /* ===== SERVICES ===== */
-  .services {
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-    gap:20px;
-  }
-
-  .service-card {
-    background:#fff;
-    padding:20px;
-    border-radius:15px;
-    text-align:center;
-    box-shadow:0 4px 10px rgba(0,0,0,0.1);
-  }
-
-  /* ===== PRODUITS ===== */
-  .produits {
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-    gap:20px;
-  }
-
-  .carte {
-    background:#fff;
-    padding:20px;
-    border-radius:15px;
-    text-align:center;
-  }
-
-  /* ===== CONTACT ===== */
-  .contact {
-    text-align:center;
-  }
-
-  iframe {
-    width:100%;
-    height:350px;
-    border:0;
-    border-radius:15px;
-    margin-top:20px;
-  }
-
-  /* ===== FOOTER ===== */
-  footer {
-    text-align:center;
-    padding:30px;
-    background:#2d6a4f;
-    color:white;
-  }
-
+/* FOOTER */
+footer {
+  text-align:center;
+  padding:20px;
+  background:#2d6a4f;
+  color:white;
+}
 </style>
 </head>
 
 <body>
 
 <header>
-  <h1>Nutri Pet</h1>
+  <h1>🐾 Nutri Pet</h1>
+  <p>Bien-être de vos animaux 🐶🐱</p>
 
-  <div class="header-text">
-    Le bien-être de vos animaux 🐾<br>
-    Produits naturels pour vos compagnons 🐶🐱
-  </div>
+  <a href="#contact" class="btn">📩 Nous contacter</a>
 
-  <a href="#contact"><button class="contact-btn">Nous contacter</button></a>
-
-  <!-- ANIMAUX -->
-  <div class="animal-animation">
-    <span>🐶</span>
-    <span>🐱</span>
-    <span>🐰</span>
-    <span>🦆</span>
-    <span>🦜</span>
-    <span>🐹</span>
-    <span>🕊️</span>
+  <div class="animals">
+    🐶 🐱 🐰 🦆 🦜 🐹 🕊️
   </div>
 </header>
 
-<section>
-  <h3>À propos</h3>
+<section id="about">
+  <h2>À propos</h2>
+
   <div class="about">
-    <img src="https://lh3.googleusercontent.com/geougc-cs/AB3l90DCqp_eQLR3aeOQiGUlIk2sbQn-4Qsrs2a-f9FoSp6VVuosF9wp0b5QskZeVxH2NbyVtgYVBGGRjaEILcXHyHMZRd68cOm5VW0chjMyPuaVmvGatkpgfrVtAwRTxCeO9MTwkTa3830SXsrx=w600-h450-p"
-    alt="Magasin Nutri Pet">
+    <img src="https://raw.githubusercontent.com/Khwilida/Nutri-Pet/main/images/banner.jpg">
 
-    <div>
-      <p>Animalerie spécialisée à Meknès.</p>
-    </div>
+    <p>🏪 Animalerie à Meknès spécialisée dans les animaux.</p>
   </div>
 </section>
 
 <section>
-  <h3>Services</h3>
-  <div class="services">
-    <div class="service-card">🥩 Alimentation</div>
-    <div class="service-card">🦴 Accessoires</div>
-    <div class="service-card">✂️ Toilettage</div>
-    <div class="service-card">🏠 Pension</div>
+  <h2>📸 Galerie</h2>
+
+  <div class="grid">
+    <img src="https://raw.githubusercontent.com/Khwilida/Nutri-Pet/main/images/banner.jpg">
+    <img src="https://raw.githubusercontent.com/Khwilida/Nutri-Pet/main/images/banner.jpg">
+    <img src="https://raw.githubusercontent.com/Khwilida/Nutri-Pet/main/images/banner.jpg">
   </div>
 </section>
 
-<section>
-  <h3>Produits</h3>
-  <div class="produits">
-    <div class="carte">Croquettes</div>
-    <div class="carte">Jouets</div>
-    <div class="carte">Hygiène</div>
-    <div class="carte">Aquariums</div>
-  </div>
-</section>
+<section id="contact">
+  <h2>Contact</h2>
 
-<section id="contact" class="contact">
-  <h3>Nous trouver</h3>
-  <p>Meknès - Sidi Bouzekri</p>
-  <p>Instagram : @nutri_pet_1</p>
+  <p>📍 Meknès - Sidi Bouzekri</p>
 
-  <iframe src="https://www.google.com/maps?q=Meknès%20Sidi%20Bouzekri&output=embed"></iframe>
+  <iframe src="https://www.google.com/maps?q=Sidi%20Bouzekri%20Meknès&output=embed"></iframe>
 </section>
 
 <footer>
-  © 2025 Nutri Pet
+  © 2025 Nutri Pet 🐾
 </footer>
 
 </body>
