@@ -15,7 +15,7 @@ body {
   color:#333;
 }
 
-/* ===== HEADER ===== */
+/* HEADER */
 header {
   text-align:center;
   padding:70px 20px 120px;
@@ -39,7 +39,7 @@ header h1 {
   font-weight:bold;
 }
 
-/* ===== ANIMAUX (FIX ANIMATION PROPRE) ===== */
+/* ANIMAUX */
 .animals {
   display:flex;
   justify-content:center;
@@ -53,7 +53,6 @@ header h1 {
   animation: float 2.5s ease-in-out infinite;
 }
 
-/* délais différents pour effet fluide */
 .animals span:nth-child(1){animation-delay:0s;}
 .animals span:nth-child(2){animation-delay:0.2s;}
 .animals span:nth-child(3){animation-delay:0.4s;}
@@ -68,7 +67,7 @@ header h1 {
   100% { transform: translateY(0); }
 }
 
-/* ===== SECTIONS ===== */
+/* SECTIONS */
 section {
   padding:60px 20px;
   max-width:1100px;
@@ -81,7 +80,7 @@ h2 {
   margin-bottom:20px;
 }
 
-/* ===== ABOUT ===== */
+/* ABOUT */
 .about {
   display:flex;
   flex-wrap:wrap;
@@ -95,7 +94,7 @@ h2 {
   border-radius:15px;
 }
 
-/* ===== GRID ===== */
+/* GRID */
 .grid {
   display:grid;
   grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
@@ -115,7 +114,7 @@ h2 {
   transform:translateY(-5px);
 }
 
-/* ===== CONTACT ===== */
+/* CONTACT */
 .contact {
   text-align:center;
 }
@@ -127,7 +126,7 @@ iframe {
   border-radius:15px;
 }
 
-/* ===== FOOTER ===== */
+/* FOOTER */
 footer {
   text-align:center;
   padding:20px;
@@ -166,13 +165,14 @@ footer {
 
   <div class="about">
 
-    <!-- IMAGE GITHUB FIX -->
-    <img src="https://raw.githubusercontent.com/Khwilida/Nutri-Pet/main/images/banner.jpg" alt="banner">
+    <!-- IMAGE MAGASIN (FIX GOOGLE MAPS) -->
+    <img src="https://lh3.googleusercontent.com/gps-cs-s/AHVAwerkefFryzzDU3ukogYmHLBLDaas9y0yb2Fp039XWpXZZInYGra104hl0l2-hcnZjUGkkTHGJZEY_V8ONjLsakp_jveifEcPAI7WHq7pqGOKiwfTvYzVAWDEZcudbN8iCSxJZvNS0p5lkt90=w800-h600"
+         alt="Magasin Nutri Pet">
 
     <div>
       <p>
-        🏪 Boutique spécialisée dans le bien-être animal.<br>
-        🌱 Produits naturels pour vos compagnons.
+        🏪 Boutique spécialisée dans les animaux à Meknès.<br>
+        🌱 Produits naturels pour chiens, chats et autres compagnons.
       </p>
     </div>
 
@@ -208,9 +208,10 @@ footer {
   <h2>📍 Nous contacter</h2>
 
   <p>📸 Instagram : @nutri_pet_1</p>
-  <p>📍 Meknès</p>
+  <p>📍 Meknès - Sidi Bouzekri</p>
 
-  <iframe src="https://www.google.com/maps?q=Meknès&output=embed"></iframe>
+  <!-- GOOGLE MAP -->
+  <iframe src="https://www.google.com/maps?q=Sidi%20Bouzekri%20Meknès&output=embed"></iframe>
 </section>
 
 <!-- FOOTER -->
