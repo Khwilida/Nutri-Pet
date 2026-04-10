@@ -1,4 +1,41 @@
-/* HEADER ULTRA MODERNE */
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nutri Pet 🐾</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Luckiest+Guy&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+
+<style>
+body {
+  margin:0;
+  font-family:Poppins, sans-serif;
+  background:#f9fdfb;
+  scroll-behavior:smooth;
+}
+
+/* NAVBAR */
+nav {
+  position:fixed;
+  top:0;
+  width:100%;
+  background:white;
+  display:flex;
+  justify-content:center;
+  gap:30px;
+  padding:15px;
+  box-shadow:0 2px 10px rgba(0,0,0,0.1);
+  z-index:1000;
+}
+
+nav a {
+  text-decoration:none;
+  color:#2d6a4f;
+  font-weight:600;
+}
+
+/* ===== HEADER ULTRA ===== */
 header {
   position: relative;
   text-align: center;
@@ -10,14 +47,12 @@ header {
   animation: gradientMove 10s ease infinite;
 }
 
-/* Animation fond */
 @keyframes gradientMove {
   0% {background-position: 0% 50%;}
   50% {background-position: 100% 50%;}
   100% {background-position: 0% 50%;}
 }
 
-/* Effet bulles */
 header::before {
   content:"";
   position:absolute;
@@ -35,7 +70,6 @@ header::before {
   100% { transform: translate(80px,80px); }
 }
 
-/* TITRE */
 header h1 {
   font-family:'Luckiest Guy', cursive;
   font-size:3.5em;
@@ -43,7 +77,6 @@ header h1 {
   animation: fadeDown 1s ease;
 }
 
-/* TEXTE */
 .header-text {
   margin-top:10px;
   font-size:1.3em;
@@ -51,7 +84,6 @@ header h1 {
   animation: fadeUp 1.5s forwards;
 }
 
-/* BOUTON */
 .btn {
   margin-top:25px;
   background:#ffd700;
@@ -69,7 +101,6 @@ header h1 {
   background:#ffb703;
 }
 
-/* ANIMAUX VERSION PRO */
 .animals {
   margin-top:30px;
   display:flex;
@@ -91,7 +122,6 @@ header h1 {
   50% { transform: translateY(-12px); }
 }
 
-/* ANIMATIONS TEXTE */
 @keyframes fadeDown {
   from { opacity:0; transform:translateY(-30px); }
   to { opacity:1; transform:translateY(0); }
@@ -101,3 +131,206 @@ header h1 {
   from { opacity:0; transform:translateY(30px); }
   to { opacity:1; transform:translateY(0); }
 }
+
+/* SECTIONS */
+section {
+  padding:60px 20px;
+  max-width:1100px;
+  margin:auto;
+}
+
+h2 {
+  text-align:center;
+  color:#2d6a4f;
+}
+
+/* GRID */
+.grid {
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  gap:20px;
+}
+
+.card {
+  background:white;
+  padding:20px;
+  border-radius:15px;
+  text-align:center;
+  box-shadow:0 3px 10px rgba(0,0,0,0.1);
+  transition:0.3s;
+}
+
+.card:hover {
+  transform:translateY(-8px);
+}
+
+.card img {
+  width:100%;
+  border-radius:10px;
+}
+
+/* ABOUT */
+.about {
+  display:flex;
+  flex-wrap:wrap;
+  gap:20px;
+  align-items:center;
+}
+
+.about img {
+  width:100%;
+  max-width:450px;
+  border-radius:15px;
+}
+
+/* MAP */
+iframe {
+  width:100%;
+  height:300px;
+  border:none;
+  border-radius:15px;
+}
+
+/* WHATSAPP */
+.whatsapp {
+  position:fixed;
+  bottom:20px;
+  right:20px;
+  background:#25D366;
+  color:white;
+  padding:12px 18px;
+  border-radius:30px;
+  text-decoration:none;
+}
+
+/* FOOTER */
+footer {
+  text-align:center;
+  padding:20px;
+  background:#2d6a4f;
+  color:white;
+}
+</style>
+</head>
+
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#">Accueil</a>
+  <a href="#about">À propos</a>
+  <a href="#produits">Produits</a>
+  <a href="#contact">Contact</a>
+</nav>
+
+<!-- HEADER -->
+<header>
+
+  <h1>🐾 Nutri Pet</h1>
+
+  <div class="header-text">
+    🌿 Le bien-être de vos animaux commence ici <br>
+    🐶🐱 Produits naturels & conseils experts
+  </div>
+
+  <a href="#contact">
+    <button class="btn">📩 Nous contacter</button>
+  </a>
+
+  <div class="animals">
+    <span>🐶</span>
+    <span>🐱</span>
+    <span>🐰</span>
+    <span>🦆</span>
+    <span>🦜</span>
+    <span>🐹</span>
+    <span>🕊️</span>
+  </div>
+
+</header>
+
+<!-- ABOUT -->
+<section id="about">
+  <h2>ℹ️ À propos</h2>
+
+  <div class="about">
+    <img src="images/shop.jpg">
+
+    <div>
+      <p>🏪 Boutique spécialisée à Meknès.</p>
+      <a href="https://www.google.com/maps?q=Sidi+Bouzekri+Meknès" target="_blank" class="btn">
+        📍 Itinéraire
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- PRODUITS -->
+<section id="produits">
+  <h2>🛒 Produits</h2>
+
+  <div class="grid">
+
+    <div class="card">
+      <img src="images/croquettes.jpg">
+      <h3>🐶 Croquettes</h3>
+      <p>200dh</p>
+      <a href="https://wa.me/212653639430?text=Commande%20Croquettes" class="btn">Commander</a>
+    </div>
+
+    <div class="card">
+      <img src="images/jouet.jpg">
+      <h3>🧸 Jouets</h3>
+      <p>50dh</p>
+      <a href="https://wa.me/212653639430?text=Commande%20Jouet" class="btn">Commander</a>
+    </div>
+
+    <div class="card">
+      <img src="images/hygiene.jpg">
+      <h3>🧼 Hygiène</h3>
+      <p>80dh</p>
+      <a href="https://wa.me/212653639430?text=Commande%20Hygiène" class="btn">Commander</a>
+    </div>
+
+  </div>
+</section>
+
+<!-- GALERIE -->
+<section>
+  <h2>📸 Galerie</h2>
+
+  <div class="grid">
+    <img src="images/shop.jpg">
+    <img src="images/banner.jpg">
+    <img src="images/shop.jpg">
+  </div>
+</section>
+
+<!-- AVIS -->
+<section>
+  <h2>⭐ Avis clients</h2>
+
+  <div class="grid">
+    <div class="card">⭐⭐⭐⭐⭐ Excellent service</div>
+    <div class="card">⭐⭐⭐⭐⭐ Produits top</div>
+    <div class="card">⭐⭐⭐⭐⭐ Je recommande</div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <h2>📍 Contact</h2>
+
+  <p>📸 Instagram : @nutri_pet_1</p>
+
+  <iframe src="https://www.google.com/maps?q=Sidi%20Bouzekri%20Meknès&output=embed"></iframe>
+</section>
+
+<footer>
+  © 2025 Nutri Pet 🐾
+</footer>
+
+<a href="https://wa.me/212653639430" class="whatsapp">💬 WhatsApp</a>
+
+</body>
+</html>
