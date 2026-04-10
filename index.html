@@ -34,7 +34,7 @@ nav a {
   font-weight:600;
 }
 
-/* HEADER PRO */
+/* HEADER */
 header {
   text-align:center;
   padding:120px 20px;
@@ -55,9 +55,9 @@ header h1 {
   border-radius:25px;
   cursor:pointer;
   font-weight:bold;
-  margin-top:15px;
   text-decoration:none;
   display:inline-block;
+  margin-top:10px;
 }
 
 /* ANIMAUX */
@@ -89,27 +89,6 @@ h2 {
   color:#2d6a4f;
 }
 
-/* GRID */
-.grid {
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-  gap:20px;
-}
-
-.card {
-  background:white;
-  padding:20px;
-  border-radius:15px;
-  text-align:center;
-  box-shadow:0 3px 10px rgba(0,0,0,0.1);
-}
-
-.card img {
-  width:100%;
-  border-radius:10px;
-  object-fit:cover;
-}
-
 /* ABOUT */
 .about {
   display:flex;
@@ -121,6 +100,18 @@ h2 {
 .about img {
   width:100%;
   max-width:450px;
+  border-radius:15px;
+}
+
+/* GALERIE */
+.grid {
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+  gap:20px;
+}
+
+.grid img {
+  width:100%;
   border-radius:15px;
 }
 
@@ -144,13 +135,15 @@ footer {
 
 <body>
 
+<!-- NAV -->
 <nav>
   <a href="#">Accueil</a>
   <a href="#about">À propos</a>
-  <a href="#produits">Produits</a>
+  <a href="#galerie">Galerie</a>
   <a href="#contact">Contact</a>
 </nav>
 
+<!-- HEADER -->
 <header>
   <h1>🐾 Nutri Pet</h1>
   <p>🌿 Bien-être de vos animaux</p>
@@ -167,6 +160,7 @@ footer {
   </div>
 </header>
 
+<!-- ABOUT -->
 <section id="about">
   <h2>À propos</h2>
 
@@ -177,29 +171,18 @@ footer {
   </div>
 </section>
 
-<section id="produits">
-  <h2>Produits</h2>
+<!-- GALERIE -->
+<section id="galerie">
+  <h2>📸 Galerie</h2>
 
   <div class="grid">
-
-    <div class="card">
-      <img src="https://raw.githubusercontent.com/Khwilida/Nutri-Pet/main/images/croquettes.jpg">
-      <p>🐶 Croquettes</p>
-    </div>
-
-    <div class="card">
-      <img src="https://raw.githubusercontent.com/Khwilida/Nutri-Pet/main/images/jouet.jpg">
-      <p>🧸 Jouets</p>
-    </div>
-
-    <div class="card">
-      <img src="https://raw.githubusercontent.com/Khwilida/Nutri-Pet/main/images/hygiene.jpg">
-      <p>🧼 Hygiène</p>
-    </div>
-
+    <img src="https://raw.githubusercontent.com/Khwilida/Nutri-Pet/main/images/banner.jpg">
+    <img src="https://raw.githubusercontent.com/Khwilida/Nutri-Pet/main/images/banner.jpg">
+    <img src="https://raw.githubusercontent.com/Khwilida/Nutri-Pet/main/images/banner.jpg">
   </div>
 </section>
 
+<!-- CONTACT -->
 <section id="contact">
   <h2>Contact</h2>
 
@@ -208,6 +191,7 @@ footer {
   <iframe src="https://www.google.com/maps?q=Sidi%20Bouzekri%20Meknès&output=embed"></iframe>
 </section>
 
+<!-- FOOTER -->
 <footer>
   © 2025 Nutri Pet 🐾
 </footer>
