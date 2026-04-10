@@ -14,7 +14,27 @@ body {
   background:#f9fdfb;
 }
 
-/* HEADER */
+/* NAV */
+nav {
+  position:fixed;
+  top:0;
+  width:100%;
+  background:white;
+  display:flex;
+  justify-content:center;
+  gap:25px;
+  padding:12px;
+  box-shadow:0 2px 10px rgba(0,0,0,0.1);
+  z-index:1000;
+}
+
+nav a {
+  text-decoration:none;
+  color:#2d6a4f;
+  font-weight:600;
+}
+
+/* HEADER PRO */
 header {
   text-align:center;
   padding:120px 20px;
@@ -25,24 +45,36 @@ header {
 header h1 {
   font-family:'Luckiest Guy', cursive;
   font-size:3em;
-  margin:0;
 }
 
+/* BUTTON */
 .btn {
-  display:inline-block;
-  margin-top:15px;
-  padding:12px 25px;
   background:#ffd700;
-  color:#2d6a4f;
+  border:none;
+  padding:12px 25px;
   border-radius:25px;
-  text-decoration:none;
+  cursor:pointer;
   font-weight:bold;
+  margin-top:15px;
+  text-decoration:none;
+  display:inline-block;
 }
 
 /* ANIMAUX */
 .animals {
+  display:flex;
+  justify-content:center;
+  gap:15px;
   margin-top:20px;
   font-size:2em;
+}
+
+.animals span {
+  animation: float 2s infinite;
+}
+
+@keyframes float {
+  50% { transform:translateY(-8px); }
 }
 
 /* SECTIONS */
@@ -60,13 +92,22 @@ h2 {
 /* GRID */
 .grid {
   display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
   gap:20px;
+}
+
+.card {
+  background:white;
+  padding:20px;
+  border-radius:15px;
+  text-align:center;
+  box-shadow:0 3px 10px rgba(0,0,0,0.1);
 }
 
 .card img {
   width:100%;
-  border-radius:15px;
+  border-radius:10px;
+  object-fit:cover;
 }
 
 /* ABOUT */
@@ -103,14 +144,26 @@ footer {
 
 <body>
 
+<nav>
+  <a href="#">Accueil</a>
+  <a href="#about">À propos</a>
+  <a href="#produits">Produits</a>
+  <a href="#contact">Contact</a>
+</nav>
+
 <header>
   <h1>🐾 Nutri Pet</h1>
-  <p>Bien-être de vos animaux 🐶🐱</p>
+  <p>🌿 Bien-être de vos animaux</p>
 
   <a href="#contact" class="btn">📩 Nous contacter</a>
 
   <div class="animals">
-    🐶 🐱 🐰 🦆 🦜 🐹 🕊️
+    <span>🐶</span>
+    <span>🐱</span>
+    <span>🐰</span>
+    <span>🦆</span>
+    <span>🦜</span>
+    <span>🐹</span>
   </div>
 </header>
 
@@ -120,17 +173,30 @@ footer {
   <div class="about">
     <img src="https://raw.githubusercontent.com/Khwilida/Nutri-Pet/main/images/banner.jpg">
 
-    <p>🏪 Animalerie à Meknès spécialisée dans les animaux.</p>
+    <p>🏪 Animalerie à Meknès spécialisée dans le bien-être animal 🐾</p>
   </div>
 </section>
 
-<section>
-  <h2>📸 Galerie</h2>
+<section id="produits">
+  <h2>Produits</h2>
 
   <div class="grid">
-    <img src="https://raw.githubusercontent.com/Khwilida/Nutri-Pet/main/images/banner.jpg">
-    <img src="https://raw.githubusercontent.com/Khwilida/Nutri-Pet/main/images/banner.jpg">
-    <img src="https://raw.githubusercontent.com/Khwilida/Nutri-Pet/main/images/banner.jpg">
+
+    <div class="card">
+      <img src="https://raw.githubusercontent.com/Khwilida/Nutri-Pet/main/images/croquettes.jpg">
+      <p>🐶 Croquettes</p>
+    </div>
+
+    <div class="card">
+      <img src="https://raw.githubusercontent.com/Khwilida/Nutri-Pet/main/images/jouet.jpg">
+      <p>🧸 Jouets</p>
+    </div>
+
+    <div class="card">
+      <img src="https://raw.githubusercontent.com/Khwilida/Nutri-Pet/main/images/hygiene.jpg">
+      <p>🧼 Hygiène</p>
+    </div>
+
   </div>
 </section>
 
