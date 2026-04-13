@@ -3,203 +3,235 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Nutri Pet 🐾</title>
+<title>Nutri Pet - Bien-être Animal</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Luckiest+Guy&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
 
 <style>
-body {
-  margin:0;
-  font-family:Poppins, sans-serif;
-  background:#f9fdfb;
-}
+  body {
+    margin:0;
+    font-family:'Poppins', sans-serif;
+    background:#f9fdfb;
+    color:#333;
+    scroll-behavior:smooth;
+  }
 
-/* NAV */
-nav {
-  position:fixed;
-  top:0;
-  width:100%;
-  background:white;
-  display:flex;
-  justify-content:center;
-  gap:25px;
-  padding:12px;
-  box-shadow:0 2px 10px rgba(0,0,0,0.1);
-}
+  /* ===== HEADER ===== */
+  header {
+    text-align: center;
+    padding: 80px 10px 150px;
+    background: linear-gradient(135deg,#56ab2f,#2d6a4f);
+    background-size: 400% 400%;
+    animation: gradientShift 15s ease infinite;
+    color: white;
+    position: relative;
+  }
 
-nav a {
-  text-decoration:none;
-  color:#2d6a4f;
-  font-weight:600;
-}
+  @keyframes gradientShift {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+  }
 
-/* HEADER SIMPLE PRO */
-header {
-  text-align:center;
-  padding:120px 20px;
-  background:linear-gradient(135deg,#56ab2f,#2d6a4f);
-  color:white;
-}
+  header h1 {
+    font-family:'Luckiest Guy', cursive;
+    font-size:3em;
+    margin:0;
+  }
 
-header h1 {
-  font-family:'Luckiest Guy', cursive;
-  font-size:3em;
-}
+  .header-text {
+    margin-top:10px;
+    font-size:1.2em;
+  }
 
-/* BUTTON */
-.btn {
-  background:#ffd700;
-  border:none;
-  padding:12px 25px;
-  border-radius:25px;
-  cursor:pointer;
-  font-weight:bold;
-  margin-top:15px;
-}
+  .contact-btn {
+    background:#ffd700;
+    color:#2d6a4f;
+    padding:12px 28px;
+    border:none;
+    border-radius:30px;
+    font-weight:600;
+    cursor:pointer;
+    margin-top:25px;
+    transition:0.3s;
+  }
 
-/* ANIMAUX */
-.animals {
-  display:flex;
-  justify-content:center;
-  gap:15px;
-  margin-top:20px;
-  font-size:2em;
-}
+  .contact-btn:hover {
+    transform:scale(1.05);
+  }
 
-.animals span {
-  animation: float 2s infinite;
-}
+  /* ===== ANIMAUX ===== */
+  .animal-animation {
+    display:flex;
+    justify-content:center;
+    gap:15px;
+    margin-top:25px;
+  }
 
-@keyframes float {
-  50% { transform:translateY(-8px); }
-}
+  .animal-animation span {
+    font-size:2em;
+    opacity:0;
+    transform:translateY(-40px);
+    animation: dropBounce 0.8s forwards;
+  }
 
-/* SECTIONS */
-section {
-  padding:60px 20px;
-  max-width:1000px;
-  margin:auto;
-}
+  .animal-animation span:nth-child(1){animation-delay:0s;}
+  .animal-animation span:nth-child(2){animation-delay:0.2s;}
+  .animal-animation span:nth-child(3){animation-delay:0.4s;}
+  .animal-animation span:nth-child(4){animation-delay:0.6s;}
+  .animal-animation span:nth-child(5){animation-delay:0.8s;}
+  .animal-animation span:nth-child(6){animation-delay:1s;}
+  .animal-animation span:nth-child(7){animation-delay:1.2s;}
 
-h2 {
-  text-align:center;
-  color:#2d6a4f;
-}
+  @keyframes dropBounce {
+    0%{opacity:0; transform:translateY(-40px);}
+    60%{opacity:1; transform:translateY(10px);}
+    80%{transform:translateY(-5px);}
+    100%{transform:translateY(0);}
+  }
 
-/* GRID */
-.grid {
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
-  gap:20px;
-}
+  /* ===== SECTIONS ===== */
+  section {
+    padding:70px 20px;
+    max-width:1200px;
+    margin:auto;
+  }
 
-.card {
-  background:white;
-  padding:20px;
-  border-radius:15px;
-  text-align:center;
-  box-shadow:0 3px 10px rgba(0,0,0,0.1);
-}
+  h3 {
+    text-align:center;
+    color:#2d6a4f;
+    font-size:2.2em;
+  }
 
-.card img {
-  width:100%;
-  border-radius:10px;
-}
+  /* ===== ABOUT ===== */
+  .about {
+    display:flex;
+    flex-wrap:wrap;
+    gap:30px;
+    align-items:center;
+  }
 
-/* ABOUT */
-.about {
-  display:flex;
-  flex-wrap:wrap;
-  gap:20px;
-  align-items:center;
-}
+  .about img {
+    width:100%;
+    max-width:500px;
+    border-radius:15px;
+  }
 
-.about img {
-  width:100%;
-  max-width:400px;
-  border-radius:15px;
-}
+  /* ===== SERVICES ===== */
+  .services {
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    gap:20px;
+  }
 
-/* MAP */
-iframe {
-  width:100%;
-  height:300px;
-  border:none;
-  border-radius:15px;
-}
+  .service-card {
+    background:#fff;
+    padding:20px;
+    border-radius:15px;
+    text-align:center;
+    box-shadow:0 4px 10px rgba(0,0,0,0.1);
+  }
 
-/* FOOTER */
-footer {
-  text-align:center;
-  padding:20px;
-  background:#2d6a4f;
-  color:white;
-}
+  /* ===== PRODUITS ===== */
+  .produits {
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    gap:20px;
+  }
+
+  .carte {
+    background:#fff;
+    padding:20px;
+    border-radius:15px;
+    text-align:center;
+  }
+
+  /* ===== CONTACT ===== */
+  .contact {
+    text-align:center;
+  }
+
+  iframe {
+    width:100%;
+    height:350px;
+    border:0;
+    border-radius:15px;
+    margin-top:20px;
+  }
+
+  /* ===== FOOTER ===== */
+  footer {
+    text-align:center;
+    padding:30px;
+    background:#2d6a4f;
+    color:white;
+  }
+
 </style>
 </head>
 
 <body>
 
-<nav>
-  <a href="#">Accueil</a>
-  <a href="#about">À propos</a>
-  <a href="#produits">Produits</a>
-  <a href="#contact">Contact</a>
-</nav>
-
 <header>
-  <h1>🐾 Nutri Pet</h1>
-  <p>🌿 Bien-être de vos animaux</p>
+  <h1>Nutri Pet</h1>
 
-  <a href="#contact"><button class="btn">Nous contacter</button></a>
+  <div class="header-text">
+    Le bien-être de vos animaux 🐾<br>
+    Produits naturels pour vos compagnons 🐶🐱
+  </div>
 
-  <div class="animals">
+  <a href="#contact"><button class="contact-btn">Nous contacter</button></a>
+
+  <!-- ANIMAUX -->
+  <div class="animal-animation">
     <span>🐶</span>
     <span>🐱</span>
     <span>🐰</span>
     <span>🦆</span>
     <span>🦜</span>
     <span>🐹</span>
+    <span>🕊️</span>
   </div>
 </header>
 
-<section id="about">
-  <h2>À propos</h2>
-
+<section>
+  <h3>À propos</h3>
   <div class="about">
-    <img src="images/banner.jpg">
+    <img src="https://lh3.googleusercontent.com/geougc-cs/AB3l90DCqp_eQLR3aeOQiGUlIk2sbQn-4Qsrs2a-f9FoSp6VVuosF9wp0b5QskZeVxH2NbyVtgYVBGGRjaEILcXHyHMZRd68cOm5VW0chjMyPuaVmvGatkpgfrVtAwRTxCeO9MTwkTa3830SXsrx=w600-h450-p"
+    alt="Magasin Nutri Pet">
 
-    <p>Animalerie à Meknès spécialisée dans le bien-être animal 🐾</p>
-  </div>
-</section>
-
-<section id="produits">
-  <h2>Produits</h2>
-
-  <div class="grid">
-    <div class="card">
-      <img src="images/croquettes.jpg">
-      <p>🐶 Croquettes</p>
-    </div>
-
-    <div class="card">
-      <img src="images/jouet.jpg">
-      <p>🧸 Jouets</p>
-    </div>
-
-    <div class="card">
-      <img src="images/hygiene.jpg">
-      <p>🧼 Hygiène</p>
+    <div>
+      <p>Animalerie spécialisée à Meknès.</p>
     </div>
   </div>
 </section>
 
-<section id="contact">
-  <h2>Contact</h2>
+<section>
+  <h3>Services</h3>
+  <div class="services">
+    <div class="service-card">🥩 Alimentation</div>
+    <div class="service-card">🦴 Accessoires</div>
+    <div class="service-card">✂️ Toilettage</div>
+    <div class="service-card">🏠 Pension</div>
+  </div>
+</section>
 
+<section>
+  <h3>Produits</h3>
+  <div class="produits">
+    <div class="carte">Croquettes</div>
+    <div class="carte">Jouets</div>
+    <div class="carte">Hygiène</div>
+    <div class="carte">Aquariums</div>
+  </div>
+</section>
+
+<section id="contact" class="contact">
+  <h3>Nous trouver</h3>
   <p>Meknès - Sidi Bouzekri</p>
+  <p>Instagram : @nutri_pet_1</p>
 
-  <iframe src="https://www.google.com/maps?q=Sidi%20Bouzekri%20Meknès&output=embed"></iframe>
+  <iframe src="https://www.google.com/maps?q=Meknès%20Sidi%20Bouzekri&output=embed"></iframe>
 </section>
 
 <footer>
