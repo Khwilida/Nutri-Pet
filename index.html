@@ -1,0 +1,796 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nutri Pet - Animalerie à Meknès</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@700;800&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+
+<style>
+  :root {
+    --vert: #2d6a4f;
+    --vert-clair: #52b788;
+    --vert-pale: #d8f3dc;
+    --or: #f4a261;
+    --or-fonce: #e76f51;
+    --creme: #f8f9f0;
+    --blanc: #ffffff;
+    --texte: #1b2d22;
+    --texte-leger: #4a6b57;
+    --radius: 18px;
+    --shadow: 0 6px 24px rgba(45,106,79,0.12);
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Nunito', sans-serif;
+    background: var(--creme);
+    color: var(--texte);
+  }
+
+  /* ===== NAV ===== */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    background: rgba(255,255,255,0.92);
+    backdrop-filter: blur(12px);
+    border-bottom: 1.5px solid var(--vert-pale);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 14px 32px;
+  }
+
+  .nav-logo {
+    font-family: 'Baloo 2', cursive;
+    font-size: 1.6em;
+    font-weight: 800;
+    color: var(--vert);
+    text-decoration: none;
+  }
+
+  .nav-logo span { color: var(--or-fonce); }
+
+  .nav-links {
+    display: flex;
+    gap: 28px;
+    list-style: none;
+  }
+
+  .nav-links a {
+    text-decoration: none;
+    color: var(--texte-leger);
+    font-weight: 600;
+    font-size: 0.95em;
+    transition: color 0.2s;
+  }
+
+  .nav-links a:hover { color: var(--vert); }
+
+  /* ===== HERO ===== */
+  .hero {
+    min-height: 100vh;
+    background: linear-gradient(150deg, #1b4332 0%, #2d6a4f 50%, #40916c 100%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 120px 20px 80px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: -60px; right: -60px;
+    width: 400px; height: 400px;
+    border-radius: 50%;
+    background: rgba(82,183,136,0.15);
+  }
+
+  .hero::after {
+    content: '';
+    position: absolute;
+    bottom: -80px; left: -80px;
+    width: 500px; height: 500px;
+    border-radius: 50%;
+    background: rgba(244,162,97,0.1);
+  }
+
+  .hero-badge {
+    background: rgba(255,255,255,0.15);
+    border: 1.5px solid rgba(255,255,255,0.3);
+    color: #fff;
+    padding: 6px 18px;
+    border-radius: 50px;
+    font-size: 0.85em;
+    font-weight: 600;
+    margin-bottom: 24px;
+    letter-spacing: 0.04em;
+  }
+
+  .hero h1 {
+    font-family: 'Baloo 2', cursive;
+    font-size: clamp(3.5em, 9vw, 6em);
+    font-weight: 800;
+    color: #fff;
+    line-height: 1.0;
+    margin-bottom: 8px;
+  }
+
+  .hero h1 span { color: var(--or); }
+
+  .hero-sub {
+    color: rgba(255,255,255,0.85);
+    font-size: 1.2em;
+    max-width: 500px;
+    margin: 16px auto 36px;
+    line-height: 1.6;
+  }
+
+  .hero-btns {
+    display: flex;
+    gap: 14px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .btn-primary {
+    background: var(--or);
+    color: var(--texte);
+    padding: 14px 32px;
+    border-radius: 50px;
+    font-weight: 700;
+    font-size: 1em;
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+    box-shadow: 0 4px 16px rgba(244,162,97,0.5);
+  }
+
+  .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(244,162,97,0.5); }
+
+  .btn-outline {
+    background: transparent;
+    color: #fff;
+    padding: 14px 32px;
+    border-radius: 50px;
+    font-weight: 700;
+    font-size: 1em;
+    text-decoration: none;
+    border: 2px solid rgba(255,255,255,0.5);
+    transition: background 0.2s;
+  }
+
+  .btn-outline:hover { background: rgba(255,255,255,0.1); }
+
+  .animals-row {
+    display: flex;
+    gap: 16px;
+    justify-content: center;
+    margin-top: 52px;
+    flex-wrap: wrap;
+  }
+
+  .animal-chip {
+    background: rgba(255,255,255,0.12);
+    border: 1.5px solid rgba(255,255,255,0.2);
+    border-radius: 50px;
+    padding: 10px 18px;
+    color: white;
+    font-size: 1.1em;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeUp 0.5s forwards;
+  }
+
+  .animal-chip:nth-child(1){animation-delay:0.1s}
+  .animal-chip:nth-child(2){animation-delay:0.2s}
+  .animal-chip:nth-child(3){animation-delay:0.3s}
+  .animal-chip:nth-child(4){animation-delay:0.4s}
+  .animal-chip:nth-child(5){animation-delay:0.5s}
+  .animal-chip:nth-child(6){animation-delay:0.6s}
+
+  @keyframes fadeUp {
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  /* ===== SECTIONS COMMUNES ===== */
+  .section {
+    padding: 90px 20px;
+    max-width: 1100px;
+    margin: auto;
+  }
+
+  .section-label {
+    display: inline-block;
+    background: var(--vert-pale);
+    color: var(--vert);
+    font-weight: 700;
+    font-size: 0.8em;
+    padding: 5px 14px;
+    border-radius: 50px;
+    letter-spacing: 0.08em;
+    margin-bottom: 12px;
+    text-transform: uppercase;
+  }
+
+  .section-title {
+    font-family: 'Baloo 2', cursive;
+    font-size: clamp(2em, 4vw, 2.8em);
+    font-weight: 800;
+    color: var(--texte);
+    margin-bottom: 12px;
+    line-height: 1.15;
+  }
+
+  .section-desc {
+    color: var(--texte-leger);
+    font-size: 1.05em;
+    max-width: 540px;
+    line-height: 1.7;
+    margin-bottom: 48px;
+  }
+
+  /* ===== À PROPOS ===== */
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 50px;
+    align-items: center;
+  }
+
+  .about-img {
+    border-radius: var(--radius);
+    overflow: hidden;
+    position: relative;
+  }
+
+  .about-img img {
+    width: 100%;
+    display: block;
+    border-radius: var(--radius);
+    object-fit: cover;
+    max-height: 420px;
+  }
+
+  .about-badge {
+    position: absolute;
+    bottom: 20px; left: 20px;
+    background: white;
+    border-radius: 14px;
+    padding: 12px 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    box-shadow: var(--shadow);
+    font-weight: 700;
+    font-size: 0.95em;
+    color: var(--texte);
+  }
+
+  .about-badge .dot {
+    width: 10px; height: 10px;
+    border-radius: 50%;
+    background: #40916c;
+    animation: pulse 1.5s infinite;
+  }
+
+  @keyframes pulse {
+    0%,100%{ transform: scale(1); opacity:1; }
+    50%{ transform: scale(1.4); opacity:0.7; }
+  }
+
+  .about-text { padding: 10px 0; }
+
+  .about-text p {
+    color: var(--texte-leger);
+    line-height: 1.8;
+    font-size: 1.05em;
+    margin-bottom: 24px;
+  }
+
+  .stats-row {
+    display: flex;
+    gap: 24px;
+    margin-top: 32px;
+  }
+
+  .stat-box {
+    background: var(--blanc);
+    border-radius: 14px;
+    padding: 18px 22px;
+    box-shadow: var(--shadow);
+    flex: 1;
+    text-align: center;
+  }
+
+  .stat-num {
+    font-family: 'Baloo 2', cursive;
+    font-size: 2em;
+    font-weight: 800;
+    color: var(--vert);
+  }
+
+  .stat-lbl {
+    font-size: 0.85em;
+    color: var(--texte-leger);
+    margin-top: 2px;
+  }
+
+  /* ===== SERVICES ===== */
+  .services-bg {
+    background: linear-gradient(170deg, #f0faf5 0%, var(--creme) 100%);
+    padding: 90px 20px;
+  }
+
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+    gap: 22px;
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  .service-card {
+    background: var(--blanc);
+    border-radius: var(--radius);
+    padding: 32px 24px;
+    text-align: center;
+    box-shadow: var(--shadow);
+    border: 1.5px solid var(--vert-pale);
+    transition: transform 0.25s, box-shadow 0.25s;
+  }
+
+  .service-card:hover { transform: translateY(-6px); box-shadow: 0 12px 32px rgba(45,106,79,0.18); }
+
+  .service-icon {
+    width: 64px; height: 64px;
+    border-radius: 18px;
+    background: var(--vert-pale);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.9em;
+    margin: 0 auto 18px;
+  }
+
+  .service-card h4 {
+    font-family: 'Baloo 2', cursive;
+    font-size: 1.25em;
+    font-weight: 800;
+    color: var(--texte);
+    margin-bottom: 8px;
+  }
+
+  .service-card p {
+    color: var(--texte-leger);
+    font-size: 0.92em;
+    line-height: 1.6;
+  }
+
+  /* ===== PRODUITS ===== */
+  .produits-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 22px;
+  }
+
+  .produit-card {
+    background: var(--blanc);
+    border-radius: var(--radius);
+    overflow: hidden;
+    box-shadow: var(--shadow);
+    transition: transform 0.25s;
+  }
+
+  .produit-card:hover { transform: translateY(-5px); }
+
+  .produit-top {
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 3em;
+  }
+
+  .produit-top.green { background: var(--vert-pale); }
+  .produit-top.orange { background: #fde8d8; }
+  .produit-top.blue { background: #dbeafe; }
+  .produit-top.yellow { background: #fef9c3; }
+
+  .produit-body {
+    padding: 18px 20px;
+  }
+
+  .produit-body h4 {
+    font-family: 'Baloo 2', cursive;
+    font-size: 1.15em;
+    font-weight: 800;
+    margin-bottom: 6px;
+    color: var(--texte);
+  }
+
+  .produit-body p {
+    font-size: 0.88em;
+    color: var(--texte-leger);
+    line-height: 1.5;
+  }
+
+  .produit-tag {
+    display: inline-block;
+    background: var(--vert-pale);
+    color: var(--vert);
+    font-size: 0.75em;
+    font-weight: 700;
+    padding: 3px 10px;
+    border-radius: 50px;
+    margin-top: 10px;
+  }
+
+  /* ===== ANIMAUX VENDUS ===== */
+  .animaux-bg {
+    background: linear-gradient(150deg, #1b4332 0%, #2d6a4f 100%);
+    padding: 80px 20px;
+    text-align: center;
+  }
+
+  .animaux-bg .section-title { color: white; }
+  .animaux-bg .section-label { background: rgba(255,255,255,0.15); color: white; }
+  .animaux-bg .section-desc { color: rgba(255,255,255,0.75); margin: 0 auto 48px; }
+
+  .animaux-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 16px;
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  .animal-card {
+    background: rgba(255,255,255,0.12);
+    border: 1.5px solid rgba(255,255,255,0.2);
+    border-radius: 16px;
+    padding: 20px 26px;
+    color: white;
+    text-align: center;
+    min-width: 120px;
+    transition: background 0.2s;
+  }
+
+  .animal-card:hover { background: rgba(255,255,255,0.2); }
+
+  .animal-card .emoji { font-size: 2.5em; display: block; margin-bottom: 8px; }
+
+  .animal-card span { font-size: 0.9em; font-weight: 600; }
+
+  /* ===== CONTACT ===== */
+  .contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.4fr;
+    gap: 40px;
+    align-items: start;
+  }
+
+  .contact-infos { display: flex; flex-direction: column; gap: 18px; }
+
+  .info-card {
+    background: var(--blanc);
+    border-radius: 14px;
+    padding: 20px;
+    box-shadow: var(--shadow);
+    display: flex;
+    gap: 16px;
+    align-items: flex-start;
+  }
+
+  .info-icon {
+    width: 46px; height: 46px;
+    background: var(--vert-pale);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.4em;
+    flex-shrink: 0;
+  }
+
+  .info-content h5 {
+    font-weight: 700;
+    color: var(--texte);
+    margin-bottom: 4px;
+  }
+
+  .info-content p {
+    color: var(--texte-leger);
+    font-size: 0.92em;
+    line-height: 1.5;
+  }
+
+  .info-content a {
+    color: var(--vert);
+    text-decoration: none;
+    font-weight: 600;
+  }
+
+  .map-wrapper {
+    border-radius: var(--radius);
+    overflow: hidden;
+    box-shadow: var(--shadow);
+    height: 380px;
+  }
+
+  .map-wrapper iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+  }
+
+  /* ===== FOOTER ===== */
+  footer {
+    background: #1b2d22;
+    color: rgba(255,255,255,0.7);
+    text-align: center;
+    padding: 32px 20px;
+    font-size: 0.92em;
+  }
+
+  footer strong { color: white; }
+
+  /* ===== RESPONSIVE ===== */
+  @media (max-width: 768px) {
+    nav { padding: 12px 20px; }
+    .nav-links { display: none; }
+    .about-grid { grid-template-columns: 1fr; }
+    .contact-grid { grid-template-columns: 1fr; }
+    .stats-row { gap: 12px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="nav-logo">Nutri<span>Pet</span></a>
+  <ul class="nav-links">
+    <li><a href="#apropos">À propos</a></li>
+    <li><a href="#services">Services</a></li>
+    <li><a href="#produits">Produits</a></li>
+    <li><a href="#animaux">Animaux</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <a href="#contact" class="btn-primary" style="padding:10px 22px; font-size:0.9em;">Nous trouver</a>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-badge">🐾 Animalerie à Meknès</div>
+  <h1>Nutri<span>Pet</span></h1>
+  <p class="hero-sub">Le bien-être de vos animaux, notre passion. Alimentation, accessoires et soins pour tous vos compagnons.</p>
+  <div class="hero-btns">
+    <a href="#produits" class="btn-primary">Voir nos produits</a>
+    <a href="#contact" class="btn-outline">Nous trouver</a>
+  </div>
+
+  <div class="animals-row">
+    <div class="animal-chip">🐶 Chiens</div>
+    <div class="animal-chip">🐱 Chats</div>
+    <div class="animal-chip">🐰 Lapins</div>
+    <div class="animal-chip">🦜 Perroquets</div>
+    <div class="animal-chip">🕊️ Pigeons</div>
+    <div class="animal-chip">🐦 Oiseaux</div>
+  </div>
+</div>
+
+<!-- À PROPOS -->
+<div class="section" id="apropos">
+  <div class="about-grid">
+    <div class="about-img">
+      <img src="magasin.jpg" alt="Magasin Nutri Pet">
+      <div class="about-badge">
+        <div class="dot"></div>
+        Ouvert maintenant
+      </div>
+    </div>
+    <div class="about-text">
+      <div class="section-label">À propos de nous</div>
+      <h2 class="section-title">Votre animalerie de confiance à Meknès</h2>
+      <p>Nutri Pet est une animalerie spécialisée située à Meknès, dans le quartier de Sidi Bouzekri. Nous proposons une large gamme de produits naturels et de qualité pour le bien-être de tous vos animaux de compagnie.</p>
+      <p>Notre équipe passionnée est là pour vous conseiller et vous aider à choisir les meilleurs produits pour vos compagnons.</p>
+      <div class="stats-row">
+        <div class="stat-box">
+          <div class="stat-num">100+</div>
+          <div class="stat-lbl">Produits disponibles</div>
+        </div>
+        <div class="stat-box">
+          <div class="stat-num">6+</div>
+          <div class="stat-lbl">Espèces servies</div>
+        </div>
+        <div class="stat-box">
+          <div class="stat-num">⭐ 5</div>
+          <div class="stat-lbl">Satisfaction client</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- SERVICES -->
+<div class="services-bg" id="services">
+  <div style="text-align:center; max-width:1100px; margin:0 auto 48px;">
+    <div class="section-label">Nos services</div>
+    <h2 class="section-title">Tout pour vos animaux</h2>
+    <p class="section-desc" style="margin:0 auto;">Des services complets pour prendre soin de vos compagnons, du quotidien aux soins spéciaux.</p>
+  </div>
+  <div class="services-grid">
+    <div class="service-card">
+      <div class="service-icon">🥩</div>
+      <h4>Alimentation</h4>
+      <p>Croquettes, pâtées, graines, foin et aliments naturels pour tous vos animaux.</p>
+    </div>
+    <div class="service-card">
+      <div class="service-icon">🦴</div>
+      <h4>Accessoires</h4>
+      <p>Colliers, laisses, cages, jouets, litières et tout l'équipement nécessaire.</p>
+    </div>
+    <div class="service-card">
+      <div class="service-icon">✂️</div>
+      <h4>Toilettage</h4>
+      <p>Service de toilettage professionnel pour chiens et chats : bain, coupe, soin.</p>
+    </div>
+    <div class="service-card">
+      <div class="service-icon">🏠</div>
+      <h4>Pension</h4>
+      <p>Garderie pour vos animaux pendant vos voyages, dans un cadre sûr et confortable.</p>
+    </div>
+  </div>
+</div>
+
+<!-- PRODUITS -->
+<div class="section" id="produits">
+  <div style="text-align:center;">
+    <div class="section-label">Nos produits</div>
+    <h2 class="section-title">Une sélection de qualité</h2>
+    <p class="section-desc" style="margin:12px auto 48px;">Des produits soigneusement choisis pour la santé et le bonheur de vos animaux.</p>
+  </div>
+  <div class="produits-grid">
+    <div class="produit-card">
+      <div class="produit-top green">🥣</div>
+      <div class="produit-body">
+        <h4>Croquettes & Pâtées</h4>
+        <p>Alimentation complète et équilibrée pour chiens, chats et petits animaux.</p>
+        <span class="produit-tag">Nutrition</span>
+      </div>
+    </div>
+    <div class="produit-card">
+      <div class="produit-top yellow">🌾</div>
+      <div class="produit-body">
+        <h4>Graines & Foin</h4>
+        <p>Mélanges de graines pour oiseaux, pigeons, lapins et rongeurs.</p>
+        <span class="produit-tag">Alimentation</span>
+      </div>
+    </div>
+    <div class="produit-card">
+      <div class="produit-top orange">🧸</div>
+      <div class="produit-body">
+        <h4>Jouets & Accessoires</h4>
+        <p>Jeux, griffoirs, tunnels, perchoirs et tout pour les divertir.</p>
+        <span class="produit-tag">Bien-être</span>
+      </div>
+    </div>
+    <div class="produit-card">
+      <div class="produit-top blue">🧴</div>
+      <div class="produit-body">
+        <h4>Hygiène & Soins</h4>
+        <p>Shampooings, antiparasitaires, brosses, produits de soin naturels.</p>
+        <span class="produit-tag">Santé</span>
+      </div>
+    </div>
+    <div class="produit-card">
+      <div class="produit-top green">🐠</div>
+      <div class="produit-body">
+        <h4>Aquariums & Poissons</h4>
+        <p>Aquariums, filtres, décors, nourriture et accessoires pour poissons.</p>
+        <span class="produit-tag">Aquatique</span>
+      </div>
+    </div>
+    <div class="produit-card">
+      <div class="produit-top orange">🏡</div>
+      <div class="produit-body">
+        <h4>Cages & Habitacles</h4>
+        <p>Cages oiseaux, niches, terrariums, transporteurs et enclos.</p>
+        <span class="produit-tag">Habitat</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ANIMAUX -->
+<div class="animaux-bg" id="animaux">
+  <div class="section-label">Espèces</div>
+  <h2 class="section-title" style="margin:12px 0 8px;">Pour tous vos animaux</h2>
+  <p class="section-desc">Que vous ayez un chien, un chat, un oiseau ou un lapin, nous avons ce qu'il vous faut.</p>
+  <div class="animaux-grid">
+    <div class="animal-card"><span class="emoji">🐶</span><span>Chiens</span></div>
+    <div class="animal-card"><span class="emoji">🐱</span><span>Chats</span></div>
+    <div class="animal-card"><span class="emoji">🐰</span><span>Lapins</span></div>
+    <div class="animal-card"><span class="emoji">🦜</span><span>Perroquets</span></div>
+    <div class="animal-card"><span class="emoji">🕊️</span><span>Pigeons</span></div>
+    <div class="animal-card"><span class="emoji">🐦</span><span>Canaris</span></div>
+    <div class="animal-card"><span class="emoji">🐠</span><span>Poissons</span></div>
+    <div class="animal-card"><span class="emoji">🐹</span><span>Rongeurs</span></div>
+  </div>
+</div>
+
+<!-- CONTACT -->
+<div class="section" id="contact">
+  <div class="section-label">Contact</div>
+  <h2 class="section-title">Venez nous rendre visite</h2>
+  <p class="section-desc">Retrouvez-nous à Meknès. Notre équipe est là pour vous accueillir et vous conseiller.</p>
+
+  <div class="contact-grid">
+    <div class="contact-infos">
+      <div class="info-card">
+        <div class="info-icon">📍</div>
+        <div class="info-content">
+          <h5>Adresse</h5>
+          <p>Meknès - Sidi Bouzekri<br>Maroc</p>
+        </div>
+      </div>
+      <div class="info-card">
+        <div class="info-icon">📞</div>
+        <div class="info-content">
+          <h5>Téléphone / WhatsApp</h5>
+          <a href="tel:+212653639430">06 53 63 94 30</a>
+          <p>Appelez-nous ou écrivez sur WhatsApp</p>
+        </div>
+      </div>
+      <div class="info-card">
+        <div class="info-icon">📸</div>
+        <div class="info-content">
+          <h5>Instagram</h5>
+          <a href="https://instagram.com/nutri_pet_1" target="_blank">@nutri_pet_1</a>
+          <p>Suivez-nous pour nos nouveautés !</p>
+        </div>
+      </div>
+      <div class="info-card">
+        <div class="info-icon">🕐</div>
+        <div class="info-content">
+          <h5>Horaires</h5>
+          <p>Lundi – Samedi : 9h00 – 19h00<br>Dimanche : 10h00 – 17h00</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="map-wrapper">
+      <iframe
+        src="https://maps.google.com/maps?q=Sidi+Bouzekri+Meknes+Morocco&output=embed&z=14"
+        allowfullscreen
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade">
+      </iframe>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <p><strong>Nutri Pet</strong> — Animalerie à Meknès, Sidi Bouzekri</p>
+  <p style="margin-top:8px;">📸 <a href="https://instagram.com/nutri_pet_1" target="_blank" style="color:var(--vert-clair);">@nutri_pet_1</a> &nbsp;|&nbsp; © 2025 Nutri Pet. Tous droits réservés.</p>
+</footer>
+
+</body>
+</html>
