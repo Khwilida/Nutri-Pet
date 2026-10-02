@@ -3,7 +3,9 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Nutri Pet - Animalerie à Meknès</title>
+<title>Nutri Pet - Animalerie à Meknès, Sidi Bouzekri</title>
+<meta name="description" content="Nutri Pet, animalerie à Meknès (Sidi Bouzekri) : croquettes, graines, accessoires, aquariums, toilettage et pension pour chiens, chats, oiseaux, lapins et poissons. Ouvert 7j/7.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🐾</text></svg>">
 
 <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@700;800&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
 
@@ -14,6 +16,8 @@
     --vert-pale: #d8f3dc;
     --or: #f4a261;
     --or-fonce: #e76f51;
+    --rouge: #c0392b;
+    --whatsapp: #25d366;
     --creme: #f8f9f0;
     --blanc: #ffffff;
     --texte: #1b2d22;
@@ -26,10 +30,18 @@
 
   html { scroll-behavior: smooth; }
 
+  /* Évite que la barre de navigation fixe cache les titres */
+  [id] { scroll-margin-top: 80px; }
+
   body {
     font-family: 'Nunito', sans-serif;
     background: var(--creme);
     color: var(--texte);
+  }
+
+  a:focus-visible, button:focus-visible {
+    outline: 3px solid var(--or);
+    outline-offset: 3px;
   }
 
   /* ===== NAV ===== */
@@ -72,6 +84,38 @@
 
   .nav-links a:hover { color: var(--vert); }
 
+  .nav-cta { padding: 10px 22px !important; font-size: 0.9em !important; }
+
+  /* Bouton menu mobile */
+  .menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    width: 40px; height: 40px;
+    position: relative;
+  }
+
+  .menu-toggle span,
+  .menu-toggle span::before,
+  .menu-toggle span::after {
+    display: block;
+    position: absolute;
+    left: 8px;
+    width: 24px; height: 2.5px;
+    background: var(--vert);
+    border-radius: 2px;
+    transition: transform 0.25s, opacity 0.25s;
+  }
+
+  .menu-toggle span { top: 19px; }
+  .menu-toggle span::before { content: ''; left: 0; top: -7px; }
+  .menu-toggle span::after { content: ''; left: 0; top: 7px; }
+
+  .menu-toggle[aria-expanded="true"] span { background: transparent; }
+  .menu-toggle[aria-expanded="true"] span::before { transform: translateY(7px) rotate(45deg); }
+  .menu-toggle[aria-expanded="true"] span::after { transform: translateY(-7px) rotate(-45deg); }
+
   /* ===== HERO ===== */
   .hero {
     min-height: 100vh;
@@ -103,6 +147,8 @@
     border-radius: 50%;
     background: rgba(244,162,97,0.1);
   }
+
+  .hero > * { position: relative; z-index: 1; }
 
   .hero-badge {
     background: rgba(255,255,255,0.15);
@@ -260,6 +306,7 @@
 
   .about-img img {
     width: 100%;
+    height: auto;
     display: block;
     border-radius: var(--radius);
     object-fit: cover;
@@ -286,6 +333,18 @@
     border-radius: 50%;
     background: #40916c;
     animation: pulse 1.5s infinite;
+  }
+
+  .about-badge.ferme .dot {
+    background: var(--rouge);
+    animation: none;
+  }
+
+  .about-badge small {
+    display: block;
+    font-weight: 600;
+    font-size: 0.8em;
+    color: var(--texte-leger);
   }
 
   @keyframes pulse {
@@ -526,6 +585,15 @@
     font-weight: 600;
   }
 
+  .info-content a:hover { text-decoration: underline; }
+
+  .info-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px 16px;
+    margin-top: 6px;
+  }
+
   .map-wrapper {
     border-radius: var(--radius);
     overflow: hidden;
@@ -539,12 +607,105 @@
     border: none;
   }
 
+  /* ===== NOS RAYONS (tableau de la boutique) ===== */
+  .rayons-section {
+    padding: 0 20px 90px;
+    max-width: 1100px;
+    margin: auto;
+  }
+
+  .tableau {
+    background: #1b4332;
+    color: #f4f7f5;
+    border-radius: 28px;
+    padding: 56px 56px 48px;
+    border: 2px solid var(--texte);
+    box-shadow: 8px 8px 0 var(--or);
+  }
+
+  .tableau .section-label { background: rgba(255,255,255,0.15); color: white; }
+  .tableau .section-title { color: white; }
+  .tableau .section-desc { color: rgba(255,255,255,0.75); margin-bottom: 36px; }
+
+  .tableau-colonnes {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px 64px;
+  }
+
+  .ligne {
+    display: flex;
+    align-items: baseline;
+    gap: 12px;
+    padding: 14px 0;
+  }
+
+  .ligne-nom {
+    font-family: 'Baloo 2', cursive;
+    font-weight: 700;
+    font-size: 1.3em;
+    white-space: nowrap;
+  }
+
+  .ligne-points {
+    flex: 1;
+    min-width: 20px;
+    border-bottom: 2px dotted rgba(255,255,255,0.35);
+    transform: translateY(-5px);
+  }
+
+  .ligne-pour {
+    color: var(--or);
+    font-weight: 600;
+    text-align: right;
+  }
+
+  .tableau-sous-titre {
+    grid-column: 1 / -1;
+    font-family: 'Baloo 2', cursive;
+    font-weight: 700;
+    font-size: 1.05em;
+    color: var(--or);
+    margin-top: 28px;
+    padding-top: 24px;
+    border-top: 2px solid rgba(255,255,255,0.15);
+  }
+
+  .tableau-note { margin-top: 32px; color: rgba(255,255,255,0.75); }
+  .tableau-note a { color: var(--or); font-weight: 700; }
+
+  @media (max-width: 768px) {
+    .tableau { padding: 36px 24px; }
+    .tableau-colonnes { grid-template-columns: 1fr; }
+    .ligne-nom { font-size: 1.15em; white-space: normal; }
+  }
+
+  /* ===== BOUTON WHATSAPP FLOTTANT ===== */
+  .whatsapp-float {
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+    z-index: 99;
+    width: 58px; height: 58px;
+    border-radius: 50%;
+    background: var(--whatsapp);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.25);
+    transition: transform 0.2s;
+  }
+
+  .whatsapp-float:hover { transform: scale(1.08); }
+
+  .whatsapp-float svg { width: 32px; height: 32px; fill: #fff; }
+
   /* ===== FOOTER ===== */
   footer {
     background: #1b2d22;
     color: rgba(255,255,255,0.7);
     text-align: center;
-    padding: 32px 20px;
+    padding: 32px 20px 96px;
     font-size: 0.92em;
   }
 
@@ -553,10 +714,43 @@
   /* ===== RESPONSIVE ===== */
   @media (max-width: 768px) {
     nav { padding: 12px 20px; }
-    .nav-links { display: none; }
+    .nav-cta { display: none; }
+    .menu-toggle { display: block; }
+
+    .nav-links {
+      display: none;
+      position: absolute;
+      top: 100%; left: 0; right: 0;
+      flex-direction: column;
+      gap: 0;
+      background: var(--blanc);
+      border-bottom: 1.5px solid var(--vert-pale);
+      box-shadow: var(--shadow);
+    }
+
+    .nav-links.ouvert { display: flex; }
+
+    .nav-links a {
+      display: block;
+      padding: 16px 24px;
+      font-size: 1.05em;
+      border-top: 1px solid var(--vert-pale);
+    }
+
     .about-grid { grid-template-columns: 1fr; }
     .contact-grid { grid-template-columns: 1fr; }
     .stats-row { gap: 12px; }
+    .stat-box { padding: 14px 10px; }
+    .stat-num { font-size: 1.6em; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    *, *::before, *::after {
+      animation: none !important;
+      transition: none !important;
+    }
+    .animal-chip { opacity: 1; transform: none; }
   }
 </style>
 </head>
@@ -565,14 +759,16 @@
 <!-- NAV -->
 <nav>
   <a href="#" class="nav-logo">Nutri<span>Pet</span></a>
-  <ul class="nav-links">
+  <ul class="nav-links" id="nav-links">
     <li><a href="#apropos">À propos</a></li>
     <li><a href="#services">Services</a></li>
     <li><a href="#produits">Produits</a></li>
+    <li><a href="#rayons">Rayons</a></li>
     <li><a href="#animaux">Animaux</a></li>
     <li><a href="#contact">Contact</a></li>
   </ul>
-  <a href="#contact" class="btn-primary" style="padding:10px 22px; font-size:0.9em;">Nous trouver</a>
+  <a href="#contact" class="btn-primary nav-cta">Nous trouver</a>
+  <button class="menu-toggle" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="nav-links"><span></span></button>
 </nav>
 
 <!-- HERO -->
@@ -591,7 +787,7 @@
     <div class="animal-chip">🐰 Lapins</div>
     <div class="animal-chip">🦜 Perroquets</div>
     <div class="animal-chip">🕊️ Pigeons</div>
-    <div class="animal-chip">🐦 Oiseaux</div>
+    <div class="animal-chip">🐦 Canaris</div>
   </div>
 </div>
 
@@ -599,10 +795,14 @@
 <div class="section" id="apropos">
   <div class="about-grid">
     <div class="about-img">
-      <img src="magasin.jpg" alt="Magasin Nutri Pet">
-      <div class="about-badge">
+      <img src="magasin.jpg" alt="Façade de la boutique Nutri Pet à Sidi Bouzekri, Meknès">
+      <!-- Badge mis à jour automatiquement selon les horaires (voir script en bas) -->
+      <div class="about-badge" id="badge-horaires">
         <div class="dot"></div>
-        Ouvert maintenant
+        <div>
+          <span id="badge-texte">Horaires</span>
+          <small id="badge-detail"></small>
+        </div>
       </div>
     </div>
     <div class="about-text">
@@ -616,12 +816,12 @@
           <div class="stat-lbl">Produits disponibles</div>
         </div>
         <div class="stat-box">
-          <div class="stat-num">6+</div>
-          <div class="stat-lbl">Espèces servies</div>
+          <div class="stat-num">8</div>
+          <div class="stat-lbl">Familles d'animaux</div>
         </div>
         <div class="stat-box">
-          <div class="stat-num">⭐ 5</div>
-          <div class="stat-lbl">Satisfaction client</div>
+          <div class="stat-num">7j/7</div>
+          <div class="stat-lbl">Ouvert toute la semaine</div>
         </div>
       </div>
     </div>
@@ -629,6 +829,7 @@
 </div>
 
 <!-- SERVICES -->
+<!-- À vérifier : ne garder que les services réellement proposés en boutique -->
 <div class="services-bg" id="services">
   <div style="text-align:center; max-width:1100px; margin:0 auto 48px;">
     <div class="section-label">Nos services</div>
@@ -718,6 +919,31 @@
   </div>
 </div>
 
+<!-- NOS RAYONS -->
+<!-- À vérifier : ne garder dans "Services" que ce que la boutique propose vraiment -->
+<div class="rayons-section" id="rayons">
+  <div class="tableau">
+    <div class="section-label">Nos rayons</div>
+    <h2 class="section-title">Les rayons de la boutique</h2>
+    <p class="section-desc">Plus de 100 produits en magasin, choisis pour la santé de vos compagnons.</p>
+
+    <div class="tableau-colonnes">
+      <div class="ligne"><span class="ligne-nom">Croquettes & pâtées</span><span class="ligne-points"></span><span class="ligne-pour">chiens, chats</span></div>
+      <div class="ligne"><span class="ligne-nom">Graines & foin</span><span class="ligne-points"></span><span class="ligne-pour">oiseaux, pigeons, lapins</span></div>
+      <div class="ligne"><span class="ligne-nom">Jouets & accessoires</span><span class="ligne-points"></span><span class="ligne-pour">tous</span></div>
+      <div class="ligne"><span class="ligne-nom">Hygiène & soins</span><span class="ligne-points"></span><span class="ligne-pour">shampooings, anti-puces</span></div>
+      <div class="ligne"><span class="ligne-nom">Aquariums</span><span class="ligne-points"></span><span class="ligne-pour">filtres, décors, nourriture</span></div>
+      <div class="ligne"><span class="ligne-nom">Cages & transport</span><span class="ligne-points"></span><span class="ligne-pour">cages, niches</span></div>
+
+      <div class="tableau-sous-titre">Services</div>
+      <div class="ligne"><span class="ligne-nom">Toilettage</span><span class="ligne-points"></span><span class="ligne-pour">bain, coupe, soin</span></div>
+      <div class="ligne"><span class="ligne-nom">Pension</span><span class="ligne-points"></span><span class="ligne-pour">pendant vos voyages</span></div>
+    </div>
+
+    <p class="tableau-note">Un prix, une disponibilité ? <a href="https://wa.me/212653639430" target="_blank" rel="noopener">Demandez-nous sur WhatsApp</a>, on vous répond vite.</p>
+  </div>
+</div>
+
 <!-- ANIMAUX -->
 <div class="animaux-bg" id="animaux">
   <div class="section-label">Espèces</div>
@@ -748,21 +974,25 @@
         <div class="info-content">
           <h5>Adresse</h5>
           <p>Meknès - Sidi Bouzekri<br>Maroc</p>
+          <a href="https://www.google.com/maps/search/?api=1&query=VF57%2BGVP%20Mekn%C3%A8s" target="_blank" rel="noopener">📍 Ouvrir l'itinéraire</a>
         </div>
       </div>
       <div class="info-card">
         <div class="info-icon">📞</div>
         <div class="info-content">
           <h5>Téléphone / WhatsApp</h5>
-          <a href="tel:+212653639430">06 53 63 94 30</a>
-          <p>Appelez-nous ou écrivez sur WhatsApp</p>
+          <p>06 53 63 94 30</p>
+          <div class="info-links">
+            <a href="tel:+212653639430">📞 Appeler</a>
+            <a href="https://wa.me/212653639430" target="_blank" rel="noopener">💬 Écrire sur WhatsApp</a>
+          </div>
         </div>
       </div>
       <div class="info-card">
         <div class="info-icon">📸</div>
         <div class="info-content">
           <h5>Instagram</h5>
-          <a href="https://instagram.com/nutri_pet_1" target="_blank">@nutri_pet_1</a>
+          <a href="https://instagram.com/nutri_pet_1" target="_blank" rel="noopener">@nutri_pet_1</a>
           <p>Suivez-nous pour nos nouveautés !</p>
         </div>
       </div>
@@ -777,7 +1007,8 @@
 
     <div class="map-wrapper">
       <iframe
-        src="https://maps.google.com/maps?q=Sidi+Bouzekri+Meknes+Morocco&output=embed&z=14"
+        src="https://maps.google.com/maps?q=VF57%2BGVP%20Mekn%C3%A8s%20Maroc&output=embed&z=17"
+        title="Carte : emplacement de Nutri Pet à Meknès"
         allowfullscreen
         loading="lazy"
         referrerpolicy="no-referrer-when-downgrade">
@@ -789,8 +1020,87 @@
 <!-- FOOTER -->
 <footer>
   <p><strong>Nutri Pet</strong> — Animalerie à Meknès, Sidi Bouzekri</p>
-  <p style="margin-top:8px;">📸 <a href="https://instagram.com/nutri_pet_1" target="_blank" style="color:var(--vert-clair);">@nutri_pet_1</a> &nbsp;|&nbsp; © 2025 Nutri Pet. Tous droits réservés.</p>
+  <p style="margin-top:8px;">📸 <a href="https://instagram.com/nutri_pet_1" target="_blank" rel="noopener" style="color:var(--vert-clair);">@nutri_pet_1</a> &nbsp;|&nbsp; © <span id="annee">2026</span> Nutri Pet. Tous droits réservés.</p>
 </footer>
+
+<!-- BOUTON WHATSAPP FLOTTANT -->
+<a href="https://wa.me/212653639430" class="whatsapp-float" target="_blank" rel="noopener" aria-label="Nous écrire sur WhatsApp">
+  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M17.47 14.38c-.3-.15-1.75-.86-2.02-.96-.27-.1-.47-.15-.67.15-.2.3-.77.96-.94 1.16-.17.2-.35.22-.65.07-.3-.15-1.25-.46-2.38-1.47-.88-.79-1.47-1.76-1.65-2.06-.17-.3-.02-.46.13-.61.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.07-.15-.67-1.61-.92-2.21-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.79.37-.27.3-1.04 1.02-1.04 2.48s1.07 2.88 1.21 3.08c.15.2 2.1 3.2 5.08 4.49.71.31 1.26.49 1.69.63.71.23 1.36.2 1.87.12.57-.08 1.75-.72 2-1.41.25-.69.25-1.29.17-1.41-.07-.12-.27-.2-.57-.35zM12.04 21.5h-.01a9.45 9.45 0 0 1-4.82-1.32l-.35-.21-3.58.94.96-3.49-.23-.36a9.43 9.43 0 0 1-1.45-5.03c0-5.22 4.25-9.47 9.48-9.47 2.53 0 4.91.99 6.7 2.78a9.41 9.41 0 0 1 2.77 6.7c0 5.22-4.25 9.46-9.47 9.46zm8.06-17.53A11.33 11.33 0 0 0 12.04.63C5.76.63.65 5.74.65 12.02c0 2.01.52 3.97 1.52 5.69L.55 23.6l6.03-1.58a11.36 11.36 0 0 0 5.45 1.39h.01c6.28 0 11.39-5.11 11.39-11.39 0-3.04-1.18-5.9-3.33-8.05z"/></svg>
+</a>
+
+<script>
+  // ===== Menu mobile =====
+  const toggle = document.querySelector('.menu-toggle');
+  const links = document.getElementById('nav-links');
+
+  toggle.addEventListener('click', () => {
+    const ouvert = links.classList.toggle('ouvert');
+    toggle.setAttribute('aria-expanded', ouvert);
+    toggle.setAttribute('aria-label', ouvert ? 'Fermer le menu' : 'Ouvrir le menu');
+  });
+
+  links.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+    links.classList.remove('ouvert');
+    toggle.setAttribute('aria-expanded', 'false');
+    toggle.setAttribute('aria-label', 'Ouvrir le menu');
+  }));
+
+  // ===== Badge Ouvert / Fermé (heure du Maroc) =====
+  // 0 = dimanche, 1 = lundi ... 6 = samedi. Heures en minutes depuis minuit.
+  const HORAIRES = {
+    0: [10 * 60, 17 * 60],
+    1: [9 * 60, 19 * 60],
+    2: [9 * 60, 19 * 60],
+    3: [9 * 60, 19 * 60],
+    4: [9 * 60, 19 * 60],
+    5: [9 * 60, 19 * 60],
+    6: [9 * 60, 19 * 60]
+  };
+  const JOURS = ['dimanche', 'lundi', 'mardi', 'mercredi', 'jeudi', 'vendredi', 'samedi'];
+
+  function heureMaroc() {
+    const parts = new Intl.DateTimeFormat('en-US', {
+      timeZone: 'Africa/Casablanca',
+      weekday: 'short', hour: 'numeric', minute: 'numeric', hour12: false
+    }).formatToParts(new Date());
+    const get = t => parts.find(p => p.type === t).value;
+    const jours = { Sun: 0, Mon: 1, Tue: 2, Wed: 3, Thu: 4, Fri: 5, Sat: 6 };
+    return { jour: jours[get('weekday')], minutes: (parseInt(get('hour'), 10) % 24) * 60 + parseInt(get('minute'), 10) };
+  }
+
+  function formatHeure(min) {
+    const h = Math.floor(min / 60), m = min % 60;
+    return h + 'h' + String(m).padStart(2, '0');
+  }
+
+  function majBadge() {
+    const badge = document.getElementById('badge-horaires');
+    const texte = document.getElementById('badge-texte');
+    const detail = document.getElementById('badge-detail');
+    const { jour, minutes } = heureMaroc();
+    const [debut, fin] = HORAIRES[jour];
+
+    if (minutes >= debut && minutes < fin) {
+      badge.classList.remove('ferme');
+      texte.textContent = 'Ouvert maintenant';
+      detail.textContent = "Jusqu'à " + formatHeure(fin);
+    } else {
+      badge.classList.add('ferme');
+      texte.textContent = 'Fermé';
+      if (minutes < debut) {
+        detail.textContent = "Ouvre aujourd'hui à " + formatHeure(debut);
+      } else {
+        const demain = (jour + 1) % 7;
+        detail.textContent = 'Ouvre ' + JOURS[demain] + ' à ' + formatHeure(HORAIRES[demain][0]);
+      }
+    }
+  }
+
+  try { majBadge(); setInterval(majBadge, 60000); } catch (e) { /* le badge garde "Horaires" */ }
+
+  // ===== Année automatique dans le footer =====
+  document.getElementById('annee').textContent = new Date().getFullYear();
+</script>
 
 </body>
 </html>
