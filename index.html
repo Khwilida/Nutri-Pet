@@ -4,36 +4,48 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="theme-color" content="#173e2b">
-  <meta name="description" content="Nutri Pet à Meknès : alimentation, accessoires et produits pour le bien-être de vos animaux.">
-  <title>Nutri Pet | Le bien-être de vos animaux</title>
+  <meta name="theme-color" content="#103e2e">
+  <meta name="description" content="Nutri Pet à Meknès : alimentation, accessoires, jouets et produits de soin pour vos animaux. Découvrez notre boutique et contactez-nous sur WhatsApp.">
+  <title>Nutri Pet | Le bonheur de vos animaux</title>
 
   <style>
     :root {
-      --green: #173e2b;
-      --green-light: #285a3d;
-      --cream: #faf7ee;
-      --orange: #e99a43;
-      --text: #253329;
+      --green: #103e2e;
+      --green-light: #176b4b;
+      --green-bright: #08a66a;
+      --cream: #f8f6ef;
       --white: #ffffff;
+      --gold: #d5e88a;
+      --text: #183b2e;
+      --muted: #68766d;
+      --border: #e9e9df;
+      --shadow: 0 12px 35px rgba(16, 62, 46, .09);
+      --radius: 20px;
     }
 
     * {
-      box-sizing: border-box;
       margin: 0;
       padding: 0;
+      box-sizing: border-box;
     }
 
     html {
       scroll-behavior: smooth;
-      scroll-padding-top: 85px;
+      scroll-padding-top: 90px;
     }
 
     body {
-      font-family: Arial, Helvetica, sans-serif;
-      background: var(--cream);
+      font-family: Inter, "Segoe UI", Arial, sans-serif;
+      background: var(--white);
       color: var(--text);
       line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    img {
+      display: block;
+      width: 100%;
+      object-fit: cover;
     }
 
     a {
@@ -41,151 +53,347 @@
       text-decoration: none;
     }
 
-    button, input {
+    button, input, select {
       font: inherit;
     }
 
-    img {
-      display: block;
-      max-width: 100%;
+    button, a {
+      -webkit-tap-highlight-color: transparent;
     }
 
-    .topbar {
-      background: var(--green);
-      color: white;
-      text-align: center;
-      padding: 8px 12px;
-      font-size: 13px;
+    button {
+      cursor: pointer;
     }
 
-    header {
-      position: sticky;
-      top: 0;
-      z-index: 20;
-      background: rgba(250, 247, 238, .97);
-      border-bottom: 1px solid #e8e3d7;
-      backdrop-filter: blur(12px);
-    }
-
-    .navbar {
-      max-width: 1200px;
-      min-height: 76px;
-      padding: 12px 24px;
+    .container {
+      width: min(1200px, 92%);
       margin: auto;
+    }
+
+    .section {
+      padding: 78px 0;
+    }
+
+    .section-cream {
+      background: var(--cream);
+    }
+
+    .section-heading {
       display: flex;
+      align-items: end;
       justify-content: space-between;
-      align-items: center;
       gap: 20px;
-    }
-
-    .logo {
-      color: var(--green);
-      font-size: 27px;
-      font-weight: 900;
-      letter-spacing: -.8px;
-      white-space: nowrap;
-    }
-
-    .logo span {
-      color: var(--orange);
-    }
-
-    .navlinks {
-      display: flex;
-      align-items: center;
-      gap: 24px;
-      font-size: 14px;
-      font-weight: 700;
-    }
-
-    .navlinks a:hover {
-      color: #b86b20;
-    }
-
-    .nav-cta, .btn {
-      display: inline-flex;
-      justify-content: center;
-      align-items: center;
-      gap: 8px;
-      border: none;
-      border-radius: 9px;
-      padding: 12px 18px;
-      background: var(--green);
-      color: white;
-      font-weight: 700;
-      cursor: pointer;
-      transition: transform .2s, background .2s;
-    }
-
-    .nav-cta:hover, .btn:hover {
-      background: var(--green-light);
-      transform: translateY(-2px);
-    }
-
-    .btn-orange {
-      background: var(--orange);
-      color: #202b20;
-    }
-
-    .btn-orange:hover {
-      background: #f2ad60;
-    }
-
-    .menu-toggle {
-      display: none;
-      background: transparent;
-      color: var(--green);
-      border: 0;
-      font-size: 27px;
-      cursor: pointer;
-    }
-
-    .hero {
-      background: var(--green);
-      color: white;
-      overflow: hidden;
-    }
-
-    .hero-inner {
-      max-width: 1200px;
-      min-height: 490px;
-      padding: 48px 24px;
-      margin: auto;
-      display: grid;
-      grid-template-columns: 1fr 1.05fr;
-      gap: 44px;
-      align-items: center;
+      margin-bottom: 28px;
     }
 
     .eyebrow {
       display: inline-block;
-      background: rgba(255,255,255,.12);
-      color: #ffcf91;
-      padding: 7px 12px;
-      border-radius: 30px;
-      font-size: 12px;
+      margin-bottom: 8px;
+      color: var(--green-light);
+      font-size: 11px;
       font-weight: 800;
-      letter-spacing: 1px;
+      letter-spacing: 2px;
       text-transform: uppercase;
+    }
+
+    .section-heading h2,
+    .about-content h2,
+    .assistant-copy h2 {
+      color: var(--green);
+      font-size: clamp(27px, 3vw, 38px);
+      line-height: 1.2;
+      letter-spacing: -.7px;
+    }
+
+    .section-heading p {
+      margin-top: 8px;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .text-link {
+      color: var(--green-light);
+      font-size: 13px;
+      font-weight: 800;
+      white-space: nowrap;
+    }
+
+    .text-link:hover {
+      color: var(--green-bright);
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 9px;
+      min-height: 46px;
+      padding: 12px 21px;
+      border: 0;
+      border-radius: 50px;
+      font-size: 13px;
+      font-weight: 800;
+      transition: transform .25s, background .25s, box-shadow .25s;
+    }
+
+    .btn:hover {
+      transform: translateY(-3px);
+    }
+
+    .btn-primary {
+      color: white;
+      background: var(--green-bright);
+      box-shadow: 0 8px 20px rgba(8, 166, 106, .17);
+    }
+
+    .btn-primary:hover {
+      background: var(--green-light);
+    }
+
+    .btn-outline {
+      color: var(--green);
+      background: white;
+      border: 1px solid var(--border);
+    }
+
+    .btn-dark {
+      color: white;
+      background: var(--green);
+    }
+
+    /* HEADER */
+
+    .header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: rgba(255, 255, 255, .96);
+      border-bottom: 1px solid rgba(16, 62, 46, .07);
+      backdrop-filter: blur(15px);
+    }
+
+    .navbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      min-height: 76px;
+      gap: 22px;
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      flex-shrink: 0;
+    }
+
+    .brand-icon {
+      display: grid;
+      place-items: center;
+      width: 45px;
+      height: 45px;
+      color: white;
+      background: var(--green);
+      border-radius: 15px;
+      font-size: 24px;
+      transform: rotate(-5deg);
+    }
+
+    .brand-name {
+      color: var(--green);
+      font-size: 27px;
+      font-weight: 900;
+      letter-spacing: -1.2px;
+      line-height: 1;
+    }
+
+    .brand-name span {
+      color: #9baa4b;
+    }
+
+    .brand-tagline {
+      display: block;
+      margin-top: 5px;
+      color: var(--muted);
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: .2px;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 22px;
+    }
+
+    .nav-links a {
+      color: #304a3c;
+      font-size: 12px;
+      font-weight: 700;
+      transition: color .2s;
+    }
+
+    .nav-links a:hover {
+      color: var(--green-bright);
+    }
+
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .search-box {
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      width: 205px;
+      padding: 8px 10px 8px 14px;
+      background: #f5f5f0;
+      border: 1px solid transparent;
+      border-radius: 50px;
+    }
+
+    .search-box:focus-within {
+      border-color: #a8d9bc;
+    }
+
+    .search-box input {
+      width: 100%;
+      min-width: 0;
+      background: transparent;
+      border: 0;
+      outline: 0;
+      font-size: 11px;
+    }
+
+    .search-box button {
+      display: grid;
+      place-items: center;
+      width: 29px;
+      height: 29px;
+      flex-shrink: 0;
+      color: white;
+      background: var(--green);
+      border: 0;
+      border-radius: 50%;
+    }
+
+    .social-icon {
+      display: grid;
+      place-items: center;
+      width: 34px;
+      height: 34px;
+      color: white;
+      background: var(--green-bright);
+      border-radius: 50%;
+      font-size: 15px;
+      font-weight: 800;
+    }
+
+    .instagram-icon {
+      background: linear-gradient(135deg, #7654c8, #ec4380, #ffac45);
+    }
+
+    .cart-button {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      padding: 8px;
+      color: var(--green);
+      background: transparent;
+      border: 0;
+      font-size: 20px;
+    }
+
+    .cart-count {
+      display: grid;
+      place-items: center;
+      width: 19px;
+      height: 19px;
+      color: white;
+      background: var(--green);
+      border-radius: 50%;
+      font-size: 10px;
+      font-weight: 800;
+    }
+
+    .menu-toggle {
+      display: none;
+      width: 42px;
+      height: 42px;
+      color: var(--green);
+      background: var(--cream);
+      border: 0;
+      border-radius: 12px;
+      font-size: 23px;
+    }
+
+    /* HERO */
+
+    .hero {
+      position: relative;
+      display: flex;
+      align-items: center;
+      min-height: 510px;
+      overflow: hidden;
+      color: white;
+      background:
+        linear-gradient(90deg, rgba(7, 42, 29, .96) 0%,
+        rgba(7, 42, 29, .82) 38%,
+        rgba(7, 42, 29, .12) 100%),
+        url("https://images.unsplash.com/photo-1450778869180-41d0601e046e?auto=format&fit=crop&w=2000&q=85")
+        center 43% / cover no-repeat;
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at 75% 50%, transparent, rgba(8, 38, 26, .17));
+      pointer-events: none;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      max-width: 620px;
+      padding: 76px 0 105px;
+      animation: fadeUp .8s ease both;
+    }
+
+    .hero-label {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
       margin-bottom: 20px;
+      padding: 8px 13px;
+      color: #e4f4bc;
+      background: rgba(255, 255, 255, .1);
+      border: 1px solid rgba(255, 255, 255, .2);
+      border-radius: 50px;
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: .6px;
     }
 
     .hero h1 {
-      font-size: clamp(38px, 5vw, 61px);
-      line-height: 1.08;
-      letter-spacing: -1.8px;
-      margin-bottom: 20px;
+      margin-bottom: 19px;
+      font-size: clamp(39px, 5.5vw, 67px);
+      line-height: 1.04;
+      letter-spacing: -2px;
     }
 
     .hero h1 span {
-      color: #f5b363;
+      color: var(--gold);
     }
 
     .hero p {
-      color: #e1e9df;
-      max-width: 470px;
-      margin-bottom: 26px;
+      max-width: 460px;
+      margin-bottom: 27px;
+      color: rgba(255, 255, 255, .88);
       font-size: 16px;
+      line-height: 1.8;
     }
 
     .hero-buttons {
@@ -194,766 +402,2333 @@
       gap: 12px;
     }
 
-    .hero-photo {
-      position: relative;
+    .hero .btn-outline {
+      color: white;
+      background: rgba(255, 255, 255, .09);
+      border-color: rgba(255, 255, 255, .55);
     }
 
-    .hero-photo img {
-      width: 100%;
-      height: 365px;
-      object-fit: cover;
-      border-radius: 18px;
-      border: 5px solid rgba(255,255,255,.16);
-      box-shadow: 0 20px 50px rgba(0,0,0,.25);
-    }
-
-    .photo-caption {
+    .hero-paw {
       position: absolute;
-      bottom: 15px;
-      left: 15px;
-      right: 15px;
-      background: rgba(23,62,43,.92);
-      padding: 13px 16px;
-      border-radius: 10px;
-      font-weight: 700;
+      right: 9%;
+      bottom: 50px;
+      color: rgba(255, 255, 255, .35);
+      font-size: 50px;
+      animation: float 4s ease-in-out infinite;
     }
 
-    .trust-strip {
-      background: white;
+    /* ANIMALS STRIP */
+
+    .animal-strip {
+      position: relative;
+      z-index: 2;
+      margin-top: -40px;
+    }
+
+    .animal-grid {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns: repeat(6, 1fr);
       gap: 15px;
-      padding: 22px 24px;
-      border-bottom: 1px solid #eee7d9;
     }
 
-    .trust-item {
+    .animal-card {
       display: flex;
       align-items: center;
-      justify-content: center;
-      gap: 10px;
+      gap: 12px;
+      min-width: 0;
+      padding: 15px 12px;
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: 19px;
+      box-shadow: var(--shadow);
+      transition: transform .25s, border-color .25s;
+    }
+
+    .animal-card:hover {
+      transform: translateY(-6px);
+      border-color: #a7d6b8;
+    }
+
+    .animal-emoji {
+      display: grid;
+      place-items: center;
+      width: 45px;
+      height: 45px;
+      flex-shrink: 0;
+      background: #eff3e5;
+      border-radius: 50%;
+      font-size: 26px;
+    }
+
+    .animal-card strong {
+      display: block;
+      color: var(--green);
+      font-size: 12px;
+    }
+
+    .animal-card small {
+      display: block;
+      margin-top: 3px;
+      color: var(--muted);
+      font-size: 10px;
+    }
+
+    /* ABOUT / REAL STORE PHOTO */
+
+    .about-section {
+      padding: 90px 0 78px;
+      background: var(--cream);
+    }
+
+    .about-container {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      align-items: center;
+      gap: 60px;
+    }
+
+    .about-image {
+      position: relative;
+      min-width: 0;
+    }
+
+    .about-image img {
+      width: 100%;
+      height: 430px;
+      object-fit: cover;
+      background: #e6e9dd;
+      border: 5px solid white;
+      border-radius: 25px;
+      box-shadow: 0 18px 45px rgba(17, 62, 44, .14);
+    }
+
+    .about-image-badge {
+      position: absolute;
+      right: 18px;
+      bottom: 18px;
+      left: 18px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 15px 18px;
+      background: rgba(255, 255, 255, .95);
+      border: 1px solid rgba(255, 255, 255, .8);
+      border-radius: 16px;
+      backdrop-filter: blur(10px);
+    }
+
+    .about-image-badge > span {
+      font-size: 31px;
+    }
+
+    .about-image-badge strong,
+    .about-image-badge small {
+      display: block;
+    }
+
+    .about-image-badge strong {
+      color: var(--green);
+      font-size: 17px;
+    }
+
+    .about-image-badge small {
+      margin-top: 3px;
+      color: var(--muted);
+      font-size: 11px;
+    }
+
+    .about-content h2 {
+      margin: 12px 0 20px;
+    }
+
+    .about-content p {
+      margin-bottom: 14px;
+      color: var(--muted);
       font-size: 14px;
+      line-height: 1.9;
+    }
+
+    .about-features {
+      display: grid;
+      gap: 13px;
+      margin: 24px 0;
+    }
+
+    .about-feature {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      color: #244b39;
+      font-size: 13px;
       font-weight: 700;
     }
 
-    .trust-icon {
-      font-size: 25px;
+    .about-feature span {
+      display: grid;
+      place-items: center;
+      width: 39px;
+      height: 39px;
+      flex-shrink: 0;
+      background: #e5efdf;
+      border-radius: 12px;
+      font-size: 19px;
     }
 
-    section {
-      padding: 76px 24px;
-    }
-
-    .container {
-      max-width: 1150px;
-      margin: auto;
-    }
-
-    .section-heading {
-      text-align: center;
-      max-width: 650px;
-      margin: 0 auto 36px;
-    }
-
-    .section-kicker {
-      color: #a96b2c;
-      font-weight: 800;
-      font-size: 12px;
-      letter-spacing: 1.6px;
-      text-transform: uppercase;
-      margin-bottom: 8px;
-    }
-
-    h2 {
-      color: var(--green);
-      font-size: clamp(29px, 4vw, 40px);
-      line-height: 1.2;
-      margin-bottom: 12px;
-      letter-spacing: -.8px;
-    }
-
-    .section-heading p {
-      color: #687368;
-    }
+    /* PRODUCT CATEGORIES */
 
     .category-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+    }
+
+    .category-card {
+      position: relative;
+      min-width: 0;
+      overflow: hidden;
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      transition: transform .3s, box-shadow .3s;
+    }
+
+    .category-card:hover {
+      transform: translateY(-7px);
+      box-shadow: var(--shadow);
+    }
+
+    .category-card img {
+      height: 210px;
+      transition: transform .6s;
+    }
+
+    .category-card:hover img {
+      transform: scale(1.05);
+    }
+
+    .category-info {
+      padding: 19px;
+    }
+
+    .category-info h3 {
+      margin-bottom: 5px;
+      color: var(--green);
+      font-size: 17px;
+    }
+
+    .category-info p {
+      margin-bottom: 13px;
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    .category-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      color: var(--green-light);
+      font-size: 12px;
+      font-weight: 800;
+    }
+
+    /* PROMOTION */
+
+    .promo-layout {
+      display: grid;
+      grid-template-columns: .85fr 1.7fr;
+      gap: 27px;
+    }
+
+    .promo-banner {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      min-height: 390px;
+      overflow: hidden;
+      padding: 32px;
+      color: white;
+      background:
+        linear-gradient(135deg, rgba(11, 57, 40, .98), rgba(23, 107, 75, .8)),
+        url("https://images.unsplash.com/photo-1573865526739-10659fec78a5?auto=format&fit=crop&w=900&q=80")
+        center / cover;
+      border-radius: 23px;
+    }
+
+    .promo-banner::after {
+      content: "🐾";
+      position: absolute;
+      right: 16px;
+      bottom: 10px;
+      color: rgba(255, 255, 255, .1);
+      font-size: 100px;
+      transform: rotate(-15deg);
+    }
+
+    .promo-label {
+      align-self: flex-start;
+      margin-bottom: 19px;
+      padding: 6px 12px;
+      color: var(--green);
+      background: var(--gold);
+      border-radius: 50px;
+      font-size: 10px;
+      font-weight: 900;
+      letter-spacing: 1px;
+    }
+
+    .promo-banner h3 {
+      position: relative;
+      z-index: 1;
+      margin-bottom: 10px;
+      font-size: clamp(28px, 3vw, 40px);
+      line-height: 1.15;
+    }
+
+    .promo-banner p {
+      position: relative;
+      z-index: 1;
+      margin-bottom: 23px;
+      color: rgba(255, 255, 255, .85);
+      font-size: 14px;
+    }
+
+    .promo-banner .btn {
+      align-self: flex-start;
+      position: relative;
+      z-index: 2;
+      color: var(--green);
+      background: var(--gold);
+    }
+
+    .promo-products {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 17px;
+    }
+
+    /* PRODUCT CARDS */
+
+    .product-grid {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
       gap: 18px;
     }
 
-    .category-card {
-      background: white;
-      padding: 25px 15px;
-      border-radius: 15px;
-      text-align: center;
-      border: 1px solid #eee8dc;
-      transition: transform .2s, box-shadow .2s;
-    }
-
-    .category-card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 12px 28px #173e2b12;
-    }
-
-    .category-emoji {
-      font-size: 44px;
-      margin-bottom: 10px;
-    }
-
-    .category-card h3 {
-      color: var(--green);
-      font-size: 17px;
-      margin-bottom: 5px;
-    }
-
-    .category-card p {
-      color: #778075;
-      font-size: 13px;
-    }
-
-    .products-section {
-      background: #f0eddf;
-    }
-
-    .product-tools {
-      max-width: 550px;
-      margin: 0 auto 25px;
-    }
-
-    .product-tools input {
-      width: 100%;
-      border: 1px solid #ded8ca;
-      border-radius: 10px;
-      background: white;
-      padding: 14px 16px;
-      outline-color: var(--green);
-    }
-
-    .product-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 18px;
-    }
-
     .product-card {
+      display: flex;
+      flex-direction: column;
+      min-width: 0;
+      overflow: hidden;
       background: white;
-      border-radius: 14px;
-      padding: 23px;
-      border: 1px solid #e8e2d5;
+      border: 1px solid var(--border);
+      border-radius: 17px;
+      transition: transform .25s, box-shadow .25s;
     }
 
-    .product-symbol {
-      height: 115px;
-      border-radius: 10px;
-      background: #f7f4e9;
+    .product-card:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--shadow);
+    }
+
+    .product-image {
+      position: relative;
       display: grid;
       place-items: center;
-      font-size: 54px;
-      margin-bottom: 17px;
+      height: 180px;
+      padding: 12px;
+      overflow: hidden;
+      background: #f7f7f1;
     }
 
-    .product-card h3 {
-      color: var(--green);
-      margin-bottom: 7px;
-    }
-
-    .product-card p {
-      color: #727a70;
-      font-size: 14px;
-      margin-bottom: 15px;
-    }
-
-    .product-card .btn {
+    .product-image img {
       width: 100%;
+      height: 100%;
+      object-fit: contain;
+      mix-blend-mode: multiply;
+      transition: transform .3s;
+    }
+
+    .product-card:hover .product-image img {
+      transform: scale(1.05);
+    }
+
+    .product-badge {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      padding: 5px 8px;
+      color: var(--green);
+      background: var(--gold);
+      border-radius: 20px;
+      font-size: 9px;
+      font-weight: 900;
+    }
+
+    .product-content {
+      display: flex;
+      flex: 1;
+      flex-direction: column;
+      padding: 14px;
+    }
+
+    .product-content h3 {
+      margin-bottom: 4px;
+      color: var(--green);
       font-size: 13px;
-      padding: 11px;
     }
 
-    .no-results {
-      display: none;
+    .product-content p {
+      flex: 1;
+      margin-bottom: 12px;
+      color: var(--muted);
+      font-size: 11px;
+    }
+
+    .product-price {
+      margin-bottom: 12px;
+      color: var(--green);
+      font-size: 17px;
+      font-weight: 900;
+    }
+
+    .product-price small {
+      color: var(--muted);
+      font-size: 10px;
+      font-weight: 500;
+    }
+
+    .product-order {
+      width: 100%;
+      padding: 10px 8px;
+      color: white;
+      background: var(--green-bright);
+      border: 0;
+      border-radius: 9px;
+      font-size: 10px;
+      font-weight: 800;
+      transition: background .2s;
+    }
+
+    .product-order:hover {
+      background: var(--green);
+    }
+
+    /* ANIMAL DISCOVERY */
+
+    .animal-discovery-grid {
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      gap: 15px;
+    }
+
+    .animal-discovery {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+      padding: 24px 10px;
       text-align: center;
-      padding: 20px;
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      transition: transform .25s, background .25s;
     }
 
-    .services-grid {
+    .animal-discovery:hover {
+      transform: translateY(-5px);
+      background: #f0f5e8;
+    }
+
+    .animal-discovery .big-emoji {
+      font-size: 40px;
+      transition: transform .25s;
+    }
+
+    .animal-discovery:hover .big-emoji {
+      transform: rotate(-8deg) scale(1.12);
+    }
+
+    .animal-discovery strong {
+      color: var(--green);
+      font-size: 12px;
+    }
+
+    .animal-discovery small {
+      color: var(--muted);
+      font-size: 10px;
+    }
+
+    /* ADVICE */
+
+    .advice-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 19px;
+    }
+
+    .advice-card {
+      overflow: hidden;
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: 17px;
+      transition: transform .25s;
+    }
+
+    .advice-card:hover {
+      transform: translateY(-5px);
+    }
+
+    .advice-card img {
+      height: 175px;
+    }
+
+    .advice-content {
+      padding: 17px;
+    }
+
+    .advice-tag {
+      display: inline-block;
+      margin-bottom: 9px;
+      padding: 4px 9px;
+      color: var(--green-light);
+      background: #edf4e7;
+      border-radius: 20px;
+      font-size: 10px;
+      font-weight: 800;
+    }
+
+    .advice-content h3 {
+      margin-bottom: 9px;
+      color: var(--green);
+      font-size: 15px;
+      line-height: 1.45;
+    }
+
+    .advice-content p {
+      margin-bottom: 13px;
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    .read-more {
+      color: var(--green-light);
+      background: none;
+      border: 0;
+      font-size: 12px;
+      font-weight: 800;
+    }
+
+    /* ASSISTANT */
+
+    .assistant-section {
+      padding: 75px 0;
+      background: linear-gradient(135deg, #f5f5eb, #edf5e7);
+    }
+
+    .assistant-layout {
+      display: grid;
+      grid-template-columns: .85fr 1.15fr;
+      align-items: center;
+      gap: 55px;
+    }
+
+    .assistant-illustration {
+      position: relative;
+      min-height: 330px;
+      overflow: hidden;
+      background: #dfead5;
+      border-radius: 25px;
+    }
+
+    .assistant-illustration img {
+      width: 100%;
+      height: 330px;
+      object-fit: cover;
+    }
+
+    .assistant-sticker {
+      position: absolute;
+      right: 15px;
+      bottom: 15px;
+      padding: 12px 16px;
+      color: var(--green);
+      background: rgba(255, 255, 255, .95);
+      border-radius: 14px;
+      font-size: 12px;
+      font-weight: 800;
+    }
+
+    .assistant-copy h2 {
+      margin-bottom: 12px;
+    }
+
+    .assistant-copy > p {
+      margin-bottom: 22px;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .assistant-form {
+      display: grid;
+      gap: 15px;
+      padding: 24px;
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      box-shadow: var(--shadow);
+    }
+
+    .assistant-form label {
+      display: block;
+      margin-bottom: 7px;
+      color: var(--green);
+      font-size: 12px;
+      font-weight: 800;
+    }
+
+    .assistant-form select,
+    .assistant-form input {
+      width: 100%;
+      min-height: 45px;
+      padding: 11px 13px;
+      color: var(--text);
+      background: #fafaf6;
+      border: 1px solid #e2e7dc;
+      border-radius: 10px;
+      outline: none;
+      font-size: 13px;
+    }
+
+    .assistant-form select:focus,
+    .assistant-form input:focus {
+      border-color: #79bd91;
+    }
+
+    .assistant-result {
+      display: none;
+      padding: 17px;
+      color: var(--green);
+      background: #edf6e9;
+      border-radius: 13px;
+      font-size: 13px;
+    }
+
+    .assistant-result.show {
+      display: block;
+      animation: fadeUp .3s ease both;
+    }
+
+    /* COMMUNITY */
+
+    .community-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 20px;
     }
 
-    .service-card {
-      padding: 25px;
-      border-radius: 15px;
+    .community-card {
+      padding: 14px;
       background: white;
-      border: 1px solid #eee7da;
+      border: 1px solid var(--border);
+      border-radius: 19px;
     }
 
-    .service-card .icon {
-      font-size: 35px;
-      margin-bottom: 12px;
+    .community-card img {
+      height: 205px;
+      border-radius: 13px;
     }
 
-    .service-card h3 {
+    .community-card h3 {
+      margin: 12px 0 4px;
       color: var(--green);
-      margin-bottom: 8px;
+      font-size: 15px;
     }
 
-    .service-card p {
-      font-size: 14px;
-      color: #6c766b;
+    .community-card p {
+      color: var(--muted);
+      font-size: 12px;
     }
 
-    .store-section {
-      background: var(--green);
-      color: white;
+    .community-note {
+      margin-top: 20px;
+      color: var(--muted);
+      font-size: 12px;
+      text-align: center;
     }
 
-    .store-layout {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 45px;
-      align-items: center;
-    }
-
-    .store-layout h2 {
-      color: white;
-    }
-
-    .store-layout p {
-      color: #e0e8df;
-      margin-bottom: 17px;
-    }
-
-    .store-photo img {
-      width: 100%;
-      height: 360px;
-      object-fit: cover;
-      border-radius: 16px;
-      border: 4px solid rgba(255,255,255,.17);
-    }
-
-    .store-details {
-      display: grid;
-      gap: 13px;
-      margin: 22px 0;
-    }
-
-    .store-detail {
-      display: flex;
-      align-items: flex-start;
-      gap: 12px;
-    }
-
-    .store-detail span:first-child {
-      font-size: 21px;
-    }
+    /* CONTACT */
 
     .contact-section {
-      background: white;
+      color: white;
+      background: var(--green);
+    }
+
+    .contact-section .section-heading h2 {
+      color: white;
+    }
+
+    .contact-section .section-heading p {
+      color: #c5d5c9;
     }
 
     .contact-grid {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 18px;
+      grid-template-columns: .9fr 1.1fr;
+      gap: 28px;
+    }
+
+    .contact-info {
+      display: grid;
+      gap: 14px;
     }
 
     .contact-card {
-      border: 1px solid #eee7da;
-      border-radius: 14px;
-      padding: 25px 18px;
-      text-align: center;
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+      padding: 18px;
+      background: rgba(255, 255, 255, .07);
+      border: 1px solid rgba(255, 255, 255, .1);
+      border-radius: 15px;
     }
 
-    .contact-card .icon {
-      font-size: 34px;
-      margin-bottom: 10px;
+    .contact-icon {
+      display: grid;
+      place-items: center;
+      width: 42px;
+      height: 42px;
+      flex-shrink: 0;
+      color: var(--green);
+      background: var(--gold);
+      border-radius: 12px;
+      font-size: 19px;
     }
 
     .contact-card h3 {
-      color: var(--green);
-      margin-bottom: 6px;
+      margin-bottom: 4px;
+      font-size: 13px;
     }
 
-    .contact-card p {
-      color: #70796f;
-      font-size: 13px;
-      margin-bottom: 15px;
+    .contact-card p,
+    .contact-card a {
+      color: #d5e2d8;
+      font-size: 12px;
       overflow-wrap: anywhere;
     }
 
-    footer {
-      background: #102d1e;
-      color: white;
-      padding: 30px 24px;
+    .contact-card a:hover {
+      color: var(--gold);
     }
 
-    .footer-inner {
-      max-width: 1150px;
-      margin: auto;
+    .map-container {
+      min-height: 100%;
+      overflow: hidden;
+      background: #e9ede3;
+      border: 5px solid rgba(255, 255, 255, .12);
+      border-radius: 20px;
+    }
+
+    .map-container iframe {
+      display: block;
+      width: 100%;
+      min-height: 400px;
+      height: 100%;
+      border: 0;
+    }
+
+    /* NEWSLETTER / CTA */
+
+    .final-cta {
+      padding: 48px 0;
+      background: #eaf1df;
+    }
+
+    .final-cta-inner {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      flex-wrap: wrap;
-      gap: 15px;
+      gap: 24px;
     }
 
-    .footer-inner p {
-      color: #c9d6ca;
+    .final-cta h2 {
+      margin-bottom: 6px;
+      color: var(--green);
+      font-size: clamp(22px, 3vw, 32px);
+    }
+
+    .final-cta p {
+      color: var(--muted);
       font-size: 13px;
     }
 
+    /* FOOTER */
+
+    .footer {
+      padding: 45px 0 18px;
+      color: white;
+      background: #092d21;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.2fr 1fr 1fr;
+      gap: 40px;
+      padding-bottom: 32px;
+    }
+
+    .footer .brand-name {
+      color: white;
+    }
+
+    .footer .brand-tagline {
+      color: #c6d7ca;
+    }
+
+    .footer-description {
+      max-width: 280px;
+      margin-top: 16px;
+      color: #c6d7ca;
+      font-size: 12px;
+      line-height: 1.8;
+    }
+
+    .footer h3 {
+      margin-bottom: 14px;
+      font-size: 14px;
+    }
+
+    .footer-links {
+      display: grid;
+      gap: 10px;
+    }
+
+    .footer-links a {
+      color: #c6d7ca;
+      font-size: 12px;
+    }
+
+    .footer-links a:hover {
+      color: var(--gold);
+    }
+
+    .footer-bottom {
+      display: flex;
+      justify-content: space-between;
+      gap: 15px;
+      padding-top: 17px;
+      color: #a9c1b1;
+      border-top: 1px solid rgba(255, 255, 255, .12);
+      font-size: 10px;
+    }
+
+    /* WHATSAPP FLOATING BUTTON */
+
     .whatsapp-float {
       position: fixed;
-      z-index: 30;
-      right: 20px;
-      bottom: 20px;
-      background: #20b95b;
+      right: 22px;
+      bottom: 22px;
+      z-index: 900;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      min-height: 54px;
+      padding: 12px 19px;
       color: white;
+      background: #19b96b;
+      border: 3px solid rgba(255, 255, 255, .9);
       border-radius: 50px;
-      padding: 13px 18px;
+      box-shadow: 0 8px 30px rgba(0, 0, 0, .2);
+      font-size: 13px;
       font-weight: 800;
-      box-shadow: 0 6px 22px #0003;
+      transition: transform .25s;
     }
 
     .whatsapp-float:hover {
-      background: #159447;
+      transform: translateY(-4px) scale(1.02);
     }
 
-    @media (max-width: 800px) {
-      .navbar {
-        min-height: 68px;
-        padding: 10px 18px;
-      }
+    .whatsapp-float span {
+      font-size: 23px;
+    }
 
-      .menu-toggle {
-        display: block;
-      }
+    /* SEARCH FEEDBACK */
 
-      .navlinks {
-        display: none;
+    .search-message {
+      display: none;
+      margin: 0 0 20px;
+      padding: 12px 15px;
+      color: var(--green);
+      background: #edf6e9;
+      border-radius: 10px;
+      font-size: 13px;
+    }
+
+    .search-message.show {
+      display: block;
+    }
+
+    .empty-results {
+      display: none;
+      padding: 30px;
+      color: var(--muted);
+      text-align: center;
+      background: var(--cream);
+      border-radius: 14px;
+      grid-column: 1 / -1;
+    }
+
+    /* MODAL FOR ADVICE */
+
+    .modal {
+      position: fixed;
+      inset: 0;
+      z-index: 2000;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      background: rgba(5, 28, 19, .7);
+      backdrop-filter: blur(5px);
+    }
+
+    .modal.open {
+      display: flex;
+    }
+
+    .modal-content {
+      position: relative;
+      width: min(550px, 100%);
+      max-height: 85vh;
+      overflow-y: auto;
+      padding: 30px;
+      background: white;
+      border-radius: 22px;
+      animation: fadeUp .25s ease both;
+    }
+
+    .modal-content h2 {
+      margin-bottom: 15px;
+      color: var(--green);
+      font-size: 25px;
+    }
+
+    .modal-content p {
+      margin-bottom: 12px;
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.8;
+    }
+
+    .modal-close {
+      position: absolute;
+      top: 12px;
+      right: 12px;
+      display: grid;
+      place-items: center;
+      width: 36px;
+      height: 36px;
+      color: var(--green);
+      background: var(--cream);
+      border: 0;
+      border-radius: 50%;
+      font-size: 20px;
+    }
+
+    /* ANIMATIONS */
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(18px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0) rotate(-5deg); }
+      50% { transform: translateY(-12px) rotate(5deg); }
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(18px);
+      transition: opacity .6s ease, transform .6s ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* RESPONSIVE */
+
+    @media (max-width: 1100px) {
+      .nav-links { gap: 13px; }
+      .search-box { width: 155px; }
+      .animal-grid { grid-template-columns: repeat(3, 1fr); }
+      .animal-discovery-grid { grid-template-columns: repeat(3, 1fr); }
+      .product-grid { grid-template-columns: repeat(3, 1fr); }
+      .product-image { height: 200px; }
+    }
+
+    @media (max-width: 850px) {
+      .navbar { min-height: 70px; }
+      .menu-toggle { display: grid; place-items: center; }
+      .header-actions .search-box { display: none; }
+
+      .nav-links {
         position: absolute;
-        top: 100%;
-        left: 0;
+        top: 70px;
         right: 0;
-        background: var(--cream);
-        padding: 20px;
-        border-bottom: 1px solid #e8e3d7;
-        flex-direction: column;
+        left: 0;
+        display: none;
         align-items: stretch;
-        gap: 17px;
+        flex-direction: column;
+        gap: 0;
+        padding: 10px 4% 18px;
+        background: white;
+        border-bottom: 1px solid var(--border);
+        box-shadow: 0 14px 22px rgba(0, 0, 0, .06);
       }
 
-      .navlinks.open {
-        display: flex;
+      .nav-links.open { display: flex; }
+
+      .nav-links a {
+        padding: 13px 5px;
+        border-bottom: 1px solid #f1f1eb;
+        font-size: 14px;
       }
 
-      .hero-inner, .store-layout {
+      .about-container,
+      .assistant-layout,
+      .contact-grid {
         grid-template-columns: 1fr;
+        gap: 32px;
       }
 
-      .hero-inner {
-        gap: 30px;
-        padding-top: 38px;
-        padding-bottom: 38px;
-      }
-
-      .hero-photo img {
-        height: 300px;
-      }
-
-      .category-grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
-
-      .product-grid, .services-grid, .contact-grid {
-        grid-template-columns: 1fr 1fr;
-      }
-
-      .store-photo {
-        order: -1;
-      }
-
-      .store-photo img {
-        height: 300px;
-      }
-
-      section {
-        padding: 55px 18px;
-      }
+      .about-image img { height: 380px; }
+      .promo-layout { grid-template-columns: 1fr; }
+      .promo-banner { min-height: 310px; }
+      .advice-grid { grid-template-columns: repeat(2, 1fr); }
+      .footer-grid { grid-template-columns: repeat(2, 1fr); }
+      .footer-grid > div:first-child { grid-column: 1 / -1; }
     }
 
-    @media (max-width: 480px) {
-      .hero h1 {
-        font-size: 39px;
+    @media (max-width: 560px) {
+      .container { width: 91%; }
+      .section { padding: 55px 0; }
+      .brand-name { font-size: 24px; }
+      .brand-icon { width: 39px; height: 39px; }
+      .social-icon { display: none; }
+      .cart-button { padding: 4px; }
+
+      .hero {
+        min-height: 480px;
+        background-position: 58% center;
       }
 
-      .trust-strip {
-        grid-template-columns: 1fr;
-        justify-items: start;
-        padding-left: 25px;
+      .hero-content { padding: 65px 0 90px; }
+      .hero h1 { font-size: 42px; }
+      .hero p { font-size: 14px; }
+
+      .hero-buttons { align-items: stretch; flex-direction: column; }
+      .hero-buttons .btn { width: 100%; }
+      .hero-paw { right: 6%; bottom: 45px; font-size: 35px; }
+
+      .animal-grid { grid-template-columns: repeat(2, 1fr); gap: 10px; }
+      .animal-card { padding: 12px 9px; gap: 9px; }
+      .animal-emoji { width: 38px; height: 38px; font-size: 22px; }
+      .animal-card strong { font-size: 11px; }
+      .animal-card small { font-size: 9px; }
+
+      .section-heading {
+        align-items: flex-start;
+        flex-direction: column;
       }
 
-      .product-grid, .services-grid, .contact-grid {
-        grid-template-columns: 1fr;
-      }
+      .about-image img { height: 300px; }
+      .category-grid { grid-template-columns: repeat(2, 1fr); gap: 12px; }
+      .category-card img { height: 130px; }
+      .category-info { padding: 12px; }
+      .category-info h3 { font-size: 13px; }
+      .category-info p { font-size: 10px; }
 
-      .hero-buttons .btn {
-        width: 100%;
-      }
+      .promo-products { grid-template-columns: repeat(2, 1fr); gap: 10px; }
+      .product-grid { grid-template-columns: repeat(2, 1fr); gap: 12px; }
+      .product-image { height: 150px; }
+      .product-content { padding: 11px; }
+      .product-content h3 { font-size: 12px; }
+      .product-price { font-size: 15px; }
+
+      .animal-discovery-grid { grid-template-columns: repeat(3, 1fr); gap: 10px; }
+      .animal-discovery { padding: 17px 5px; }
+      .animal-discovery .big-emoji { font-size: 31px; }
+
+      .advice-grid { grid-template-columns: 1fr; }
+      .advice-card img { height: 200px; }
+      .community-grid { grid-template-columns: 1fr; }
+      .community-card img { height: 230px; }
+
+      .assistant-form { padding: 17px; }
+      .assistant-illustration,
+      .assistant-illustration img { min-height: 260px; height: 260px; }
+
+      .map-container iframe { min-height: 320px; }
+      .final-cta-inner { align-items: flex-start; flex-direction: column; }
+      .footer-grid { grid-template-columns: 1fr; gap: 28px; }
+      .footer-grid > div:first-child { grid-column: auto; }
+      .footer-bottom { flex-direction: column; }
 
       .whatsapp-float {
         right: 12px;
         bottom: 12px;
-        font-size: 13px;
+        min-height: 48px;
+        padding: 9px 14px;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        scroll-behavior: auto !important;
+        animation-duration: .01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: .01ms !important;
       }
 
-      .footer-inner {
-        flex-direction: column;
-        align-items: flex-start;
-      }
+      .reveal { opacity: 1; transform: none; }
     }
   </style>
 </head>
 
 <body>
-  <div class="topbar">
-    🐾 Nutri Pet — Le bien-être de vos animaux avant tout
-  </div>
 
-  <header>
-    <nav class="navbar">
-      <a class="logo" href="#accueil">NUTRI<span>PET</span> 🐾</a>
+  <!-- HEADER -->
+  <header class="header">
+    <div class="container navbar">
 
-      <button class="menu-toggle" id="menuToggle" aria-label="Ouvrir le menu" aria-expanded="false">☰</button>
+      <a href="#accueil" class="brand" aria-label="Nutri Pet, accueil">
+        <span class="brand-icon">🐾</span>
+        <span>
+          <span class="brand-name">Nutri <span>Pet</span></span>
+          <span class="brand-tagline">Le bonheur de vos animaux</span>
+        </span>
+      </a>
 
-      <div class="navlinks" id="navlinks">
+      <nav class="nav-links" id="navLinks" aria-label="Navigation principale">
         <a href="#accueil">Accueil</a>
-        <a href="#rayons">Nos rayons</a>
         <a href="#produits">Nos produits</a>
-        <a href="#services">Services</a>
-        <a href="#magasin">Notre magasin</a>
-        <a class="nav-cta" href="https://wa.me/212653639430" target="_blank" rel="noopener">WhatsApp ↗</a>
+        <a href="#animaux">Nos animaux</a>
+        <a href="#conseils">Conseils</a>
+        <a href="#promotions">Promotions</a>
+        <a href="#apropos">À propos</a>
+        <a href="#contact">Contact</a>
+      </nav>
+
+      <div class="header-actions">
+        <form class="search-box" id="searchForm" role="search">
+          <input id="searchInput" type="search" placeholder="Rechercher un produit..." aria-label="Rechercher un produit">
+          <button type="submit" aria-label="Rechercher">⌕</button>
+        </form>
+
+        <a class="social-icon" href="https://wa.me/212653639430" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp">✆</a>
+        <a class="social-icon instagram-icon" href="https://www.instagram.com/nutri_pet_1/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">◎</a>
+
+        <button class="cart-button" id="cartButton" type="button" aria-label="Voir la sélection">
+          🛒 <span class="cart-count" id="cartCount">0</span>
+        </button>
+
+        <button class="menu-toggle" id="menuToggle" type="button" aria-label="Ouvrir le menu" aria-expanded="false">☰</button>
       </div>
-    </nav>
+    </div>
   </header>
 
   <main>
+
+    <!-- HERO -->
     <section class="hero" id="accueil">
-      <div class="hero-inner">
+      <div class="container">
         <div class="hero-content">
-          <span class="eyebrow">Votre animalerie à Meknès</span>
-          <h1>Tout pour leur bonheur, <span>au même endroit.</span></h1>
+          <div class="hero-label">🐾 BIENVENUE CHEZ NUTRI PET</div>
+
+          <h1>Des animaux heureux,<br><span>une vie meilleure !</span></h1>
+
           <p>
-            Bienvenue chez Nutri Pet ! Découvrez notre animalerie,
-            nos produits et nos services pour prendre soin de vos
-            compagnons au quotidien.
+            Alimentation, accessoires, jouets et hygiène pour vos compagnons
+            à quatre pattes, à plumes ou à nageoires.
           </p>
+
           <div class="hero-buttons">
-            <a class="btn btn-orange" href="#rayons">Découvrir nos rayons →</a>
-            <a class="btn" href="https://wa.me/212653639430" target="_blank" rel="noopener">💬 Nous contacter</a>
+            <a class="btn btn-primary" href="#produits">Découvrir nos produits →</a>
+            <a class="btn btn-outline" href="#conseils">♡ Nos conseils</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero-paw" aria-hidden="true">🐾</div>
+    </section>
+
+    <!-- ANIMAL QUICK ACCESS -->
+    <div class="container animal-strip">
+      <div class="animal-grid">
+
+        <a href="#animaux" class="animal-card">
+          <span class="animal-emoji">🐕</span>
+          <span><strong>Chiens</strong><small>Alimentation & jeux</small></span>
+        </a>
+
+        <a href="#animaux" class="animal-card">
+          <span class="animal-emoji">🐈</span>
+          <span><strong>Chats</strong><small>Confort & nutrition</small></span>
+        </a>
+
+        <a href="#animaux" class="animal-card">
+          <span class="animal-emoji">🐇</span>
+          <span><strong>Lapins</strong><small>Petits compagnons</small></span>
+        </a>
+
+        <a href="#animaux" class="animal-card">
+          <span class="animal-emoji">🦜</span>
+          <span><strong>Oiseaux</strong><small>Graines & accessoires</small></span>
+        </a>
+
+        <a href="#animaux" class="animal-card">
+          <span class="animal-emoji">🐠</span>
+          <span><strong>Poissons</strong><small>Univers aquatique</small></span>
+        </a>
+
+        <a href="#animaux" class="animal-card">
+          <span class="animal-emoji">🐹</span>
+          <span><strong>Rongeurs</strong><small>Habitat & soins</small></span>
+        </a>
+
+      </div>
+    </div>
+
+    <!-- ABOUT: KEEP THE REAL STORE PHOTO -->
+    <section class="about-section" id="apropos">
+      <div class="container about-container">
+
+        <div class="about-image reveal">
+          <!-- IMPORTANT : conserve ton image magasin.jpg dans le même dossier que index.html -->
+          <img
+            src="magasin.jpg"
+            alt="Photo réelle du magasin Nutri Pet à Meknès"
+            loading="lazy"
+            onerror="this.onerror=null;this.style.objectFit='contain';this.style.padding='25px';this.alt='Ajoute la photo réelle du magasin sous le nom magasin.jpg';this.src='https://placehold.co/900x650/f0f2e7/164b37?text=Ajoutez+magasin.jpg';"
+          >
+
+          <div class="about-image-badge">
+            <span>🐾</span>
+            <div>
+              <strong>Nutri Pet</strong>
+              <small>Le bien-être de vos animaux avant tout</small>
+            </div>
           </div>
         </div>
 
-        <div class="hero-photo">
-          <img src="magasin.jpg" alt="La façade du magasin Nutri Pet à Meknès"
-               onerror="this.onerror=null;this.alt='Photo du magasin Nutri Pet';this.style.background='#285a3d';this.style.minHeight='300px';">
-          <div class="photo-caption">📍 Nutri Pet — Meknès, Sidi Bouzekri</div>
+        <div class="about-content reveal">
+          <span class="eyebrow">Bienvenue dans notre univers</span>
+
+          <h2>Plus qu'une animalerie, un lieu dédié à vos compagnons</h2>
+
+          <p>
+            Chez Nutri Pet, nous souhaitons accompagner les propriétaires
+            d'animaux avec une sélection de produits pour leur alimentation,
+            leur confort, leurs jeux et leur hygiène.
+          </p>
+
+          <p>
+            Chiens, chats, lapins, oiseaux, poissons et petits animaux :
+            découvrez notre univers et venez nous rendre visite dans notre
+            magasin à Meknès, au Maroc.
+          </p>
+
+          <div class="about-features">
+            <div class="about-feature"><span>🥣</span> Des produits pour l'alimentation animale</div>
+            <div class="about-feature"><span>🧸</span> Des accessoires et jouets à découvrir</div>
+            <div class="about-feature"><span>💚</span> Le bien-être animal au cœur de nos priorités</div>
+          </div>
+
+          <a class="btn btn-primary" href="https://www.google.com/maps/search/?api=1&query=VF57%2BGVP%20Mekn%C3%A8s" target="_blank" rel="noopener noreferrer">
+            📍 Découvrir notre magasin
+          </a>
         </div>
+
       </div>
     </section>
 
-    <div class="trust-strip">
-      <div class="trust-item"><span class="trust-icon">🐶</span> Pour tous vos compagnons</div>
-      <div class="trust-item"><span class="trust-icon">🛍️</span> Alimentation et accessoires</div>
-      <div class="trust-item"><span class="trust-icon">📍</span> À Meknès, Sidi Bouzekri</div>
-    </div>
-
-    <section id="rayons">
+    <!-- CATEGORIES -->
+    <section class="section" id="rayons">
       <div class="container">
-        <div class="section-heading">
-          <div class="section-kicker">Explorez notre animalerie</div>
-          <h2>Nos rayons</h2>
-          <p>Tout le nécessaire pour nourrir, équiper et chouchouter vos animaux.</p>
+
+        <div class="section-heading reveal">
+          <div>
+            <span class="eyebrow">Tout pour vos compagnons</span>
+            <h2>Explorez nos rayons</h2>
+            <p>Les essentiels pour prendre soin de vos animaux au quotidien.</p>
+          </div>
+          <a class="text-link" href="#produits">Voir les produits →</a>
         </div>
 
         <div class="category-grid">
-          <a class="category-card" href="#produits" data-filter="chien">
-            <div class="category-emoji">🐕</div>
-            <h3>Chiens</h3>
-            <p>Croquettes, friandises et accessoires</p>
-          </a>
 
-          <a class="category-card" href="#produits" data-filter="chat">
-            <div class="category-emoji">🐈</div>
-            <h3>Chats</h3>
-            <p>Alimentation, litière et jouets</p>
-          </a>
+          <article class="category-card reveal">
+            <img src="https://images.unsplash.com/photo-1589924691995-400dc9ecc119?auto=format&fit=crop&w=700&q=80" alt="Alimentation pour chiens et chats" loading="lazy">
+            <div class="category-info">
+              <h3>🥣 Croquettes & alimentation</h3>
+              <p>Des options pour les repas de vos compagnons.</p>
+              <a class="category-link" href="#produits" data-category="alimentation">Découvrir le rayon →</a>
+            </div>
+          </article>
 
-          <a class="category-card" href="#produits" data-filter="oiseau">
-            <div class="category-emoji">🦜</div>
-            <h3>Oiseaux</h3>
-            <p>Nourriture et accessoires</p>
-          </a>
+          <article class="category-card reveal">
+            <img src="https://images.unsplash.com/photo-1583337130417-3346a1be7dee?auto=format&fit=crop&w=700&q=80" alt="Accessoires pour animaux" loading="lazy">
+            <div class="category-info">
+              <h3>🧸 Accessoires & jouets</h3>
+              <p>Pour jouer, explorer et se sentir bien.</p>
+              <a class="category-link" href="#produits" data-category="accessoires">Découvrir le rayon →</a>
+            </div>
+          </article>
 
-          <a class="category-card" href="#produits" data-filter="poisson">
-            <div class="category-emoji">🐠</div>
-            <h3>Poissons</h3>
-            <p>Alimentation et univers aquatique</p>
-          </a>
+          <article class="category-card reveal">
+            <img src="https://images.unsplash.com/photo-1601758228041-f3b2795255f1?auto=format&fit=crop&w=700&q=80" alt="Chien recevant des soins" loading="lazy">
+            <div class="category-info">
+              <h3>🧴 Hygiène & soins</h3>
+              <p>Les essentiels pour leur entretien régulier.</p>
+              <a class="category-link" href="#produits" data-category="hygiene">Découvrir le rayon →</a>
+            </div>
+          </article>
 
-          <a class="category-card" href="#produits" data-filter="lapin">
-            <div class="category-emoji">🐇</div>
-            <h3>Lapins</h3>
-            <p>Alimentation et petits accessoires</p>
-          </a>
+          <article class="category-card reveal">
+            <img src="https://images.unsplash.com/photo-1522069169874-c58ec4b76be5?auto=format&fit=crop&w=700&q=80" alt="Aquarium et poissons" loading="lazy">
+            <div class="category-info">
+              <h3>🐠 Aquariophilie</h3>
+              <p>Pour aménager un univers aquatique.</p>
+              <a class="category-link" href="#produits" data-category="aquarium">Découvrir le rayon →</a>
+            </div>
+          </article>
 
-          <a class="category-card" href="#produits" data-filter="pigeon">
-            <div class="category-emoji">🕊️</div>
-            <h3>Pigeons</h3>
-            <p>Graines et alimentation</p>
-          </a>
+          <article class="category-card reveal">
+            <img src="https://images.unsplash.com/photo-1425082661705-1834bfd09dca?auto=format&fit=crop&w=700&q=80" alt="Petit rongeur" loading="lazy">
+            <div class="category-info">
+              <h3>🐹 Petits animaux</h3>
+              <p>Des produits pour leurs besoins quotidiens.</p>
+              <a class="category-link" href="#produits" data-category="rongeurs">Découvrir le rayon →</a>
+            </div>
+          </article>
 
-          <a class="category-card" href="#produits" data-filter="poule">
-            <div class="category-emoji">🐓</div>
-            <h3>Volailles</h3>
-            <p>Alimentation et graines</p>
-          </a>
+          <article class="category-card reveal">
+            <img src="https://images.unsplash.com/photo-1552728089-57bdde30beb3?auto=format&fit=crop&w=700&q=80" alt="Oiseau coloré" loading="lazy">
+            <div class="category-info">
+              <h3>🦜 Oiseaux & pigeons</h3>
+              <p>Graines, alimentation et accessoires.</p>
+              <a class="category-link" href="#produits" data-category="oiseaux">Découvrir le rayon →</a>
+            </div>
+          </article>
 
-          <a class="category-card" href="#services">
-            <div class="category-emoji">🧴</div>
-            <h3>Hygiène</h3>
-            <p>Soins et entretien du pelage</p>
-          </a>
         </div>
       </div>
     </section>
 
-    <section class="products-section" id="produits">
+    <!-- PROMOTIONS AND FEATURED PRODUCTS -->
+    <section class="section section-cream" id="promotions">
       <div class="container">
-        <div class="section-heading">
-          <div class="section-kicker">Pour leur bien-être</div>
-          <h2>Découvrez nos produits</h2>
-          <p>Vous recherchez un produit précis ? Recherchez-le puis contactez-nous pour connaître sa disponibilité.</p>
+
+        <div class="section-heading reveal">
+          <div>
+            <span class="eyebrow">Les bons plans Nutri Pet</span>
+            <h2>Promotions & sélection</h2>
+            <p>Découvrez notre sélection de produits et demandez-nous les disponibilités.</p>
+          </div>
         </div>
 
-        <div class="product-tools">
-          <input type="search" id="productSearch" placeholder="🔎 Rechercher un produit ou un rayon..." aria-label="Rechercher un produit">
+        <div class="promo-layout">
+
+          <div class="promo-banner reveal">
+            <span class="promo-label">OFFRES EN MAGASIN</span>
+            <h3>De belles surprises pour vos compagnons !</h3>
+            <p>Contactez-nous pour connaître les promotions et les nouveautés disponibles en boutique.</p>
+            <a class="btn" href="https://wa.me/212653639430?text=Salam%20Nutri%20Pet%2C%20quelles%20sont%20vos%20promotions%20du%20moment%20%3F" target="_blank" rel="noopener noreferrer">
+              Découvrir les offres →
+            </a>
+          </div>
+
+          <div class="promo-products product-grid">
+
+            <article class="product-card reveal" data-name="Croquettes chien adulte alimentation">
+              <div class="product-image">
+                <img src="https://images.unsplash.com/photo-1589924691995-400dc9ecc119?auto=format&fit=crop&w=500&q=80" alt="Alimentation pour chien" loading="lazy">
+                <span class="product-badge">À DÉCOUVRIR</span>
+              </div>
+              <div class="product-content">
+                <h3>Alimentation chien</h3>
+                <p>Différentes options selon les besoins.</p>
+                <div class="product-price">Prix sur demande</div>
+                <button class="product-order" data-product="Alimentation pour chien">Commander sur WhatsApp</button>
+              </div>
+            </article>
+
+            <article class="product-card reveal" data-name="Croquettes chat alimentation">
+              <div class="product-image">
+                <img src="https://images.unsplash.com/photo-1573865526739-10659fec78a5?auto=format&fit=crop&w=500&q=80" alt="Chat et alimentation" loading="lazy">
+              </div>
+              <div class="product-content">
+                <h3>Alimentation chat</h3>
+                <p>Des références à découvrir en boutique.</p>
+                <div class="product-price">Prix sur demande</div>
+                <button class="product-order" data-product="Alimentation pour chat">Commander sur WhatsApp</button>
+              </div>
+            </article>
+
+            <article class="product-card reveal" data-name="Jouets balles accessoires chien chat">
+              <div class="product-image">
+                <img src="https://images.unsplash.com/photo-1535294435445-d7249524ef2e?auto=format&fit=crop&w=500&q=80" alt="Jouet pour animal" loading="lazy">
+              </div>
+              <div class="product-content">
+                <h3>Jouets & accessoires</h3>
+                <p>Pour jouer et partager de bons moments.</p>
+                <div class="product-price">Prix sur demande</div>
+                <button class="product-order" data-product="Jouets et accessoires pour animaux">Commander sur WhatsApp</button>
+              </div>
+            </article>
+
+            <article class="product-card reveal" data-name="Aquarium poissons accessoires">
+              <div class="product-image">
+                <img src="https://images.unsplash.com/photo-1522069169874-c58ec4b76be5?auto=format&fit=crop&w=500&q=80" alt="Aquarium" loading="lazy">
+              </div>
+              <div class="product-content">
+                <h3>Aquariophilie</h3>
+                <p>Accessoires et univers aquatique.</p>
+                <div class="product-price">Prix sur demande</div>
+                <button class="product-order" data-product="Produits d'aquariophilie">Commander sur WhatsApp</button>
+              </div>
+            </article>
+
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FULL CATALOGUE -->
+    <section class="section" id="produits">
+      <div class="container">
+
+        <div class="section-heading reveal">
+          <div>
+            <span class="eyebrow">Notre sélection</span>
+            <h2>Découvrez nos produits</h2>
+            <p>Un aperçu de nos univers. Contactez-nous pour les références et prix disponibles.</p>
+          </div>
+          <a class="text-link" href="#contact">Nous contacter →</a>
         </div>
 
-        <div class="product-grid" id="productGrid">
-          <article class="product-card" data-search="chien croquettes nourriture alimentation chien">
-            <div class="product-symbol">🥣</div>
-            <h3>Alimentation pour chiens</h3>
-            <p>Découvrez les solutions d'alimentation adaptées à votre compagnon.</p>
-            <a class="btn" href="https://wa.me/212653639430?text=Bonjour%20Nutri%20Pet%2C%20je%20cherche%20des%20croquettes%20pour%20chien." target="_blank" rel="noopener">Demander la disponibilité</a>
+        <div class="search-message" id="searchMessage" role="status"></div>
+
+        <div class="product-grid" id="catalogueGrid">
+
+          <article class="product-card reveal" data-name="alimentation croquettes chien" data-category="alimentation">
+            <div class="product-image">
+              <img src="https://images.unsplash.com/photo-1589924691995-400dc9ecc119?auto=format&fit=crop&w=500&q=80" alt="Alimentation pour chien" loading="lazy">
+            </div>
+            <div class="product-content">
+              <h3>Alimentation pour chien</h3>
+              <p>Des aliments à choisir selon ses besoins.</p>
+              <div class="product-price">Prix sur demande</div>
+              <button class="product-order" data-product="Alimentation pour chien">Demander le prix</button>
+            </div>
           </article>
 
-          <article class="product-card" data-search="chat croquettes nourriture pâtée litière">
-            <div class="product-symbol">🐱</div>
-            <h3>Produits pour chats</h3>
-            <p>Alimentation, hygiène et produits utiles à votre chat.</p>
-            <a class="btn" href="https://wa.me/212653639430?text=Bonjour%20Nutri%20Pet%2C%20je%20cherche%20des%20produits%20pour%20chat." target="_blank" rel="noopener">Demander la disponibilité</a>
+          <article class="product-card reveal" data-name="alimentation croquettes chat" data-category="alimentation">
+            <div class="product-image">
+              <img src="https://images.unsplash.com/photo-1573865526739-10659fec78a5?auto=format&fit=crop&w=500&q=80" alt="Chat" loading="lazy">
+            </div>
+            <div class="product-content">
+              <h3>Alimentation pour chat</h3>
+              <p>Une sélection pour les petits félins.</p>
+              <div class="product-price">Prix sur demande</div>
+              <button class="product-order" data-product="Alimentation pour chat">Demander le prix</button>
+            </div>
           </article>
 
-          <article class="product-card" data-search="accessoires jouets collier laisse gamelle">
-            <div class="product-symbol">🦴</div>
-            <h3>Accessoires et jouets</h3>
-            <p>Des accessoires pour accompagner vos animaux au quotidien.</p>
-            <a class="btn" href="https://wa.me/212653639430?text=Bonjour%20Nutri%20Pet%2C%20je%20cherche%20des%20accessoires%20pour%20animaux." target="_blank" rel="noopener">Demander la disponibilité</a>
+          <article class="product-card reveal" data-name="graines oiseaux pigeons canaris" data-category="oiseaux">
+            <div class="product-image">
+              <img src="https://images.unsplash.com/photo-1552728089-57bdde30beb3?auto=format&fit=crop&w=500&q=80" alt="Oiseau" loading="lazy">
+            </div>
+            <div class="product-content">
+              <h3>Graines & alimentation oiseaux</h3>
+              <p>Pour les oiseaux et les pigeons.</p>
+              <div class="product-price">Prix sur demande</div>
+              <button class="product-order" data-product="Graines et alimentation pour oiseaux et pigeons">Demander le prix</button>
+            </div>
           </article>
 
-          <article class="product-card" data-search="oiseau graines perroquet canari">
-            <div class="product-symbol">🦜</div>
-            <h3>Graines pour oiseaux</h3>
-            <p>Alimentation et articles pour vos oiseaux.</p>
-            <a class="btn" href="https://wa.me/212653639430?text=Bonjour%20Nutri%20Pet%2C%20je%20cherche%20des%20graines%20pour%20oiseaux." target="_blank" rel="noopener">Demander la disponibilité</a>
+          <article class="product-card reveal" data-name="jouets accessoires balle chien chat" data-category="accessoires">
+            <div class="product-image">
+              <img src="https://images.unsplash.com/photo-1535294435445-d7249524ef2e?auto=format&fit=crop&w=500&q=80" alt="Accessoires pour animaux" loading="lazy">
+            </div>
+            <div class="product-content">
+              <h3>Jouets & accessoires</h3>
+              <p>Pour jouer, bouger et s'amuser.</p>
+              <div class="product-price">Prix sur demande</div>
+              <button class="product-order" data-product="Jouets et accessoires">Demander le prix</button>
+            </div>
           </article>
 
-          <article class="product-card" data-search="poisson aquarium nourriture poissons">
-            <div class="product-symbol">🐠</div>
-            <h3>Univers aquatique</h3>
-            <p>Découvrez nos produits pour poissons et aquariums.</p>
-            <a class="btn" href="https://wa.me/212653639430?text=Bonjour%20Nutri%20Pet%2C%20je%20cherche%20des%20produits%20pour%20poissons." target="_blank" rel="noopener">Demander la disponibilité</a>
+          <article class="product-card reveal" data-name="hygiène shampoing soins" data-category="hygiene">
+            <div class="product-image">
+              <img src="https://images.unsplash.com/photo-1601758228041-f3b2795255f1?auto=format&fit=crop&w=500&q=80" alt="Soins pour animaux" loading="lazy">
+            </div>
+            <div class="product-content">
+              <h3>Hygiène & soins</h3>
+              <p>Les essentiels pour leur entretien.</p>
+              <div class="product-price">Prix sur demande</div>
+              <button class="product-order" data-product="Produits d'hygiène et de soins">Demander le prix</button>
+            </div>
           </article>
 
-          <article class="product-card" data-search="hygiène shampoing brosse toilettage soin pelage">
-            <div class="product-symbol">🧴</div>
-            <h3>Hygiène et toilettage</h3>
-            <p>Des produits pour prendre soin de vos compagnons.</p>
-            <a class="btn" href="https://wa.me/212653639430?text=Bonjour%20Nutri%20Pet%2C%20je%20cherche%20des%20produits%20d'hygi%C3%A8ne%20pour%20animaux." target="_blank" rel="noopener">Demander la disponibilité</a>
+          <article class="product-card reveal" data-name="aquarium poissons accessoires" data-category="aquarium">
+            <div class="product-image">
+              <img src="https://images.unsplash.com/photo-1522069169874-c58ec4b76be5?auto=format&fit=crop&w=500&q=80" alt="Aquarium" loading="lazy">
+            </div>
+            <div class="product-content">
+              <h3>Aquariophilie</h3>
+              <p>Des accessoires pour votre aquarium.</p>
+              <div class="product-price">Prix sur demande</div>
+              <button class="product-order" data-product="Produits d'aquariophilie">Demander le prix</button>
+            </div>
           </article>
+
+          <article class="product-card reveal" data-name="lapins rongeurs habitat nourriture" data-category="rongeurs">
+            <div class="product-image">
+              <img src="https://images.unsplash.com/photo-1425082661705-1834bfd09dca?auto=format&fit=crop&w=500&q=80" alt="Petit rongeur" loading="lazy">
+            </div>
+            <div class="product-content">
+              <h3>Petits animaux</h3>
+              <p>Des produits pour les petits compagnons.</p>
+              <div class="product-price">Prix sur demande</div>
+              <button class="product-order" data-product="Produits pour lapins et petits animaux">Demander le prix</button>
+            </div>
+          </article>
+
+          <article class="product-card reveal" data-name="cages habitat accessoires oiseaux" data-category="oiseaux">
+            <div class="product-image">
+              <img src="https://images.unsplash.com/photo-1552728089-57bdde30beb3?auto=format&fit=crop&w=500&q=80" alt="Oiseau coloré" loading="lazy">
+            </div>
+            <div class="product-content">
+              <h3>Accessoires pour oiseaux</h3>
+              <p>Des articles à découvrir en magasin.</p>
+              <div class="product-price">Prix sur demande</div>
+              <button class="product-order" data-product="Accessoires pour oiseaux">Demander le prix</button>
+            </div>
+          </article>
+
         </div>
 
-        <p class="no-results" id="noResults">Aucun résultat. Essayez un autre mot-clé.</p>
+        <div class="empty-results" id="emptyResults">
+          Aucun produit ne correspond à votre recherche. Essayez un autre mot ou contactez-nous sur WhatsApp.
+        </div>
 
-        <p style="text-align:center;margin-top:28px;color:#687368;font-size:13px;">
-          Les références et disponibilités peuvent varier. Contactez-nous pour plus d'informations.
+      </div>
+    </section>
+
+    <!-- ANIMALS -->
+    <section class="section section-cream" id="animaux">
+      <div class="container">
+
+        <div class="section-heading reveal">
+          <div>
+            <span class="eyebrow">Chaque compagnon compte</span>
+            <h2>Un univers pour chaque animal</h2>
+            <p>Choisissez votre compagnon pour retrouver les produits correspondants.</p>
+          </div>
+        </div>
+
+        <div class="animal-discovery-grid">
+
+          <a class="animal-discovery" href="#produits" data-search-animal="chien">
+            <span class="big-emoji">🐕</span>
+            <strong>Chiens</strong>
+            <small>Alimentation & jeux</small>
+          </a>
+
+          <a class="animal-discovery" href="#produits" data-search-animal="chat">
+            <span class="big-emoji">🐈</span>
+            <strong>Chats</strong>
+            <small>Confort & nutrition</small>
+          </a>
+
+          <a class="animal-discovery" href="#produits" data-search-animal="lapin">
+            <span class="big-emoji">🐇</span>
+            <strong>Lapins</strong>
+            <small>Habitat & alimentation</small>
+          </a>
+
+          <a class="animal-discovery" href="#produits" data-search-animal="oiseau">
+            <span class="big-emoji">🦜</span>
+            <strong>Oiseaux</strong>
+            <small>Graines & accessoires</small>
+          </a>
+
+          <a class="animal-discovery" href="#produits" data-search-animal="poisson aquarium">
+            <span class="big-emoji">🐠</span>
+            <strong>Poissons</strong>
+            <small>Aquariophilie</small>
+          </a>
+
+          <a class="animal-discovery" href="#produits" data-search-animal="rongeur">
+            <span class="big-emoji">🐹</span>
+            <strong>Rongeurs</strong>
+            <small>Petits compagnons</small>
+          </a>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ADVICE -->
+    <section class="section" id="conseils">
+      <div class="container">
+
+        <div class="section-heading reveal">
+          <div>
+            <span class="eyebrow">Mieux les comprendre</span>
+            <h2>Nos conseils pour leur bien-être</h2>
+            <p>Quelques repères pratiques pour prendre soin de vos compagnons.</p>
+          </div>
+        </div>
+
+        <div class="advice-grid">
+
+          <article class="advice-card reveal">
+            <img src="https://images.unsplash.com/photo-1560807707-8cc77767d783?auto=format&fit=crop&w=700&q=80" alt="Chien" loading="lazy">
+            <div class="advice-content">
+              <span class="advice-tag">🐕 Chiens</span>
+              <h3>Comment bien nourrir son chien ?</h3>
+              <p>Quelques repères pour choisir une alimentation adaptée à son âge et à son activité.</p>
+              <button class="read-more" data-advice="chien">Lire les conseils →</button>
+            </div>
+          </article>
+
+          <article class="advice-card reveal">
+            <img src="https://images.unsplash.com/photo-1573865526739-10659fec78a5?auto=format&fit=crop&w=700&q=80" alt="Chat" loading="lazy">
+            <div class="advice-content">
+              <span class="advice-tag">🐈 Chats</span>
+              <h3>Les bonnes habitudes avec votre chat</h3>
+              <p>Alimentation, eau fraîche, propreté et enrichissement de son environnement.</p>
+              <button class="read-more" data-advice="chat">Lire les conseils →</button>
+            </div>
+          </article>
+
+          <article class="advice-card reveal">
+            <img src="https://images.unsplash.com/photo-1552728089-57bdde30beb3?auto=format&fit=crop&w=700&q=80" alt="Oiseau" loading="lazy">
+            <div class="advice-content">
+              <span class="advice-tag">🦜 Oiseaux</span>
+              <h3>Bien prendre soin de ses oiseaux</h3>
+              <p>Veillez à l'eau propre, à une alimentation adaptée et à un habitat convenable.</p>
+              <button class="read-more" data-advice="oiseau">Lire les conseils →</button>
+            </div>
+          </article>
+
+          <article class="advice-card reveal">
+            <img src="https://images.unsplash.com/photo-1522069169874-c58ec4b76be5?auto=format&fit=crop&w=700&q=80" alt="Aquarium" loading="lazy">
+            <div class="advice-content">
+              <span class="advice-tag">🐠 Aquariophilie</span>
+              <h3>Entretenir son aquarium</h3>
+              <p>Surveillez la qualité de l'eau et entretenez régulièrement votre installation.</p>
+              <button class="read-more" data-advice="poisson">Lire les conseils →</button>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- INTERACTIVE PET ASSISTANT -->
+    <section class="assistant-section" id="assistant">
+      <div class="container assistant-layout">
+
+        <div class="assistant-illustration reveal">
+          <img src="https://images.unsplash.com/photo-1543466835-00a7907e9de1?auto=format&fit=crop&w=1000&q=85" alt="Un chien heureux" loading="lazy">
+          <div class="assistant-sticker">🐾 Votre compagnon mérite le meilleur !</div>
+        </div>
+
+        <div class="assistant-copy reveal">
+          <span class="eyebrow">Un petit coup de patte</span>
+          <h2>L'assistant Nutri Pet</h2>
+          <p>
+            Répondez à quelques questions pour obtenir une orientation vers
+            les catégories de produits qui pourraient correspondre à votre animal.
+          </p>
+
+          <form class="assistant-form" id="assistantForm">
+
+            <div>
+              <label for="petType">1. Quel animal avez-vous ?</label>
+              <select id="petType" required>
+                <option value="">Choisissez votre animal</option>
+                <option value="chien">Chien</option>
+                <option value="chat">Chat</option>
+                <option value="lapin">Lapin</option>
+                <option value="oiseau">Oiseau ou pigeon</option>
+                <option value="poisson">Poisson</option>
+                <option value="rongeur">Rongeur</option>
+              </select>
+            </div>
+
+            <div>
+              <label for="petAge">2. Quel est son âge ?</label>
+              <select id="petAge" required>
+                <option value="">Choisissez une tranche d'âge</option>
+                <option value="jeune">Jeune animal</option>
+                <option value="adulte">Adulte</option>
+                <option value="senior">Senior</option>
+                <option value="inconnu">Je ne sais pas</option>
+              </select>
+            </div>
+
+            <div>
+              <label for="petNeed">3. Que recherchez-vous ?</label>
+              <select id="petNeed" required>
+                <option value="">Choisissez un besoin</option>
+                <option value="alimentation">Alimentation</option>
+                <option value="accessoires">Accessoires & jouets</option>
+                <option value="hygiene">Hygiène & soins</option>
+                <option value="habitat">Habitat & équipement</option>
+                <option value="conseil">Un conseil général</option>
+              </select>
+            </div>
+
+            <button class="btn btn-primary" type="submit">Voir mes recommandations →</button>
+
+            <div class="assistant-result" id="assistantResult" role="status" aria-live="polite"></div>
+          </form>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- COMMUNITY -->
+    <section class="section" id="communaute">
+      <div class="container">
+
+        <div class="section-heading reveal">
+          <div>
+            <span class="eyebrow">Une histoire de complicité</span>
+            <h2>La communauté Nutri Pet</h2>
+            <p>Parce que chaque animal apporte du bonheur dans nos vies.</p>
+          </div>
+          <a class="text-link" href="https://www.instagram.com/nutri_pet_1/" target="_blank" rel="noopener noreferrer">Nous suivre sur Instagram ↗</a>
+        </div>
+
+        <div class="community-grid">
+
+          <article class="community-card reveal">
+            <img src="https://images.unsplash.com/photo-1552053831-71594a27632d?auto=format&fit=crop&w=700&q=80" alt="Chien heureux" loading="lazy">
+            <h3>Les moments de bonheur 🐕</h3>
+            <p>Partagez les aventures et les petits moments de votre compagnon.</p>
+          </article>
+
+          <article class="community-card reveal">
+            <img src="https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?auto=format&fit=crop&w=700&q=80" alt="Chat" loading="lazy">
+            <h3>Nos amis les chats 🐈</h3>
+            <p>Des petites boules de poils qui savent rendre chaque journée unique.</p>
+          </article>
+
+          <article class="community-card reveal">
+            <img src="https://images.unsplash.com/photo-1552728089-57bdde30beb3?auto=format&fit=crop&w=700&q=80" alt="Oiseau coloré" loading="lazy">
+            <h3>Un monde plein de couleurs 🦜</h3>
+            <p>Les oiseaux aussi méritent toute notre attention et nos soins.</p>
+          </article>
+
+        </div>
+
+        <p class="community-note">
+          Vous souhaitez partager la photo de votre animal ? Contactez Nutri Pet sur Instagram.
         </p>
       </div>
     </section>
 
-    <section id="services">
+    <!-- CONTACT / MAP -->
+    <section class="section contact-section" id="contact">
       <div class="container">
-        <div class="section-heading">
-          <div class="section-kicker">À votre service</div>
-          <h2>Plus que des produits</h2>
-          <p>Nutri Pet vous accompagne dans les besoins quotidiens de vos animaux.</p>
-        </div>
 
-        <div class="services-grid">
-          <article class="service-card">
-            <div class="icon">🛍️</div>
-            <h3>Conseils en magasin</h3>
-            <p>Contactez-nous pour vous renseigner sur les produits et les besoins de votre animal.</p>
-          </article>
-
-          <article class="service-card">
-            <div class="icon">🧼</div>
-            <h3>Hygiène et toilettage</h3>
-            <p>Retrouvez des produits pour l'hygiène et l'entretien de vos compagnons. Renseignez-vous sur les services disponibles.</p>
-          </article>
-
-          <article class="service-card">
-            <div class="icon">💬</div>
-            <h3>Contact facile</h3>
-            <p>Écrivez-nous directement sur WhatsApp pour demander un renseignement sur un produit.</p>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section class="store-section" id="magasin">
-      <div class="container store-layout">
-        <div class="store-info">
-          <div class="section-kicker" style="color:#f5b363;">Rendez-nous visite</div>
-          <h2>Votre animalerie à Meknès</h2>
-          <p>
-            Chez Nutri Pet, nous vous accueillons pour découvrir nos rayons
-            et trouver les produits adaptés à vos animaux.
-          </p>
-
-          <div class="store-details">
-            <div class="store-detail">
-              <span>📍</span>
-              <div><strong>Adresse</strong><br>Sidi Bouzekri, Meknès, Maroc</div>
-            </div>
-            <div class="store-detail">
-              <span>🕒</span>
-              <div><strong>Horaires indicatifs</strong><br>Lundi–samedi : 9 h–19 h<br>Dimanche : 10 h–17 h</div>
-            </div>
-            <div class="store-detail">
-              <span>📞</span>
-              <div><strong>Téléphone / WhatsApp</strong><br>+212 653 63 94 30</div>
-            </div>
+        <div class="section-heading reveal">
+          <div>
+            <span class="eyebrow" style="color:#d5e88a">Rendez-nous visite</span>
+            <h2>Retrouvons-nous à Meknès</h2>
+            <p>Une question sur un produit ? Besoin d'un renseignement ? Contactez-nous.</p>
           </div>
-
-          <div class="hero-buttons">
-            <a class="btn btn-orange" href="https://www.google.com/maps/search/?api=1&query=VF57%2BGVP%20Mekn%C3%A8s" target="_blank" rel="noopener">📍 Itinéraire Google Maps</a>
-            <a class="btn" href="https://wa.me/212653639430" target="_blank" rel="noopener">Nous écrire</a>
-          </div>
-        </div>
-
-        <div class="store-photo">
-          <img src="magasin.jpg" alt="Photo réelle du magasin Nutri Pet"
-               onerror="this.onerror=null;this.style.background='#285a3d';this.style.minHeight='280px';">
-        </div>
-      </div>
-    </section>
-
-    <section class="contact-section" id="contact">
-      <div class="container">
-        <div class="section-heading">
-          <div class="section-kicker">Restons en contact</div>
-          <h2>Contactez Nutri Pet</h2>
-          <p>Une question sur un produit ? Écrivez-nous ou venez nous rendre visite.</p>
         </div>
 
         <div class="contact-grid">
-          <article class="contact-card">
-            <div class="icon">💬</div>
-            <h3>WhatsApp</h3>
-            <p>+212 653 63 94 30</p>
-            <a class="btn" href="https://wa.me/212653639430" target="_blank" rel="noopener">Envoyer un message</a>
-          </article>
 
-          <article class="contact-card">
-            <div class="icon">📸</div>
-            <h3>Instagram</h3>
-            <p>@nutri_pet_1</p>
-            <a class="btn" href="https://www.instagram.com/nutri_pet_1/" target="_blank" rel="noopener">Voir notre Instagram</a>
-          </article>
+          <div class="contact-info reveal">
 
-          <article class="contact-card">
-            <div class="icon">📍</div>
-            <h3>Notre emplacement</h3>
-            <p>Sidi Bouzekri, Meknès</p>
-            <a class="btn" href="https://www.google.com/maps/search/?api=1&query=VF57%2BGVP%20Mekn%C3%A8s" target="_blank" rel="noopener">Nous localiser</a>
-          </article>
+            <div class="contact-card">
+              <span class="contact-icon">📍</span>
+              <div>
+                <h3>Notre magasin</h3>
+                <p>Meknès, Sidi Bouzekri, Maroc</p>
+                <a href="https://www.google.com/maps/search/?api=1&query=VF57%2BGVP%20Mekn%C3%A8s" target="_blank" rel="noopener noreferrer">Ouvrir l'itinéraire sur Google Maps ↗</a>
+              </div>
+            </div>
+
+            <div class="contact-card">
+              <span class="contact-icon">📱</span>
+              <div>
+                <h3>Téléphone & WhatsApp</h3>
+                <p>+212 653 63 94 30</p>
+                <a href="https://wa.me/212653639430" target="_blank" rel="noopener noreferrer">Nous écrire sur WhatsApp ↗</a>
+              </div>
+            </div>
+
+            <div class="contact-card">
+              <span class="contact-icon">📸</span>
+              <div>
+                <h3>Instagram</h3>
+                <p>@nutri_pet_1</p>
+                <a href="https://www.instagram.com/nutri_pet_1/" target="_blank" rel="noopener noreferrer">Découvrir notre page ↗</a>
+              </div>
+            </div>
+
+            <div class="contact-card">
+              <span class="contact-icon">🕒</span>
+              <div>
+                <h3>Horaires d'ouverture</h3>
+                <p>Lundi – samedi : 09h00 – 19h00</p>
+                <p>Dimanche : 10h00 – 17h00</p>
+                <p style="margin-top:6px" id="openStatus">Consultez nos horaires avant votre visite.</p>
+              </div>
+            </div>
+
+          </div>
+
+          <div class="map-container reveal">
+            <iframe
+              title="Localisation du magasin Nutri Pet à Meknès"
+              src="https://maps.google.com/maps?q=VF57%2BGVP%20Mekn%C3%A8s&t=&z=15&ie=UTF8&iwloc=&output=embed"
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+              allowfullscreen>
+            </iframe>
+          </div>
+
         </div>
       </div>
     </section>
+
+    <!-- FINAL CTA -->
+    <section class="final-cta">
+      <div class="container final-cta-inner">
+        <div>
+          <h2>Un renseignement ? Nous sommes là pour vous ! 💚</h2>
+          <p>Contactez Nutri Pet pour connaître les produits disponibles et préparer votre visite.</p>
+        </div>
+        <a class="btn btn-primary" href="https://wa.me/212653639430?text=Salam%20Nutri%20Pet%2C%20je%20souhaite%20avoir%20des%20renseignements." target="_blank" rel="noopener noreferrer">
+          Écrire sur WhatsApp →
+        </a>
+      </div>
+    </section>
+
   </main>
 
-  <footer>
-    <div class="footer-inner">
-      <a class="logo" href="#accueil" style="color:white;">NUTRI<span>PET</span> 🐾</a>
-      <p>Le bien-être de vos animaux avant tout.</p>
-      <p>© <span id="year"></span> Nutri Pet — Meknès, Maroc</p>
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+
+      <div class="footer-grid">
+
+        <div>
+          <a href="#accueil" class="brand">
+            <span class="brand-icon">🐾</span>
+            <span>
+              <span class="brand-name">Nutri <span>Pet</span></span>
+              <span class="brand-tagline">Le bonheur de vos animaux</span>
+            </span>
+          </a>
+
+          <p class="footer-description">
+            Le bien-être de vos animaux avant tout.
+            Retrouvez notre univers d'alimentation, d'accessoires et de produits
+            pour vos compagnons à Meknès.
+          </p>
+        </div>
+
+        <div>
+          <h3>Informations</h3>
+          <div class="footer-links">
+            <a href="#apropos">À propos de Nutri Pet</a>
+            <a href="#produits">Nos produits</a>
+            <a href="#conseils">Conseils pour animaux</a>
+            <a href="#contact">Nous contacter</a>
+            <a href="https://www.google.com/maps/search/?api=1&query=VF57%2BGVP%20Mekn%C3%A8s" target="_blank" rel="noopener noreferrer">Notre localisation</a>
+          </div>
+        </div>
+
+        <div>
+          <h3>Suivez-nous</h3>
+          <div class="footer-links">
+            <a href="https://www.instagram.com/nutri_pet_1/" target="_blank" rel="noopener noreferrer">◎ Instagram — @nutri_pet_1</a>
+            <a href="https://wa.me/212653639430" target="_blank" rel="noopener noreferrer">✆ WhatsApp</a>
+            <a href="#promotions">Nos offres en magasin</a>
+          </div>
+          <br>
+          <a class="btn btn-primary" href="https://wa.me/212653639430" target="_blank" rel="noopener noreferrer">Nous contacter ↗</a>
+        </div>
+
+      </div>
+
+      <div class="footer-bottom">
+        <span>© <span id="currentYear"></span> Nutri Pet. Tous droits réservés.</span>
+        <span>Fait avec 💚 pour le bien-être animal.</span>
+      </div>
+
     </div>
   </footer>
 
-  <a class="whatsapp-float" href="https://wa.me/212653639430" target="_blank" rel="noopener" aria-label="Contacter Nutri Pet sur WhatsApp">💬 WhatsApp</a>
+  <!-- FLOATING WHATSAPP -->
+  <a class="whatsapp-float" href="https://wa.me/212653639430" target="_blank" rel="noopener noreferrer" aria-label="Contacter Nutri Pet sur WhatsApp">
+    <span>✆</span> WhatsApp
+  </a>
+
+  <!-- ADVICE MODAL -->
+  <div class="modal" id="adviceModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+    <div class="modal-content">
+      <button class="modal-close" id="modalClose" type="button" aria-label="Fermer">×</button>
+      <span class="eyebrow">Conseils Nutri Pet</span>
+      <h2 id="modalTitle">Conseils pour vos animaux</h2>
+      <div id="modalText"></div>
+      <button class="btn btn-primary" id="modalOk" type="button">J'ai compris</button>
+    </div>
+  </div>
 
   <script>
+    // ========================================
+    // CONFIGURATION NUTRI PET
+    // ========================================
+
+    const WHATSAPP_NUMBER = "212653639430";
+
+    function openWhatsApp(message) {
+      const url = "https://wa.me/" + WHATSAPP_NUMBER +
+        "?text=" + encodeURIComponent(message);
+
+      window.open(url, "_blank", "noopener,noreferrer");
+    }
+
+    // ========================================
+    // MENU MOBILE
+    // ========================================
+
     const menuToggle = document.getElementById("menuToggle");
-    const navlinks = document.getElementById("navlinks");
+    const navLinks = document.getElementById("navLinks");
 
     menuToggle.addEventListener("click", () => {
-      const isOpen = navlinks.classList.toggle("open");
+      const isOpen = navLinks.classList.toggle("open");
       menuToggle.setAttribute("aria-expanded", String(isOpen));
-      menuToggle.textContent = isOpen ? "✕" : "☰";
+      menuToggle.textContent = isOpen ? "×" : "☰";
     });
 
-    document.querySelectorAll("#navlinks a").forEach(link => {
+    navLinks.querySelectorAll("a").forEach(link => {
       link.addEventListener("click", () => {
-        navlinks.classList.remove("open");
+        navLinks.classList.remove("open");
         menuToggle.setAttribute("aria-expanded", "false");
         menuToggle.textContent = "☰";
       });
     });
 
-    const searchInput = document.getElementById("productSearch");
-    const productCards = [...document.querySelectorAll(".product-card")];
-    const noResults = document.getElementById("noResults");
+    document.addEventListener("click", event => {
+      if (
+        !navLinks.contains(event.target) &&
+        !menuToggle.contains(event.target) &&
+        navLinks.classList.contains("open")
+      ) {
+        navLinks.classList.remove("open");
+        menuToggle.setAttribute("aria-expanded", "false");
+        menuToggle.textContent = "☰";
+      }
+    });
 
-    function filterProducts(query) {
-      const normalizedQuery = query.toLowerCase().trim();
-      let visibleCount = 0;
+    // ========================================
+    // ANNÉE AUTOMATIQUE
+    // ========================================
+
+    document.getElementById("currentYear").textContent =
+      new Date().getFullYear();
+
+    // ========================================
+    // RECHERCHE DE PRODUITS
+    // ========================================
+
+    const searchForm = document.getElementById("searchForm");
+    const searchInput = document.getElementById("searchInput");
+    const searchMessage = document.getElementById("searchMessage");
+    const emptyResults = document.getElementById("emptyResults");
+    const productCards = [
+      ...document.querySelectorAll("#catalogueGrid .product-card")
+    ];
+
+    function searchProducts(query) {
+      const normalized = query.trim().toLocaleLowerCase("fr");
+      let count = 0;
 
       productCards.forEach(card => {
-        const text = (card.innerText + " " + card.dataset.search).toLowerCase();
-        const matches = text.includes(normalizedQuery);
-        card.style.display = matches ? "" : "none";
-        if (matches) visibleCount++;
+        const name = (card.dataset.name || "").toLocaleLowerCase("fr");
+        const visible = !normalized || name.includes(normalized);
+
+        card.style.display = visible ? "" : "none";
+
+        if (visible) count++;
       });
 
-      noResults.style.display = visibleCount ? "none" : "block";
+      emptyResults.style.display = count === 0 ? "block" : "none";
+
+      if (normalized) {
+        searchMessage.textContent =
+          count + " produit(s) correspondant à « " + query + " ».";
+        searchMessage.classList.add("show");
+        document.getElementById("produits").scrollIntoView({
+          behavior: "smooth",
+          block: "start"
+        });
+      } else {
+        searchMessage.classList.remove("show");
+      }
     }
 
-    searchInput.addEventListener("input", event => {
-      filterProducts(event.target.value);
+    searchForm.addEventListener("submit", event => {
+      event.preventDefault();
+      searchProducts(searchInput.value);
     });
 
-    document.querySelectorAll("[data-filter]").forEach(link => {
+    searchInput.addEventListener("input", () => {
+      if (searchInput.value.trim().length >= 2) {
+        searchProducts(searchInput.value);
+      }
+    });
+
+    // ========================================
+    // FILTRAGE PAR CATÉGORIE
+    // ========================================
+
+    document.querySelectorAll("[data-category]").forEach(link => {
       link.addEventListener("click", () => {
-        searchInput.value = link.dataset.filter;
-        filterProducts(link.dataset.filter);
+        const category = link.dataset.category;
+
+        productCards.forEach(card => {
+          const cardCategory = card.dataset.category || "";
+          const name = card.dataset.name || "";
+
+          const categoryMatch =
+            cardCategory === category ||
+            name.toLowerCase().includes(category);
+
+          card.style.display = categoryMatch ? "" : "none";
+        });
+
+        searchInput.value = "";
+        searchMessage.textContent =
+          "Voici les produits de la catégorie sélectionnée.";
+        searchMessage.classList.add("show");
+        emptyResults.style.display = "none";
       });
     });
 
-    document.getElementById("year").textContent = new Date().getFullYear();
+    // ========================================
+    // SÉLECTION DES PRODUITS / WHATSAPP
+    // ========================================
+
+    const selectedProducts = [];
+
+    document.querySelectorAll(".product-order").forEach(button => {
+      button.addEventListener("click", () => {
+        const product = button.dataset.product;
+
+        selectedProducts.push(product);
+
+        document.getElementById("cartCount").textContent =
+          selectedProducts.length;
+
+        openWhatsApp(
+          "Salam Nutri Pet ! Je souhaite connaître le prix et la disponibilité de : " +
+          product + ". Merci."
+        );
+      });
+    });
+
+    document.getElementById("cartButton").addEventListener("click", () => {
+      if (selectedProducts.length === 0) {
+        openWhatsApp(
+          "Salam Nutri Pet ! Pouvez-vous me renseigner sur vos produits disponibles ?"
+        );
+        return;
+      }
+
+      const uniqueProducts = [...new Set(selectedProducts)];
+
+      openWhatsApp(
+        "Salam Nutri Pet ! Je souhaite me renseigner sur les produits suivants :\n- " +
+        uniqueProducts.join("\n- ") +
+        "\nPouvez-vous me communiquer leurs prix et disponibilités ?"
+      );
+    });
+
+    // ========================================
+    // SÉLECTION D'UN ANIMAL
+    // ========================================
+
+    document.querySelectorAll("[data-search-animal]").forEach(link => {
+      link.addEventListener("click", () => {
+        const animal = link.dataset.searchAnimal.toLowerCase();
+
+        productCards.forEach(card => {
+          const name = (card.dataset.name || "").toLowerCase();
+          const category = (card.dataset.category || "").toLowerCase();
+
+          const terms = {
+            chien: ["chien", "alimentation"],
+            chat: ["chat", "alimentation"],
+            lapin: ["lapin", "rongeur"],
+            oiseau: ["oiseau", "graines", "pigeon"],
+            "poisson aquarium": ["aquarium", "poisson"],
+            rongeur: ["rongeur", "lapin"]
+          };
+
+          const matches = terms[animal] || [animal];
+
+          card.style.display = matches.some(term =>
+            name.includes(term) || category.includes(term)
+          ) ? "" : "none";
+        });
+
+        searchInput.value = "";
+        searchMessage.textContent =
+          "Sélection de produits correspondant à votre animal. Demandez-nous les disponibilités en magasin.";
+        searchMessage.classList.add("show");
+        emptyResults.style.display = "none";
+      });
+    });
+
+    // ========================================
+    // ASSISTANT NUTRI PET
+    // ========================================
+
+    const assistantForm = document.getElementById("assistantForm");
+    const assistantResult = document.getElementById("assistantResult");
+
+    assistantForm.addEventListener("submit", event => {
+      event.preventDefault();
+
+      const animal = document.getElementById("petType").value;
+      const age = document.getElementById("petAge").value;
+      const need = document.getElementById("petNeed").value;
+
+      const animalNames = {
+        chien: "votre chien",
+        chat: "votre chat",
+        lapin: "votre lapin",
+        oiseau: "votre oiseau ou pigeon",
+        poisson: "vos poissons",
+        rongeur: "votre petit compagnon"
+      };
+
+      const needs = {
+        alimentation: "alimentation",
+        accessoires: "accessoires et jouets",
+        hygiene: "hygiène et soins",
+        habitat: "habitat et équipement",
+        conseil: "conseils généraux"
+      };
+
+      const ages = {
+        jeune: "jeune",
+        adulte: "adulte",
+        senior: "senior",
+        inconnu: "d'âge non précisé"
+      };
+
+      const message =
+        "Salam Nutri Pet ! Je cherche des produits pour " +
+        animalNames[animal] +
+        " (" + ages[age] + "). Mon besoin concerne : " +
+        needs[need] +
+        ". Pouvez-vous me conseiller et m'indiquer les produits disponibles et leurs prix ?";
+
+      assistantResult.innerHTML = `
+        <strong>🐾 Votre prochaine étape</strong><br><br>
+        Vous recherchez des produits pour ${animalNames[animal]},
+        notamment dans la catégorie « ${needs[need]} ».<br><br>
+        Nous vous invitons à nous contacter pour vérifier les références
+        disponibles en magasin et obtenir des conseils adaptés.
+        <br><br>
+        <button class="btn btn-primary" id="assistantWhatsApp" type="button">
+          Continuer sur WhatsApp →
+        </button>
+      `;
+
+      assistantResult.classList.add("show");
+
+      document.getElementById("assistantWhatsApp").addEventListener(
+        "click",
+        () => openWhatsApp(message)
+      );
+    });
+
+    // ========================================
+    // CONSEILS DÉTAILLÉS
+    // ========================================
+
+    const adviceContent = {
+      chien: {
+        title: "Bien nourrir son chien",
+        paragraphs: [
+          "Choisissez une alimentation adaptée à l'âge, au gabarit et au niveau d'activité de votre chien.",
+          "Laissez toujours de l'eau fraîche à sa disposition et respectez des horaires de repas réguliers.",
+          "Évitez de modifier son alimentation brutalement : une transition progressive est généralement préférable.",
+          "En cas de problème de santé ou de régime spécifique, demandez conseil à un vétérinaire."
+        ]
+      },
+
+      chat: {
+        title: "Prendre soin de son chat",
+        paragraphs: [
+          "Veillez à proposer une alimentation adaptée à son âge et à ses besoins.",
+          "L'eau propre doit toujours être disponible. Gardez également sa litière propre.",
+          "Les jeux, les griffoirs et les espaces de repos contribuent à son bien-être.",
+          "Si son appétit ou son comportement change soudainement, contactez un vétérinaire."
+        ]
+      },
+
+      oiseau: {
+        title: "Bien prendre soin de ses oiseaux",
+        paragraphs: [
+          "Choisissez une alimentation correspondant à l'espèce de votre oiseau : tous les oiseaux n'ont pas les mêmes besoins.",
+          "Renouvelez l'eau régulièrement et entretenez les mangeoires et les abreuvoirs.",
+          "Assurez-vous que la cage offre suffisamment d'espace et un environnement adapté à l'espèce.",
+          "Pour les besoins alimentaires particuliers ou les signes de maladie, demandez conseil à un vétérinaire compétent en oiseaux."
+        ]
+      },
+
+      poisson: {
+        title: "Entretenir son aquarium",
+        paragraphs: [
+          "La qualité de l'eau est essentielle : contrôlez les paramètres adaptés aux espèces hébergées.",
+          "Évitez de suralimenter les poissons et retirez les restes de nourriture.",
+          "Entretenez le filtre et effectuez les changements d'eau adaptés à votre installation.",
+          "Avant d'ajouter de nouveaux poissons, vérifiez que l'aquarium et ses paramètres conviennent à leurs besoins."
+        ]
+      }
+    };
+
+    const adviceModal = document.getElementById("adviceModal");
+    const modalTitle = document.getElementById("modalTitle");
+    const modalText = document.getElementById("modalText");
+
+    function closeAdviceModal() {
+      adviceModal.classList.remove("open");
+    }
+
+    document.querySelectorAll("[data-advice]").forEach(button => {
+      button.addEventListener("click", () => {
+        const advice = adviceContent[button.dataset.advice];
+
+        if (!advice) return;
+
+        modalTitle.textContent = advice.title;
+        modalText.replaceChildren();
+
+        advice.paragraphs.forEach(paragraph => {
+          const p = document.createElement("p");
+          p.textContent = paragraph;
+          modalText.appendChild(p);
+        });
+
+        adviceModal.classList.add("open");
+        document.getElementById("modalClose").focus();
+      });
+    });
+
+    document.getElementById("modalClose").addEventListener(
+      "click",
+      closeAdviceModal
+    );
+
+    document.getElementById("modalOk").addEventListener(
+      "click",
+      closeAdviceModal
+    );
+
+    adviceModal.addEventListener("click", event => {
+      if (event.target === adviceModal) closeAdviceModal();
+    });
+
+    document.addEventListener("keydown", event => {
+      if (event.key === "Escape") closeAdviceModal();
+    });
+
+    // ========================================
+    // HORAIRES : INDICATION SELON L'HEURE LOCALE
+    // ========================================
+
+    function updateOpeningStatus() {
+      const status = document.getElementById("openStatus");
+
+      const now = new Date();
+
+      const parts = new Intl.DateTimeFormat("en-GB", {
+        timeZone: "Africa/Casablanca",
+        weekday: "short",
+        hour: "2-digit",
+        minute: "2-digit",
+        hourCycle: "h23"
+      }).formatToParts(now);
+
+      const getPart = type => parts.find(part => part.type === type)?.value;
+
+      const weekday = getPart("weekday");
+      const hour = Number(getPart("hour"));
+      const minute = Number(getPart("minute"));
+      const currentMinutes = hour * 60 + minute;
+
+      const isSunday = weekday === "Sun";
+      const openTime = isSunday ? 10 * 60 : 9 * 60;
+      const closeTime = isSunday ? 17 * 60 : 19 * 60;
+
+      const isOpen =
+        currentMinutes >= openTime &&
+        currentMinutes < closeTime;
+
+      status.textContent = isOpen
+        ? "Selon les horaires indiqués, le magasin devrait être ouvert."
+        : "Selon les horaires indiqués, le magasin devrait être fermé.";
+
+      status.style.color = isOpen ? "#d5e88a" : "#f2d8a7";
+    }
+
+    updateOpeningStatus();
+
+    // ========================================
+    // ANIMATIONS AU DÉFILEMENT
+    // ========================================
+
+    const revealElements = document.querySelectorAll(".reveal");
+
+    if ("IntersectionObserver" in window) {
+      const observer = new IntersectionObserver((entries, obs) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("visible");
+            obs.unobserve(entry.target);
+          }
+        });
+      }, {
+        threshold: 0.12
+      });
+
+      revealElements.forEach(element => observer.observe(element));
+    } else {
+      revealElements.forEach(element => element.classList.add("visible"));
+    }
   </script>
+
 </body>
 </html>
